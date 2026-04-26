@@ -645,7 +645,7 @@ async function doAnalyze(){
   try{
     const controller=new AbortController();
     const timeout=setTimeout(()=>controller.abort(),60000);
-    const res=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:2000,system:buildSystemPrompt(),messages:[{role:'user',content:'Analyze this lease:\n\n'+extractedText.slice(0,14000).replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g,'')}]})});
+    const res=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:4000,system:buildSystemPrompt(),messages:[{role:'user',content:'Analyze this lease:\n\n'+extractedText.slice(0,14000).replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g,'')}]})});
     clearTimeout(timeout);
     const data=await res.json();
     if(data.error)throw new Error(data.error.message||'API error');
