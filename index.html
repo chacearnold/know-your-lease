@@ -659,7 +659,7 @@ IMPORTANT RULES:
 
 Landlord IDs: ${idList}
 
-Return ONLY raw JSON no markdown. Keep descriptions concise (2-3 sentences max per item) to avoid truncation:
+Return ONLY a single raw JSON object. No markdown, no preamble, no text after the closing brace. Keep ALL descriptions under 30 words each. Limit red_flags to maximum 8 items, watch_items to maximum 5 items. ohio_rights maximum 5 items under 20 words each:
 {"summary":"2-3 sentence plain English summary","overall_score":<1-10>,"landlord_match":"<id|unknown>","red_flags":[{"title":"...","description":"concise plain English for student, cite exact ORC section","severity":"<high|medium|low>"}],"watch_items":[{"title":"...","description":"..."}],"key_terms":{"rent":"...","lease_length":"...","deposit":"...","renewal_notice":"...","notice_to_enter":"...","early_termination":"..."},"ohio_rights":["specific ORC right relevant to THIS lease — be precise about what applies"]}`;
 }
 
@@ -687,7 +687,11 @@ async function doAnalyze(){
     clearTimeout(timeout);
     const data=await res.json();
     if(data.error)throw new Error(data.error.message||'API error');
-    const raw=(data.content?.[0]?.text||'').replace(/```json|```/g,'').trim();
+    let raw=(data.content?.[0]?.text||'').replace(/```json|```/g,'').trim();
+    // Extract just the JSON object in case there's extra text
+    const jsonStart=raw.indexOf('{');
+    const jsonEnd=raw.lastIndexOf('}');
+    if(jsonStart!==-1&&jsonEnd!==-1)raw=raw.slice(jsonStart,jsonEnd+1);
     const result=JSON.parse(raw);
     storeLeaseData(result);
     renderResults(result);
