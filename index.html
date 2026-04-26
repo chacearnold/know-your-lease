@@ -643,7 +643,7 @@ async function doAnalyze(){
   document.getElementById('al').style.display='';
   document.getElementById('lmsg').textContent='Analyzing your lease for Columbus-specific red flags...';
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,system:buildSystemPrompt(),messages:[{role:'user',content:'Analyze this lease:\n\n'+extractedText.slice(0,14000)}]})});
+    const res=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,system:buildSystemPrompt(),messages:[{role:'user',content:'Analyze this lease:\n\n'+extractedText.slice(0,14000)}]})});
     const data=await res.json();
     if(data.error)throw new Error(data.error.message||'API error');
     const raw=(data.content?.[0]?.text||'').replace(/```json|```/g,'').trim();
