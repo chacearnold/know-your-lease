@@ -643,7 +643,10 @@ async function doAnalyze(){
   document.getElementById('al').style.display='';
   document.getElementById('lmsg').textContent='Analyzing your lease for Columbus-specific red flags...';
   try{
-    const res=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:2000,system:buildSystemPrompt(),messages:[{role:'user',content:'Analyze this lease:\n\n'+extractedText.slice(0,14000)}]})});
+    const controller=new AbortController();
+    const timeout=setTimeout(()=>controller.abort(),60000);
+    const res=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:2000,system:buildSystemPrompt(),messages:[{role:'user',content:'Analyze this lease:\n\n'+extractedText.slice(0,14000)}]})});
+    clearTimeout(timeout);
     const data=await res.json();
     if(data.error)throw new Error(data.error.message||'API error');
     const raw=(data.content?.[0]?.text||'').replace(/```json|```/g,'').trim();
@@ -651,7 +654,7 @@ async function doAnalyze(){
     storeLeaseData(result);
     renderResults(result);
     showView('results');
-  }catch(e){document.getElementById('af').style.display='';document.getElementById('al').style.display='none';showErr('Could not analyze lease. Try the demo to see an example result.');}
+  }catch(e){document.getElementById('af').style.display='';document.getElementById('al').style.display='none';showErr('Error: '+e.message);}
 }
 
 // ─── RENDER RESULTS ────────────────────────────────────────────────────────────
