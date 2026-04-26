@@ -22,7 +22,7 @@
   --mono:'DM Mono',monospace;
 }
 body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:100vh;}
-.wrap{max-width:760px;margin:0 auto;padding:0 24px 80px;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 80px;}
 nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0 16px;border-bottom:0.5px solid var(--border);margin-bottom:2rem;flex-wrap:wrap;gap:10px;}
 .brand{font-family:var(--serif);font-size:20px;color:var(--text);text-decoration:none;}
 .brand span{color:var(--green);}
@@ -210,6 +210,7 @@ tbody tr:last-child td{border-bottom:none;}
     <button class="nb" id="nav-compare" onclick="showView('compare')">Compare</button>
     <button class="nb" id="nav-checklist" onclick="showView('checklist')">Checklist</button>
     <button class="nb" id="nav-rights" onclick="showView('rights')">Rights</button>
+    <button class="nb" id="nav-about" onclick="showView('about')">About</button>
     <button class="nb dev-btn" id="nav-dev" onclick="showView('dev')">⚙ Dev</button>
   </div>
 </nav>
@@ -492,6 +493,35 @@ tbody tr:last-child td{border-bottom:none;}
       <div class="dev-section-title">AI system prompt preview</div>
       <p style="font-size:13px;color:var(--text2);margin-bottom:.75rem">This is what gets sent to Claude with every lease analysis. Automatically includes all landlords in the database.</p>
       <textarea id="prompt-preview" style="min-height:200px;font-size:11px" readonly></textarea>
+    </div>
+  </div>
+</div>
+
+
+<div class="view" id="view-about">
+  <div style="max-width:640px;margin:0 auto;padding:3rem 0;">
+    <div class="tag">About</div>
+    <h1 style="font-size:32px;margin-bottom:1.5rem;">Why this exists</h1>
+    <p style="font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:1.25rem;">Built by an OSU student who got tired of watching friends sign leases they didn't fully understand. Columbus landlords know these leases inside and out. You should too.</p>
+    <p style="font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:1.25rem;">KnowYourLease is free, independent, and not affiliated with any landlord or property management company.</p>
+    <p style="font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:2.5rem;">The landlord database improves as more leases are submitted. Every analysis contributes to a more complete picture of how Columbus landlords operate.</p>
+    <div style="border-top:1px solid var(--border);padding-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+      <div>
+        <div style="font-size:12px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;">Built for</div>
+        <div style="font-size:15px;color:var(--text2);line-height:1.7;">OSU students signing Columbus leases</div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;">Cost</div>
+        <div style="font-size:15px;color:var(--text2);line-height:1.7;">Free, always</div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;">Affiliation</div>
+        <div style="font-size:15px;color:var(--text2);line-height:1.7;">None. Independent and student-built.</div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;">Legal advice?</div>
+        <div style="font-size:15px;color:var(--text2);line-height:1.7;">No. Always verify with <a href="tel:6142475853" style="color:var(--green);">OSU Student Legal Services</a>.</div>
+      </div>
     </div>
   </div>
 </div>
