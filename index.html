@@ -1273,12 +1273,15 @@ IMPORTANT RULES:
 
 Landlord IDs: ${idList}
 
-Return ONLY a single raw JSON object. No markdown, no preamble, no text after the closing brace. Keep ALL descriptions under 30 words each. Limit red_flags to maximum 8 items, watch_items to maximum 5 items. ohio_rights maximum 5 items under 20 words each:
-{"summary":"2-3 sentence plain English summary","overall_score":<1-10>,"landlord_match":"<id|unknown>","red_flags":[{"title":"...","description":"concise plain English for student, cite exact ORC section","severity":"<high|medium|low>"}],"watch_items":[{"title":"...","description":"..."}],"key_terms":{"rent":"...","lease_length":"...","deposit":"...","renewal_notice":"...","notice_to_enter":"...","early_termination":"..."},"ohio_rights":["specific ORC right relevant to THIS lease, be precise about what applies"]}`;
+Return ONLY a single raw JSON object. No markdown, no preamble, no text after the closing brace. Keep ALL descriptions under 40 words each. Limit red_flags to maximum 8 items, watch_items to maximum 5 items. ohio_rights maximum 5 items under 20 words each.
+
+CRITICAL: You MUST include the guarantor field. Extract it from the lease text. If no guarantor clause exists, set guarantor.found to false.
+
+{"summary":"2-3 sentence plain English summary of the lease overall","overall_score":<1-10>,"landlord_match":"<id|unknown>","guarantor":{"found":<true|false>,"liability_scope":"<all_tenants|individual_only|unclear>","annual_exposure":"e.g. $28,800 if all 4 tenants default (4 x $600/mo x 12)","covers_renewals":<true|false|"unclear">,"waives_orc_rights":<true|false|"unclear">,"plain_english":"1-2 sentences a parent can understand about what they are agreeing to if they sign","severity":"<high|medium|low>"},"red_flags":[{"title":"...","description":"concise plain English, cite exact ORC section","severity":"<high|medium|low>"}],"watch_items":[{"title":"...","description":"..."}],"key_terms":{"rent":"...","lease_length":"...","deposit":"...","renewal_notice":"...","notice_to_enter":"...","early_termination":"..."},"ohio_rights":["specific ORC right relevant to THIS lease"]}`;
 }
 
 // ─── DEMO ──────────────────────────────────────────────────────────────────────
-const DEMO={summary:"This NorthSteppe Realty lease (Ver. 2023) has several issues worth knowing before signing. The vague entry notice, jury trial waiver, and mandatory carpet cleaning charges are the most significant red flags from the actual lease text.",overall_score:4,landlord_match:"northsteppe",red_flags:[{title:"Vague entry notice. 'reasonable notice' only",description:"Section 9 says entry is on 'reasonable notice, except in an emergency.' Ohio law (ORC 5321.04) requires minimum 24 hours. This language is ambiguous and legally weaker than the statutory standard.",severity:"high"},{title:"Jury trial waiver. Section 14",description:"Section 14 states tenants waive the right to a jury trial and must submit all claims to arbitration, paying half the arbitration cost. This is unusual and heavily favors the landlord.",severity:"high"},{title:"No interest on security deposit",description:"Section 6 states 'No interest is paid on amounts held as a security deposit.' The deposit here equals one month's rent so ORC 5321.16 interest rules don't apply, but the waiver language is still worth flagging.",severity:"medium"},{title:"Joint and several liability",description:"All tenants are jointly liable for the full rent. If any roommate doesn't pay, NorthSteppe can pursue any individual tenant for the entire amount.",severity:"medium"},{title:"Tenant pays for all broken glass regardless of cause",description:"Section 3 makes tenants responsible for all cracked or broken glass, windows, and doors 'regardless of cause.' This may conflict with the landlord's duty to maintain habitable premises under ORC 5321.04.",severity:"medium"}],watch_items:[{title:"Carpet cleaning mandatory at move-out",description:"Must provide a professional carpet cleaning invoice when returning keys. If no invoice, NorthSteppe charges minimum $100, even if carpet is clean."},{title:"Move-out deadline is NOON",description:"Lease ends at 12:00 PM not midnight. Holding over even one day triggers double rent plus a $500 fee."},{title:"Keys must be returned to office",description:"All keys and parking permits must be returned to the rental office at move-out. Late return = $75/door lock + $50 mailbox lock charge."}],key_terms:{rent:"$2,700/month (base $2,400 + utilities)",lease_length:"Aug 6, 2024 – Jul 23, 2025",deposit:"$2,400 (equal to base monthly installment)",renewal_notice:"No auto-renewal, fixed term lease",notice_to_enter:"Reasonable notice (Section 9), not explicitly 24 hrs",early_termination:"Lease buyout available for 1-2BR only; otherwise full rent owed until re-rented"},ohio_rights:["ORC 5321.04: Landlord must give minimum 24-hour notice before entry. Section 9's 'reasonable notice' language may not meet this standard, you can request written clarification.","ORC 5321.16: Deposit must be returned within 30 days with itemized deductions. Any flat-fee damage charges not tied to actual repair costs are illegal.","ORC 5321.13: The jury trial waiver in Section 14 attempts to limit your statutory rights. Courts have found similar waivers void under Ohio law.","ORC 5321.15: Landlord cannot cut off utilities as a means of eviction or retaliation while you have the right of occupancy."]};
+const DEMO={summary:"This NorthSteppe Realty lease (Ver. 2023) has several issues worth knowing before signing. The vague entry notice, jury trial waiver, and mandatory carpet cleaning charges are the most significant red flags from the actual lease text.",overall_score:4,landlord_match:"northsteppe",guarantor:{found:true,liability_scope:"all_tenants",annual_exposure:"$28,800 if all 4 tenants default (4 x $2,400/mo x 12 = total household; guarantor exposed for full amount)",covers_renewals:"unclear",waives_orc_rights:false,plain_english:"If you co-sign this lease, you are personally liable for the full rent of every tenant in the house, not just your student. If three roommates stop paying, NorthSteppe can come after you for the entire amount.",severity:"high"},red_flags:[{title:"Vague entry notice. 'reasonable notice' only",description:"Section 9 says entry is on 'reasonable notice, except in an emergency.' Ohio law (ORC 5321.04) requires minimum 24 hours. This language is ambiguous and legally weaker than the statutory standard.",severity:"high"},{title:"Jury trial waiver. Section 14",description:"Section 14 states tenants waive the right to a jury trial and must submit all claims to arbitration, paying half the arbitration cost. This is unusual and heavily favors the landlord.",severity:"high"},{title:"No interest on security deposit",description:"Section 6 states no interest is paid on the security deposit. The deposit equals one month's rent so ORC 5321.16 interest rules do not apply, but the waiver language is worth knowing.",severity:"medium"},{title:"Tenant pays for all broken glass regardless of cause",description:"Section 3 makes tenants responsible for all cracked or broken glass, windows, and doors regardless of cause. This may conflict with the landlord's duty under ORC 5321.04.",severity:"medium"}],watch_items:[{title:"Carpet cleaning mandatory at move-out",description:"Must provide a professional carpet cleaning invoice when returning keys. If no invoice, NorthSteppe charges minimum $100, even if carpet is clean."},{title:"Move-out deadline is NOON",description:"Lease ends at 12:00 PM not midnight. Holding over even one day triggers double rent plus a $500 fee."},{title:"Keys must be returned to office",description:"All keys and parking permits must be returned to the rental office at move-out. Late return = $75/door lock + $50 mailbox lock charge."}],key_terms:{rent:"$2,700/month (base $2,400 + utilities)",lease_length:"Aug 6, 2024 to Jul 23, 2025",deposit:"$2,400 (equal to base monthly installment)",renewal_notice:"No auto-renewal, fixed term lease",notice_to_enter:"Reasonable notice (Section 9), not explicitly 24 hrs",early_termination:"Lease buyout available for 1-2BR only; otherwise full rent owed until re-rented"},ohio_rights:["ORC 5321.04: Landlord must give minimum 24-hour notice before entry. Section 9's 'reasonable notice' language may not meet this standard.","ORC 5321.16: Deposit must be returned within 30 days with itemized deductions. Flat-fee damage charges not tied to actual costs are illegal.","ORC 5321.13: The jury trial waiver in Section 14 attempts to limit your statutory rights. Courts have found similar waivers questionable under Ohio law.","ORC 5321.15: Landlord cannot cut off utilities as a means of eviction or retaliation while you have the right of occupancy."]};
 
 function runDemo(){
  document.getElementById('af').style.display='none';
@@ -1318,37 +1321,70 @@ function renderResults(r){
  const s=r.overall_score||5,col=scCol(s);
  const ll=getLandlords();
  const lm=r.landlord_match&&ll[r.landlord_match];
- const scans=getScans();
- const scanCount=(scans[r.landlord_match]||[]).length;
+ const g=r.guarantor||{};
 
- // Find the anchor finding: the highest-severity red flag, or the first watch item if no red flags
+ // Sort red flags by severity
  const flagsBySev={high:[],medium:[],low:[]};
  (r.red_flags||[]).forEach(f=>{(flagsBySev[f.severity]||flagsBySev.low).push(f);});
  const sortedFlags=[...flagsBySev.high,...flagsBySev.medium,...flagsBySev.low];
- const anchor=sortedFlags[0]||(r.watch_items||[])[0];
- const anchorSev=sortedFlags[0]?sortedFlags[0].severity:'low';
+
+ // Guarantor block
+ const guarantorHtml=g.found!==false?`
+  <div style="background:#FEF3C7;border:1.5px solid #F59E0B;border-radius:var(--rlg);padding:1.75rem 2rem;margin-bottom:2rem;">
+   <div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#854F0B;margin-bottom:.5rem">For parents and co-signers</div>
+   <div style="font-family:var(--serif);font-size:22px;line-height:1.25;margin-bottom:.75rem;color:#1a1a18">
+    ${g.liability_scope==='all_tenants'?'You are liable for every tenant in the house, not just your student.'
+    :g.liability_scope==='individual_only'?'Your liability is limited to your student\'s share only.'
+    :'Review the guarantor clause carefully before signing.'}
+   </div>
+   <p style="font-size:14px;line-height:1.65;color:#78350F;margin-bottom:1rem">${g.plain_english||'This lease requires a guarantor. Read the full guarantor section before signing.'}</p>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:${g.waives_orc_rights?'1rem':'0'}">
+    <div style="background:rgba(255,255,255,0.6);border-radius:var(--r);padding:.75rem">
+     <div style="font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#854F0B;margin-bottom:3px">Annual exposure</div>
+     <div style="font-size:13px;font-weight:500;color:#1a1a18">${g.annual_exposure||'See lease for full amount'}</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.6);border-radius:var(--r);padding:.75rem">
+     <div style="font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#854F0B;margin-bottom:3px">Liability scope</div>
+     <div style="font-size:13px;font-weight:500;color:#1a1a18">${g.liability_scope==='all_tenants'?'All tenants (full household)':g.liability_scope==='individual_only'?'Your student only':'Unclear, verify'}</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.6);border-radius:var(--r);padding:.75rem">
+     <div style="font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#854F0B;margin-bottom:3px">Covers renewals</div>
+     <div style="font-size:13px;font-weight:500;color:#1a1a18">${g.covers_renewals===true?'Yes, verify before renewing':g.covers_renewals===false?'No':'Unclear, check guaranty form'}</div>
+    </div>
+   </div>
+   ${g.waives_orc_rights?`<div style="background:#FEE2E2;border-radius:var(--r);padding:.75rem;font-size:13px;color:#A32D2D;font-weight:500">⚠ This guaranty waives statutory notice rights under ORC 5321. Consult OSU Student Legal Services before signing.</div>`:''}
+  </div>`:'';
+
+ // Anchor finding (first high-severity non-guarantor flag)
+ const anchor=sortedFlags[0];
  const restFlags=sortedFlags.slice(1);
 
  document.getElementById('rc').innerHTML=`
-  <div class="rh">
-   <div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:.75rem;">Lease analysis</div>
-   <h2 style="font-family:var(--serif);font-size:30px;line-height:1.2;margin-bottom:1rem;">${r.summary||'Analysis complete.'}</h2>
-   <div class="score-row" style="max-width:420px"><span style="font-size:13px;color:var(--text2)">Fairness score</span>
-   <div class="score-track"><div class="score-fill" style="width:${s*10}%;background:${col}"></div></div>
-   <span class="score-num" style="color:${col}">${s}/10</span></div>
-   ${lm?`<div style="margin-top:1rem;font-size:13px;color:var(--text2);">Matched to <strong style="color:var(--text)">${lm.name}</strong> · USG/Birdeye rating ${lm.overall}/5 · <a href="#" onclick="showLandlordFromHome('${r.landlord_match}');return false;" style="color:var(--green)">view profile →</a></div>`:''}
-   
+  <div class="rh" style="margin-bottom:1.5rem">
+   <div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:.75rem">Lease analysis</div>
+   <h2 style="font-family:var(--serif);font-size:28px;line-height:1.2;margin-bottom:1rem">${r.summary||'Analysis complete.'}</h2>
+   <div class="score-row" style="max-width:420px;margin-bottom:.75rem">
+    <span style="font-size:13px;color:var(--text2)">Fairness score</span>
+    <div class="score-track"><div class="score-fill" style="width:${s*10}%;background:${col}"></div></div>
+    <span class="score-num" style="color:${col}">${s}/10</span>
+   </div>
+   ${lm?`<div style="font-size:13px;color:var(--text2)">Matched to <strong style="color:var(--text)">${lm.name}</strong> · ${lm.overall}/5 rating · <a href="#" onclick="showLandlordFromHome('${r.landlord_match}');return false;" style="color:var(--green)">view full profile →</a></div>`:''}
   </div>
 
-  ${anchor?`<div class="anchor-block ${anchorSev}">
-   <div class="anchor-eyebrow">The biggest issue with your lease</div>
+  ${guarantorHtml}
+
+  ${anchor?`<div class="anchor-block ${anchor.severity}" style="margin-bottom:1.5rem">
+   <div class="anchor-eyebrow">Biggest issue with this lease</div>
    <div class="anchor-title">${anchor.title}</div>
    <div class="anchor-desc">${anchor.description}</div>
   </div>`:''}
 
   ${restFlags.length?`<div class="rs"><h3>Other red flags (${restFlags.length})</h3>${restFlags.map(f=>`<div class="fi ${f.severity}"><div class="fd ${f.severity}"></div><div><div class="ft">${f.title}</div><div class="fdesc">${f.description}</div></div></div>`).join('')}</div>`:''}
+
   ${(r.watch_items||[]).length?`<div class="rs"><h3>Worth understanding</h3>${r.watch_items.map(w=>`<div class="fi low"><div class="fd low"></div><div><div class="ft">${w.title}</div><div class="fdesc">${w.description}</div></div></div>`).join('')}</div>`:''}
+
   ${r.key_terms?`<div class="rs"><h3>Key terms at a glance</h3><div class="tg">${Object.entries(r.key_terms).filter(([,v])=>v).map(([k,v])=>`<div class="ti"><div class="tk">${k.replace(/_/g,' ')}</div><div class="tv">${v}</div></div>`).join('')}</div></div>`:''}
+
   ${r.ohio_rights?.length?`<div class="rs"><h3>Your Ohio rights, specific to this lease</h3><ul class="rlist">${r.ohio_rights.map(x=>`<li>${x}</li>`).join('')}</ul></div>`:''}
 
   <div style="margin-top:2rem;padding:1.5rem;background:var(--bg2);border-radius:var(--rlg);">
