@@ -383,6 +383,7 @@ tbody tr:last-child td{border-bottom:none;}
     <button class="btn btn-p" style="flex:1" onclick="doAnalyze()">Analyze my lease →</button>
     <button class="btn btn-s" onclick="runDemo()">Try demo</button>
    </div>
+   <p style="font-size:11px;color:var(--text3);line-height:1.5;margin-top:1rem;text-align:center;">By uploading you agree to our <a href="#" onclick="showView('terms');return false;" style="color:var(--text3);text-decoration:underline">Terms</a> and <a href="#" onclick="showView('privacy');return false;" style="color:var(--text3);text-decoration:underline">Privacy Policy</a>. Lease text is processed by Anthropic AI for analysis. Original PDF is never stored on our servers. Not legal advice. <a href="#" onclick="showView('disclaimer');return false;" style="color:var(--text3);text-decoration:underline">See full disclaimer.</a></p>
   </div>
   <p style="font-size:12px;color:var(--text3);line-height:1.7">OSU Student Legal Services: student-legal.osu.edu · (614) 247-5853</p>
  </div>
@@ -751,9 +752,125 @@ tbody tr:last-child td{border-bottom:none;}
  </div>
 </div>
 
+<!-- PRIVACY POLICY -->
+<div class="view" id="view-privacy">
+  <div style="max-width:720px;margin:0 auto;padding:2rem 0;">
+    <div class="submit-eyebrow">Privacy</div>
+    <h1 style="font-family:var(--serif);font-size:36px;line-height:1.15;margin-bottom:1.5rem;letter-spacing:-0.01em">Privacy Policy</h1>
+    <p style="font-size:13px;color:var(--text3);margin-bottom:2rem">Last updated: April 26, 2026</p>
+
+    <div style="font-size:15px;color:var(--text2);line-height:1.7;">
+      <p style="margin-bottom:1.25rem">This Privacy Policy explains how KnowYourLease ("we", "us", or "the Site") handles information when you use the website at know-your-lease.com. By using the Site, you agree to the practices described here. If you do not agree, do not use the Site.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">What we collect</h2>
+      <p style="margin-bottom:1rem"><strong>Lease documents you upload.</strong> When you upload a PDF, the file is processed in your browser using PDF.js to extract its text. The extracted text is sent to Anthropic, Inc. through their API for analysis. We do not store your original PDF on our servers. We do not retain a copy of the extracted text after the analysis is returned to you.</p>
+      <p style="margin-bottom:1rem"><strong>Anonymous metadata.</strong> When the analysis completes, we may store the following in your browser's localStorage to improve landlord profiles over time: the matched landlord, the number and type of red flags found, the overall fairness score, and a timestamp. We do not store any portion of your lease text alongside this metadata. This data lives only in your browser and is not transmitted to a server we control.</p>
+      <p style="margin-bottom:1rem"><strong>Move-out submissions.</strong> If you use the Submit Experience feature, your responses are stored in your browser's localStorage. We do not collect names, emails, or other identifying information through this feature.</p>
+      <p style="margin-bottom:1rem"><strong>Feedback signals.</strong> If you click thumbs-up or thumbs-down after an analysis, we record the signal in localStorage so the operators of the Site can monitor accuracy. No personal information is attached.</p>
+      <p style="margin-bottom:1rem"><strong>Server logs.</strong> Our hosting provider, Vercel, logs basic request information including IP address, user agent, and request timestamp. These logs are subject to Vercel's privacy practices and are retained according to their policies.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Third parties we use</h2>
+      <p style="margin-bottom:1rem"><strong>Anthropic, Inc.</strong> We use Anthropic's Claude API to analyze lease text. Lease text you upload is transmitted to Anthropic's servers for processing. Anthropic's handling of this data is governed by Anthropic's own privacy policy, available at anthropic.com/legal/privacy. By uploading a lease, you consent to this transmission.</p>
+      <p style="margin-bottom:1rem"><strong>Vercel.</strong> Our hosting provider. Vercel's privacy practices govern server logs and infrastructure-level data.</p>
+      <p style="margin-bottom:1rem"><strong>Cloudflare.</strong> The PDF.js library used to extract text from your upload is loaded from Cloudflare's CDN. Cloudflare may log the request.</p>
+      <p style="margin-bottom:1rem">We do not use advertising trackers, analytics services like Google Analytics, or any third-party marketing or remarketing tools.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">What we do not do</h2>
+      <p style="margin-bottom:1rem">We do not sell your data. We do not share your data with landlords, property management companies, marketing partners, or any third party other than the infrastructure providers listed above. We do not use your data to train AI models. We do not contact you. We do not require an account or email address.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Your choices</h2>
+      <p style="margin-bottom:1rem">Because metadata is stored in your browser's localStorage and not on our servers, you can delete all data we have associated with you by clearing your browser's site data for know-your-lease.com. Doing so will remove all stored analyses, submissions, and feedback signals.</p>
+      <p style="margin-bottom:1rem">If you are a California resident, you have rights under the California Consumer Privacy Act (CCPA) including the right to know what personal information is collected, the right to delete it, and the right to opt out of any sale (we do not sell data). To exercise these rights, contact us at the email address below.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Children</h2>
+      <p style="margin-bottom:1rem">The Site is not directed to children under 13. We do not knowingly collect information from children under 13. If you believe a child has used the Site, contact us and we will take appropriate action.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Changes</h2>
+      <p style="margin-bottom:1rem">We may update this Privacy Policy. The "Last updated" date at the top reflects the most recent version. Continued use of the Site after changes constitutes acceptance of the revised policy.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Contact</h2>
+      <p style="margin-bottom:1rem">For questions about this policy or to exercise privacy rights, contact us at: privacy@know-your-lease.com</p>
+    </div>
+  </div>
+</div>
+
+<!-- TERMS OF SERVICE -->
+<div class="view" id="view-terms">
+  <div style="max-width:720px;margin:0 auto;padding:2rem 0;">
+    <div class="submit-eyebrow">Terms</div>
+    <h1 style="font-family:var(--serif);font-size:36px;line-height:1.15;margin-bottom:1.5rem;letter-spacing:-0.01em">Terms of Service</h1>
+    <p style="font-size:13px;color:var(--text3);margin-bottom:2rem">Last updated: April 26, 2026</p>
+
+    <div style="font-size:15px;color:var(--text2);line-height:1.7;">
+      <p style="margin-bottom:1.25rem">These Terms of Service ("Terms") govern your use of the website at know-your-lease.com ("the Site") operated by KnowYourLease ("we", "us"). By accessing or using the Site, you agree to be bound by these Terms. If you do not agree, do not use the Site.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Not legal advice</h2>
+      <p style="margin-bottom:1rem">The Site provides automated, AI-generated, informational analysis of lease documents. It does not provide legal advice. We are not a law firm. We are not your lawyer. No attorney-client relationship is created by your use of the Site. The output of the analysis is not a substitute for advice from a licensed attorney. Before signing, disputing, or acting on any lease provision, consult a qualified attorney licensed in your jurisdiction. Ohio State University students may obtain free lease review from OSU Student Legal Services at (614) 247-5853.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">No warranties</h2>
+      <p style="margin-bottom:1rem">The Site is provided "as is" and "as available" without warranties of any kind, express or implied. We do not warrant that the analysis is accurate, complete, current, reliable, or free from errors. AI-generated analysis can produce mistakes, omissions, hallucinations, and incorrect interpretations of legal text. We disclaim all warranties including merchantability, fitness for a particular purpose, and non-infringement.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Limitation of liability</h2>
+      <p style="margin-bottom:1rem">To the fullest extent permitted by law, KnowYourLease and its operators, contributors, and affiliates shall not be liable for any direct, indirect, incidental, consequential, special, or punitive damages arising from or related to your use of the Site, including but not limited to financial loss, loss of housing, lease disputes, deposit forfeitures, eviction proceedings, or any other harm. Our total aggregate liability to you for any claim shall not exceed one hundred dollars (USD $100), or the amount you paid to use the Site, whichever is less. Because the Site is currently free, this typically means our liability is limited to USD $100.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Acceptable use</h2>
+      <p style="margin-bottom:1rem">You agree not to: use the Site for any unlawful purpose; attempt to interfere with or compromise the Site's operation, security, or infrastructure; reverse engineer, scrape, or systematically extract data from the Site; upload documents you do not have legal right to upload; use the Site to harass, defame, or harm any landlord, property manager, individual, or business; use the Site to provide legal services to third parties; or impersonate any person or entity.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Third-party content and trademarks</h2>
+      <p style="margin-bottom:1rem">The Site references named landlords and property management companies operating in Columbus, Ohio. These names are the trademarks or service marks of their respective owners. The Site is not affiliated with, endorsed by, sponsored by, or otherwise connected to any landlord, property management company, or The Ohio State University. Information about specific landlords is sourced from publicly available materials including OSU student government surveys, news reporting, public records, Better Business Bureau records, and sample lease documents. If you believe any information about a specific landlord on the Site is factually inaccurate, contact us using the procedure below and we will review it in good faith.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Inaccuracy reports and content removal</h2>
+      <p style="margin-bottom:1rem">If you are a landlord, property manager, or other party who believes specific content about your business on the Site is factually inaccurate, you may submit a request for review to legal@know-your-lease.com. Include the specific URL, the specific statement you believe is inaccurate, and the basis for your claim including any supporting documentation. We will review good-faith requests promptly and update or remove content that we determine is inaccurate.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Indemnification</h2>
+      <p style="margin-bottom:1rem">You agree to indemnify, defend, and hold harmless KnowYourLease and its operators from any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from your use of the Site, your violation of these Terms, or your violation of any third party's rights.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Governing law and disputes</h2>
+      <p style="margin-bottom:1rem">These Terms are governed by the laws of the State of Ohio, without regard to its conflict of law principles. Any dispute arising from these Terms or your use of the Site shall be resolved exclusively in the state or federal courts located in Franklin County, Ohio, and you consent to the personal jurisdiction of those courts.</p>
+      <p style="margin-bottom:1rem"><strong>Class action waiver.</strong> You and KnowYourLease agree that any dispute will be brought in an individual capacity, and not as a plaintiff or class member in any purported class, collective, or representative action.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Termination</h2>
+      <p style="margin-bottom:1rem">We may terminate or suspend access to the Site at any time, for any reason, without notice. Upon termination, your right to use the Site ceases immediately.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Changes to these Terms</h2>
+      <p style="margin-bottom:1rem">We may revise these Terms at any time. The "Last updated" date reflects the most recent version. Continued use of the Site constitutes acceptance of revised Terms.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Contact</h2>
+      <p style="margin-bottom:1rem">For questions about these Terms, contact us at legal@know-your-lease.com.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="view" id="view-disclaimer">
+  <div style="max-width:720px;margin:0 auto;padding:2rem 0;">
+    <div class="submit-eyebrow">Disclaimer</div>
+    <h1 style="font-family:var(--serif);font-size:36px;line-height:1.15;margin-bottom:1.5rem;letter-spacing:-0.01em">Disclaimer</h1>
+    <p style="font-size:13px;color:var(--text3);margin-bottom:2rem">Last updated: April 26, 2026</p>
+
+    <div style="font-size:15px;color:var(--text2);line-height:1.7;">
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:0 0 .75rem">Not legal advice</h2>
+      <p style="margin-bottom:1.25rem">KnowYourLease is an informational tool. It is not a law firm and does not provide legal advice. The lease analysis is generated by artificial intelligence and may contain errors, omissions, or misinterpretations of legal text. No attorney-client relationship is created by your use of the Site. Do not rely on the output of this tool as a substitute for advice from a licensed attorney. If you need legal advice, consult a qualified Ohio attorney. OSU students can access free lease review through OSU Student Legal Services at (614) 247-5853.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">No affiliation</h2>
+      <p style="margin-bottom:1.25rem">KnowYourLease is independently operated. It is not affiliated with, endorsed by, sponsored by, or in any way officially connected to The Ohio State University, OSU Student Legal Services, OSU Undergraduate Student Government, the Off-Campus and Commuter Student Services office, or any landlord or property management company referenced on the Site. References to OSU exist solely because the Site serves OSU students as its primary user base.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Landlord information accuracy</h2>
+      <p style="margin-bottom:1.25rem">Information about specific Columbus landlords is compiled from publicly available sources including the OSU Undergraduate Student Government Renter's Guide, <em>The Lantern</em> investigative reporting, Better Business Bureau records, Birdeye and Yelp aggregated reviews, Columbus city code enforcement records, and sample lease documents made publicly available by the landlords themselves. Ratings and characterizations represent informed summaries of these sources, not independent claims of fact. Specific terms vary by unit, year, and lease version. Always read your specific lease document. If you believe specific information is inaccurate, contact legal@know-your-lease.com for review.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">AI accuracy limitations</h2>
+      <p style="margin-bottom:1.25rem">The lease analysis tool uses Anthropic's Claude AI. AI systems can produce confident-sounding output that is incorrect. Specific clauses may be misidentified, severity may be miscalibrated, and applicable Ohio law may be misstated. Always verify any flagged clause independently before taking action based on it. The tool is intended to help you ask better questions, not to provide definitive answers.</p>
+
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">No guarantee of outcomes</h2>
+      <p style="margin-bottom:1.25rem">Use of the Site does not guarantee any particular outcome with your landlord, lease negotiation, or housing situation. Reading this analysis is not a substitute for reading your lease, negotiating with your landlord, or seeking professional help when you need it.</p>
+    </div>
+  </div>
+</div>
+
 <footer class="site-footer">
  <p class="sf-vision">Helping OSU students <em>understand what they're signing</em> before they sign it.</p>
  <p class="sf-meta">KnowYourLease. Independent and student-built. Not affiliated with any landlord, property management company, or The Ohio State University. Not legal advice. Verify with <a href="tel:6142475853" style="color:var(--green);text-decoration:none">OSU Student Legal Services</a>.</p>
+ <p class="sf-meta" style="margin-top:1rem"><a href="#" onclick="showView('privacy');return false;" style="color:var(--text3);text-decoration:underline;margin-right:1.25rem">Privacy</a><a href="#" onclick="showView('terms');return false;" style="color:var(--text3);text-decoration:underline;margin-right:1.25rem">Terms</a><a href="#" onclick="showView('disclaimer');return false;" style="color:var(--text3);text-decoration:underline;margin-right:1.25rem">Disclaimer</a><span style="color:var(--text3)">© 2026 KnowYourLease</span></p>
 </footer>
 
 </div><!-- /wrap -->
