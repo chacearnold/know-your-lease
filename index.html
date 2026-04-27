@@ -340,7 +340,7 @@ tbody tr:last-child td{border-bottom:none;}
    </button>
    <button class="btn-hero btn-hero-s" onclick="showView('landlords')">
     <span class="bh-label">Browse Columbus landlords</span>
-    <span class="bh-sub">13 profiles. 5 verified from sample leases.</span>
+    <span class="bh-sub">See how Columbus landlords stack up.</span>
    </button>
   </div>
  </div>
@@ -365,7 +365,7 @@ tbody tr:last-child td{border-bottom:none;}
   <button class="back" onclick="showView('home')">← back</button>
   <div class="card">
    <h2>Analyze your lease</h2>
-   <p>Upload your lease PDF. We'll flag Columbus-specific red flags, match it to your landlord's known patterns, and cite the exact Ohio law that protects you. Anonymous data from your lease helps improve landlord profiles for future students.</p>
+   <p>Upload your lease PDF. We'll flag Columbus-specific red flags, match it to your landlord's known patterns, and cite the exact Ohio law that protects you.</p>
    <div id="ae" class="err" style="display:none"></div>
    <label class="flabel">Upload your lease PDF</label>
    <div class="upload-zone" id="uz" onclick="document.getElementById('fi').click()" ondragover="dov(event)" ondragleave="dol()" ondrop="dod(event)">
@@ -403,7 +403,7 @@ tbody tr:last-child td{border-bottom:none;}
 <div class="view" id="view-landlords">
  <div id="ll">
   <div class="pt">Columbus landlord profiles</div>
-  <p class="ps">Ratings from OSU USG surveys, public records, and crowdsourced lease data. Click any landlord for full profile.</p>
+  <p class="ps">Ratings from OSU USG surveys, public records, and verified sample lease documents. Click any landlord for full profile.</p>
   <div class="ftabs">
    <button class="ftab on" onclick="filterLL('all',this)">All</button>
    <button class="ftab" onclick="filterLL('traditional',this)">Traditional</button>
@@ -435,7 +435,7 @@ tbody tr:last-child td{border-bottom:none;}
    <th>Entry notice<span style="display:block;font-weight:400;font-size:10px;opacity:.7">How much warning before landlord enters</span></th>
    <th>Roommate liability<span style="display:block;font-weight:400;font-size:10px;opacity:.7">If roommate skips rent, can landlord charge you the full amount?</span></th>
    <th>Utilities included</th>
-   <th>Furnished</th><th>Pets</th><th>Rating</th><th>Scans</th>
+   <th>Furnished</th><th>Pets</th><th>Rating</th>
   </tr></thead><tbody id="comp-body"></tbody></table>
  </div>
  <div class="fn-box">⚠ <strong style="color:var(--text2)">Data accuracy notice.</strong> Terms marked "Verified" are sourced directly from landlord FAQs, official lease samples, or The Lantern/USG reporting. Other terms reflect typical patterns and may vary by unit and year. Always read your specific lease. Sources: NorthSteppe FAQ, Hometeam Properties FAQ, OSU USG Renter's Guide (2018-2024), The Lantern, Birdeye, Columbus city code enforcement records.</div>
@@ -1285,7 +1285,7 @@ function renderResults(r){
    <div class="score-track"><div class="score-fill" style="width:${s*10}%;background:${col}"></div></div>
    <span class="score-num" style="color:${col}">${s}/10</span></div>
    ${lm?`<div style="margin-top:1rem;font-size:13px;color:var(--text2);">Matched to <strong style="color:var(--text)">${lm.name}</strong> · USG/Birdeye rating ${lm.overall}/5 · <a href="#" onclick="showLandlordFromHome('${r.landlord_match}');return false;" style="color:var(--green)">view profile →</a></div>`:''}
-   ${scanCount>0?`<div style="font-size:12px;color:var(--text3);margin-top:.5rem">Your analysis added to ${lm?.name||'landlord'} dataset (${scanCount} total)</div>`:''}
+   
   </div>
 
   ${anchor?`<div class="anchor-block ${anchorSev}">
@@ -1321,7 +1321,7 @@ function buildCard(id,l,fn){
  const scans=getScans();
  const count=(scans[id]||[]).length;
  const typePill=l.type==='luxury'?'<span class="pill pill-blue">Luxury</span>':'';
- const scanBadge=count>0?`<span class="scan-badge" style="margin-left:5px">${count} scans</span>`:'';
+ const scanBadge='';
  return`<div class="lc" onclick="${fn}('${id}')">
   <div class="lc-name">${l.name}${typePill}${scanBadge}</div>
   <div class="lc-type">${l.price||''}</div>
