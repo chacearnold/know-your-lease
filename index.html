@@ -618,6 +618,22 @@ tbody tr:last-child td{border-bottom:none;}
    <p style="font-size:13px;color:var(--text2);margin-bottom:.75rem">This is what gets sent to Claude with every lease analysis. Automatically includes all landlords in the database.</p>
    <textarea id="prompt-preview" style="min-height:200px;font-size:11px" readonly></textarea>
   </div>
+
+  <!-- CONTACT SUBMISSIONS -->
+  <div class="dev-section">
+   <div class="dev-section-title">Contact form submissions</div>
+   <p style="font-size:13px;color:var(--text2);margin-bottom:.75rem">Messages submitted through the contact form. Stored in browser localStorage on this device only.</p>
+   <div id="contacts-list"></div>
+   <button class="btn btn-r btn-sm" style="margin-top:.75rem" onclick="clearContacts()">Clear all contact messages</button>
+  </div>
+
+  <!-- MOVE-OUT EXPERIENCE SUBMISSIONS -->
+  <div class="dev-section">
+   <div class="dev-section-title">Move-out experience submissions</div>
+   <p style="font-size:13px;color:var(--text2);margin-bottom:.75rem">Anonymous move-out reports submitted by users. Stored in browser localStorage on this device only.</p>
+   <div id="moveout-list"></div>
+   <button class="btn btn-r btn-sm" style="margin-top:.75rem" onclick="clearMoveouts()">Clear all move-out submissions</button>
+  </div>
  </div>
 </div>
 
@@ -752,6 +768,62 @@ tbody tr:last-child td{border-bottom:none;}
  </div>
 </div>
 
+<!-- CONTACT -->
+<div class="view" id="view-contact">
+  <div class="submit-wrap">
+    <div class="submit-eyebrow">Contact</div>
+    <h1 class="submit-h1">Concerns or complaints?</h1>
+    <p class="submit-lede">Use this form to flag inaccurate landlord information, raise privacy concerns, or share feedback about the tool. Messages are reviewed regularly and acted on in good faith.</p>
+
+    <div id="contact-form">
+      <div class="q-block">
+        <div class="q-num">01</div>
+        <div class="q-text">What's this about?</div>
+        <div class="q-options" data-q="contact-type">
+          <button class="q-opt" data-v="inaccuracy">Inaccurate information about a landlord</button>
+          <button class="q-opt" data-v="privacy">Privacy concern</button>
+          <button class="q-opt" data-v="legal">Legal or terms question</button>
+          <button class="q-opt" data-v="bug">Bug or technical issue</button>
+          <button class="q-opt" data-v="feedback">General feedback</button>
+          <button class="q-opt" data-v="other">Other</button>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-num">02</div>
+        <div class="q-text">Your name (optional)</div>
+        <div class="q-help">Not required. Leave blank to stay anonymous.</div>
+        <input type="text" id="contact-name" placeholder="Your name" style="width:100%;padding:10px 14px;border:0.5px solid var(--border);border-radius:var(--r);font-family:var(--sans);font-size:14px;background:var(--bg)">
+      </div>
+
+      <div class="q-block">
+        <div class="q-num">03</div>
+        <div class="q-text">Email or phone (optional)</div>
+        <div class="q-help">Only needed if you want a response. We don't add you to anything.</div>
+        <input type="text" id="contact-reply" placeholder="email@example.com or phone number" style="width:100%;padding:10px 14px;border:0.5px solid var(--border);border-radius:var(--r);font-family:var(--sans);font-size:14px;background:var(--bg)">
+      </div>
+
+      <div class="q-block">
+        <div class="q-num">04</div>
+        <div class="q-text">Your message</div>
+        <div class="q-help">If reporting an inaccuracy, include the specific landlord, the specific statement you believe is wrong, and the basis for your claim.</div>
+        <textarea id="contact-message" placeholder="What would you like us to know?" style="min-height:140px;font-family:var(--sans);font-size:14px"></textarea>
+      </div>
+
+      <div style="display:flex;gap:10px;align-items:center;margin-top:1.5rem;flex-wrap:wrap">
+        <button class="btn btn-p" onclick="submitContact()" style="font-size:15px;padding:12px 24px">Send message</button>
+        <span style="font-size:12px;color:var(--text3)">Stored privately. Reviewed regularly.</span>
+      </div>
+    </div>
+
+    <div id="contact-thanks" style="display:none;text-align:center;padding:3rem 0">
+      <div style="font-family:var(--serif);font-size:32px;line-height:1.2;margin-bottom:1rem;color:var(--green)">Got it.</div>
+      <p style="font-size:16px;color:var(--text2);line-height:1.6;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto">Your message has been received. If you left contact information and asked for a response, expect to hear back within a few days.</p>
+      <button class="btn btn-s" onclick="showView('home')">Back home</button>
+    </div>
+  </div>
+</div>
+
 <!-- PRIVACY POLICY -->
 <div class="view" id="view-privacy">
   <div style="max-width:720px;margin:0 auto;padding:2rem 0;">
@@ -789,7 +861,7 @@ tbody tr:last-child td{border-bottom:none;}
       <p style="margin-bottom:1rem">We may update this Privacy Policy. The "Last updated" date at the top reflects the most recent version. Continued use of the Site after changes constitutes acceptance of the revised policy.</p>
 
       <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Contact</h2>
-      <p style="margin-bottom:1rem">For questions about this policy or to exercise privacy rights, contact us at: privacy@know-your-lease.com</p>
+      <p style="margin-bottom:1rem">For questions about this policy or to exercise privacy rights, submit a message through our <a href="#" onclick="showView('contact');return false;" style="color:var(--green)">contact form</a>.</p>
     </div>
   </div>
 </div>
@@ -820,7 +892,7 @@ tbody tr:last-child td{border-bottom:none;}
       <p style="margin-bottom:1rem">The Site references named landlords and property management companies operating in Columbus, Ohio. These names are the trademarks or service marks of their respective owners. The Site is not affiliated with, endorsed by, sponsored by, or otherwise connected to any landlord, property management company, or The Ohio State University. Information about specific landlords is sourced from publicly available materials including OSU student government surveys, news reporting, public records, Better Business Bureau records, and sample lease documents. If you believe any information about a specific landlord on the Site is factually inaccurate, contact us using the procedure below and we will review it in good faith.</p>
 
       <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Inaccuracy reports and content removal</h2>
-      <p style="margin-bottom:1rem">If you are a landlord, property manager, or other party who believes specific content about your business on the Site is factually inaccurate, you may submit a request for review to legal@know-your-lease.com. Include the specific URL, the specific statement you believe is inaccurate, and the basis for your claim including any supporting documentation. We will review good-faith requests promptly and update or remove content that we determine is inaccurate.</p>
+      <p style="margin-bottom:1rem">If you are a landlord, property manager, or other party who believes specific content about your business on the Site is factually inaccurate, you may submit a request for review through our <a href="#" onclick="showView('contact');return false;" style="color:var(--green)">contact form</a>. Include the specific URL, the specific statement you believe is inaccurate, and the basis for your claim including any supporting documentation. We will review good-faith requests promptly and update or remove content that we determine is inaccurate.</p>
 
       <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Indemnification</h2>
       <p style="margin-bottom:1rem">You agree to indemnify, defend, and hold harmless KnowYourLease and its operators from any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from your use of the Site, your violation of these Terms, or your violation of any third party's rights.</p>
@@ -836,7 +908,7 @@ tbody tr:last-child td{border-bottom:none;}
       <p style="margin-bottom:1rem">We may revise these Terms at any time. The "Last updated" date reflects the most recent version. Continued use of the Site constitutes acceptance of revised Terms.</p>
 
       <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Contact</h2>
-      <p style="margin-bottom:1rem">For questions about these Terms, contact us at legal@know-your-lease.com.</p>
+      <p style="margin-bottom:1rem">For questions about these Terms, submit a message through our <a href="#" onclick="showView('contact');return false;" style="color:var(--green)">contact form</a>.</p>
     </div>
   </div>
 </div>
@@ -856,7 +928,7 @@ tbody tr:last-child td{border-bottom:none;}
       <p style="margin-bottom:1.25rem">KnowYourLease is independently operated. It is not affiliated with, endorsed by, sponsored by, or in any way officially connected to The Ohio State University, OSU Student Legal Services, OSU Undergraduate Student Government, the Off-Campus and Commuter Student Services office, or any landlord or property management company referenced on the Site. References to OSU exist solely because the Site serves OSU students as its primary user base.</p>
 
       <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Landlord information accuracy</h2>
-      <p style="margin-bottom:1.25rem">Information about specific Columbus landlords is compiled from publicly available sources including the OSU Undergraduate Student Government Renter's Guide, <em>The Lantern</em> investigative reporting, Better Business Bureau records, Birdeye and Yelp aggregated reviews, Columbus city code enforcement records, and sample lease documents made publicly available by the landlords themselves. Ratings and characterizations represent informed summaries of these sources, not independent claims of fact. Specific terms vary by unit, year, and lease version. Always read your specific lease document. If you believe specific information is inaccurate, contact legal@know-your-lease.com for review.</p>
+      <p style="margin-bottom:1.25rem">Information about specific Columbus landlords is compiled from publicly available sources including the OSU Undergraduate Student Government Renter's Guide, <em>The Lantern</em> investigative reporting, Better Business Bureau records, Birdeye and Yelp aggregated reviews, Columbus city code enforcement records, and sample lease documents made publicly available by the landlords themselves. Ratings and characterizations represent informed summaries of these sources, not independent claims of fact. Specific terms vary by unit, year, and lease version. Always read your specific lease document. If you believe specific information is inaccurate, submit a message through our <a href="#" onclick="showView('contact');return false;" style="color:var(--green)">contact form</a> for review.</p>
 
       <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">AI accuracy limitations</h2>
       <p style="margin-bottom:1.25rem">The lease analysis tool uses Anthropic's Claude AI. AI systems can produce confident-sounding output that is incorrect. Specific clauses may be misidentified, severity may be miscalibrated, and applicable Ohio law may be misstated. Always verify any flagged clause independently before taking action based on it. The tool is intended to help you ask better questions, not to provide definitive answers.</p>
@@ -870,7 +942,7 @@ tbody tr:last-child td{border-bottom:none;}
 <footer class="site-footer">
  <p class="sf-vision">Helping OSU students <em>understand what they're signing</em> before they sign it.</p>
  <p class="sf-meta">KnowYourLease. Independent and student-built. Not affiliated with any landlord, property management company, or The Ohio State University. Not legal advice. Verify with <a href="tel:6142475853" style="color:var(--green);text-decoration:none">OSU Student Legal Services</a>.</p>
- <p class="sf-meta" style="margin-top:1rem"><a href="#" onclick="showView('privacy');return false;" style="color:var(--text3);text-decoration:underline;margin-right:1.25rem">Privacy</a><a href="#" onclick="showView('terms');return false;" style="color:var(--text3);text-decoration:underline;margin-right:1.25rem">Terms</a><a href="#" onclick="showView('disclaimer');return false;" style="color:var(--text3);text-decoration:underline;margin-right:1.25rem">Disclaimer</a><span style="color:var(--text3)">© 2026 KnowYourLease</span></p>
+ <p class="sf-meta" style="margin-top:1rem"><a href="#" onclick="showView('contact');return false;" style="color:var(--text3);text-decoration:underline;margin-right:1.25rem">Contact</a><a href="#" onclick="showView('privacy');return false;" style="color:var(--text3);text-decoration:underline;margin-right:1.25rem">Privacy</a><a href="#" onclick="showView('terms');return false;" style="color:var(--text3);text-decoration:underline;margin-right:1.25rem">Terms</a><a href="#" onclick="showView('disclaimer');return false;" style="color:var(--text3);text-decoration:underline;margin-right:1.25rem">Disclaimer</a><span style="color:var(--text3)">© 2026 KnowYourLease</span></p>
 </footer>
 
 </div><!-- /wrap -->
@@ -989,6 +1061,7 @@ function showView(v){
  if(v==='analyze'){document.getElementById('af').style.display='';document.getElementById('al').style.display='none';}
  if(v==='dev')renderDevPanel();
  if(v==='submit')initSubmitView();
+ if(v==='contact')initContactView();
  window.scrollTo(0,0);
 }
 
@@ -1000,7 +1073,7 @@ function initSubmitView(){
  sel.innerHTML='<option value="">Select your landlord...</option>'+
   Object.entries(ll).map(([id,l])=>`<option value="${id}">${l.name}</option>`).join('')+
   '<option value="other">Other / not listed</option>';
- document.querySelectorAll('.q-options').forEach(group=>{
+ document.querySelectorAll('#view-submit .q-options').forEach(group=>{
   group.querySelectorAll('.q-opt').forEach(btn=>{
    btn.onclick=()=>{
     group.querySelectorAll('.q-opt').forEach(b=>b.classList.remove('selected'));
@@ -1014,7 +1087,7 @@ function submitExperience(){
  const landlord=document.getElementById('sub-landlord').value;
  if(!landlord){toast('Please select a landlord');return;}
  const answers={};
- document.querySelectorAll('.q-options').forEach(group=>{
+ document.querySelectorAll('#view-submit .q-options').forEach(group=>{
   const q=group.dataset.q;
   const sel=group.querySelector('.q-opt.selected');
   if(sel)answers[q]=sel.dataset.v;
@@ -1026,6 +1099,36 @@ function submitExperience(){
  localStorage.setItem('kyl_submissions',JSON.stringify(all));
  document.getElementById('submit-form').style.display='none';
  document.getElementById('submit-thanks').style.display='block';
+}
+
+function initContactView(){
+ document.querySelectorAll('#view-contact .q-options').forEach(group=>{
+  if(group.dataset.wired)return;
+  group.dataset.wired='1';
+  group.querySelectorAll('.q-opt').forEach(btn=>{
+   btn.onclick=()=>{
+    group.querySelectorAll('.q-opt').forEach(b=>b.classList.remove('selected'));
+    btn.classList.add('selected');
+   };
+  });
+ });
+}
+
+function submitContact(){
+ const typeGroup=document.querySelector('#view-contact .q-options[data-q="contact-type"]');
+ const typeSel=typeGroup?.querySelector('.q-opt.selected');
+ const type=typeSel?typeSel.dataset.v:'';
+ const name=document.getElementById('contact-name').value.trim();
+ const reply=document.getElementById('contact-reply').value.trim();
+ const message=document.getElementById('contact-message').value.trim();
+ if(!type){toast('Please select what this is about');return;}
+ if(!message){toast('Please write a message');return;}
+ const submission={type,name,reply,message,ts:Date.now()};
+ const all=JSON.parse(localStorage.getItem('kyl_contacts')||'[]');
+ all.push(submission);
+ localStorage.setItem('kyl_contacts',JSON.stringify(all));
+ document.getElementById('contact-form').style.display='none';
+ document.getElementById('contact-thanks').style.display='block';
 }
 
 // ─── UPLOAD ───────────────────────────────────────────────────────────────────
@@ -1416,6 +1519,66 @@ function renderDevPanel(){
 
  // System prompt preview
  document.getElementById('prompt-preview').value=buildSystemPrompt();
+
+ // Contact submissions
+ renderContacts();
+ // Move-out submissions
+ renderMoveouts();
+}
+
+function renderContacts(){
+ const wrap=document.getElementById('contacts-list');
+ if(!wrap)return;
+ const all=JSON.parse(localStorage.getItem('kyl_contacts')||'[]');
+ if(all.length===0){wrap.innerHTML='<p style="font-size:13px;color:var(--text3);padding:.5rem 0">No contact messages yet.</p>';return;}
+ const typeLabels={inaccuracy:'Inaccurate landlord info',privacy:'Privacy concern',legal:'Legal question',bug:'Bug',feedback:'Feedback',other:'Other'};
+ wrap.innerHTML=all.slice().reverse().map((c,i)=>{
+  const d=new Date(c.ts);
+  return`<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--rlg);padding:1rem;margin-bottom:.75rem">
+   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem;flex-wrap:wrap;gap:8px">
+    <span style="font-size:11px;font-weight:500;background:var(--gl);color:var(--gd);padding:2px 8px;border-radius:99px">${typeLabels[c.type]||c.type}</span>
+    <span style="font-size:11px;color:var(--text3);font-family:var(--mono)">${d.toLocaleString()}</span>
+   </div>
+   ${c.name||c.reply?`<div style="font-size:13px;color:var(--text2);margin-bottom:.5rem">${c.name?`<strong>${c.name}</strong>`:'(anonymous)'}${c.reply?` · ${c.reply}`:''}</div>`:'<div style="font-size:13px;color:var(--text3);margin-bottom:.5rem;font-style:italic">Anonymous</div>'}
+   <div style="font-size:14px;color:var(--text);line-height:1.5;white-space:pre-wrap">${escapeHTML(c.message)}</div>
+  </div>`;
+ }).join('');
+}
+
+function renderMoveouts(){
+ const wrap=document.getElementById('moveout-list');
+ if(!wrap)return;
+ const all=JSON.parse(localStorage.getItem('kyl_submissions')||'[]');
+ const ll=getLandlords();
+ if(all.length===0){wrap.innerHTML='<p style="font-size:13px;color:var(--text3);padding:.5rem 0">No move-out experiences submitted yet.</p>';return;}
+ wrap.innerHTML=all.slice().reverse().map(s=>{
+  const d=new Date(s.ts);
+  const lname=ll[s.landlord]?.name||(s.landlord==='other'?'Other / not listed':s.landlord);
+  return`<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--rlg);padding:1rem;margin-bottom:.75rem">
+   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem;flex-wrap:wrap;gap:8px">
+    <span style="font-size:13px;font-weight:500">${lname}</span>
+    <span style="font-size:11px;color:var(--text3);font-family:var(--mono)">${d.toLocaleString()}</span>
+   </div>
+   <div style="font-size:12px;color:var(--text2);line-height:1.7;font-family:var(--mono)">
+    ${Object.entries(s.answers||{}).map(([k,v])=>`<div>${k}: <strong style="color:var(--text)">${v}</strong></div>`).join('')}
+   </div>
+   ${s.notes?`<div style="font-size:13px;color:var(--text);margin-top:.5rem;padding-top:.5rem;border-top:0.5px solid var(--border);white-space:pre-wrap">${escapeHTML(s.notes)}</div>`:''}
+  </div>`;
+ }).join('');
+}
+
+function escapeHTML(s){return (s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+function clearContacts(){
+ if(!confirm('Delete all contact messages? This cannot be undone.'))return;
+ localStorage.removeItem('kyl_contacts');
+ renderContacts();
+}
+
+function clearMoveouts(){
+ if(!confirm('Delete all move-out submissions? This cannot be undone.'))return;
+ localStorage.removeItem('kyl_submissions');
+ renderMoveouts();
 }
 
 function showSubDetail(id){
