@@ -290,7 +290,7 @@ tbody tr:last-child td{border-bottom:none;}
   <button class="nb" id="nav-rights" onclick="showView('rights')">Rights</button>
   <button class="nb" id="nav-submit" onclick="showView('submit')">Submit experience</button>
   <button class="nb" id="nav-about" onclick="showView('about')">About</button>
-  <button class="nb dev-btn" id="nav-dev" onclick="showView('dev')">⚙ Dev</button>
+  <button class="nb dev-btn" id="nav-dev" onclick="showView('dev')" style="display:none">⚙ Dev</button>
  </div>
  <button class="hamburger" id="hamburger" onclick="openDrawer()" aria-label="Menu">
   <span></span><span></span><span></span>
@@ -309,7 +309,7 @@ tbody tr:last-child td{border-bottom:none;}
  <button class="nb" id="dnav-rights" onclick="showView('rights');closeDrawer()">Rights</button>
  <button class="nb" id="dnav-submit" onclick="showView('submit');closeDrawer()">Submit experience</button>
  <button class="nb" id="dnav-about" onclick="showView('about');closeDrawer()">About</button>
- <button class="nb dev-btn" id="dnav-dev" onclick="showView('dev');closeDrawer()">⚙ Dev</button>
+ <button class="nb dev-btn" id="dnav-dev" onclick="showView('dev');closeDrawer()" style="display:none">⚙ Dev</button>
 </div>
 
 <!-- DISCLAIMER -->
@@ -788,6 +788,8 @@ tbody tr:last-child td{border-bottom:none;}
       <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Changes</h2>
       <p style="margin-bottom:1rem">We may update this Privacy Policy. The "Last updated" date at the top reflects the most recent version. Continued use of the Site after changes constitutes acceptance of the revised policy.</p>
 
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Contact</h2>
+      <p style="margin-bottom:1rem">For questions about this policy or to exercise privacy rights, contact us at: privacy@know-your-lease.com</p>
     </div>
   </div>
 </div>
@@ -817,7 +819,9 @@ tbody tr:last-child td{border-bottom:none;}
       <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Third-party content and trademarks</h2>
       <p style="margin-bottom:1rem">The Site references named landlords and property management companies operating in Columbus, Ohio. These names are the trademarks or service marks of their respective owners. The Site is not affiliated with, endorsed by, sponsored by, or otherwise connected to any landlord, property management company, or The Ohio State University. Information about specific landlords is sourced from publicly available materials including OSU student government surveys, news reporting, public records, Better Business Bureau records, and sample lease documents. If you believe any information about a specific landlord on the Site is factually inaccurate, contact us using the procedure below and we will review it in good faith.</p>
 
-     
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Inaccuracy reports and content removal</h2>
+      <p style="margin-bottom:1rem">If you are a landlord, property manager, or other party who believes specific content about your business on the Site is factually inaccurate, you may submit a request for review to legal@know-your-lease.com. Include the specific URL, the specific statement you believe is inaccurate, and the basis for your claim including any supporting documentation. We will review good-faith requests promptly and update or remove content that we determine is inaccurate.</p>
+
       <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Indemnification</h2>
       <p style="margin-bottom:1rem">You agree to indemnify, defend, and hold harmless KnowYourLease and its operators from any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from your use of the Site, your violation of these Terms, or your violation of any third party's rights.</p>
 
@@ -831,7 +835,8 @@ tbody tr:last-child td{border-bottom:none;}
       <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Changes to these Terms</h2>
       <p style="margin-bottom:1rem">We may revise these Terms at any time. The "Last updated" date reflects the most recent version. Continued use of the Site constitutes acceptance of revised Terms.</p>
 
-
+      <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Contact</h2>
+      <p style="margin-bottom:1rem">For questions about these Terms, contact us at legal@know-your-lease.com.</p>
     </div>
   </div>
 </div>
@@ -851,7 +856,7 @@ tbody tr:last-child td{border-bottom:none;}
       <p style="margin-bottom:1.25rem">KnowYourLease is independently operated. It is not affiliated with, endorsed by, sponsored by, or in any way officially connected to The Ohio State University, OSU Student Legal Services, OSU Undergraduate Student Government, the Off-Campus and Commuter Student Services office, or any landlord or property management company referenced on the Site. References to OSU exist solely because the Site serves OSU students as its primary user base.</p>
 
       <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">Landlord information accuracy</h2>
-      <p style="margin-bottom:1.25rem">Information about specific Columbus landlords is compiled from publicly available sources including the OSU Undergraduate Student Government Renter's Guide, <em>The Lantern</em> investigative reporting, Better Business Bureau records, Birdeye and Yelp aggregated reviews, Columbus city code enforcement records, and sample lease documents made publicly available by the landlords themselves. Ratings and characterizations represent informed summaries of these sources, not independent claims of fact. Specific terms vary by unit, year, and lease version. Always read your specific lease document.</p>
+      <p style="margin-bottom:1.25rem">Information about specific Columbus landlords is compiled from publicly available sources including the OSU Undergraduate Student Government Renter's Guide, <em>The Lantern</em> investigative reporting, Better Business Bureau records, Birdeye and Yelp aggregated reviews, Columbus city code enforcement records, and sample lease documents made publicly available by the landlords themselves. Ratings and characterizations represent informed summaries of these sources, not independent claims of fact. Specific terms vary by unit, year, and lease version. Always read your specific lease document. If you believe specific information is inaccurate, contact legal@know-your-lease.com for review.</p>
 
       <h2 style="font-family:var(--serif);font-size:22px;color:var(--text);margin:2rem 0 .75rem">AI accuracy limitations</h2>
       <p style="margin-bottom:1.25rem">The lease analysis tool uses Anthropic's Claude AI. AI systems can produce confident-sounding output that is incorrect. Specific clauses may be misidentified, severity may be miscalibrated, and applicable Ohio law may be misstated. Always verify any flagged clause independently before taking action based on it. The tool is intended to help you ask better questions, not to provide definitive answers.</p>
