@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KnowYourLease — Columbus Student Housing</title>
+<title>KnowYourLease. Columbus Student Housing</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#fff;--bg2:#f6f5f0;--bg3:#efefea;
-  --text:#1a1a18;--text2:#5a5a55;--text3:#9a9a94;
-  --border:rgba(0,0,0,0.1);--border2:rgba(0,0,0,0.2);
-  --green:#1D9E75;--gl:#E1F5EE;--gd:#0F6E56;
-  --amber:#EF9F27;--al:#FAEEDA;--ad:#854F0B;
-  --red:#E24B4A;--rl:#FCEBEB;--rd:#A32D2D;
-  --blue:#378ADD;--bl:#E6F1FB;--bd:#0C447C;
-  --purple:#7F77DD;--pl:#EEEDFE;--pd:#3C3489;
-  --r:8px;--rlg:12px;
-  --serif:'DM Serif Display',Georgia,serif;
-  --sans:'DM Sans',system-ui,sans-serif;
-  --mono:'DM Mono',monospace;
+ --bg:#fff;--bg2:#f6f5f0;--bg3:#efefea;
+ --text:#1a1a18;--text2:#5a5a55;--text3:#9a9a94;
+ --border:rgba(0,0,0,0.1);--border2:rgba(0,0,0,0.2);
+ --green:#1D9E75;--gl:#E1F5EE;--gd:#0F6E56;
+ --amber:#EF9F27;--al:#FAEEDA;--ad:#854F0B;
+ --red:#E24B4A;--rl:#FCEBEB;--rd:#A32D2D;
+ --blue:#378ADD;--bl:#E6F1FB;--bd:#0C447C;
+ --purple:#7F77DD;--pl:#EEEDFE;--pd:#3C3489;
+ --r:8px;--rlg:12px;
+ --serif:'DM Serif Display',Georgia,serif;
+ --sans:'DM Sans',system-ui,sans-serif;
+ --mono:'DM Mono',monospace;
 }
 body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:100vh;}
 .wrap{width:100%;padding:0 40px 80px;}@media(max-width:768px){.wrap{padding:0 16px 80px;}}
@@ -35,9 +35,9 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px
 .drawer-close button{background:none;border:none;cursor:pointer;font-size:22px;color:var(--text2);}
 .drawer .nb{display:block;width:100%;text-align:left;margin-bottom:6px;padding:10px 14px;}
 @media(max-width:768px){
-  nav{padding:0 16px;}
-  .nav-links{display:none;}
-  .hamburger{display:flex;}
+ nav{padding:0 16px;}
+ .nav-links{display:none;}
+ .hamburger{display:flex;}
 }
 .brand{font-family:var(--serif);font-size:20px;color:var(--text);text-decoration:none;}
 .brand span{color:var(--green);}
@@ -102,15 +102,15 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px
 .sf-meta{font-size:12px;color:var(--text3);line-height:1.6;}
 
 @media(max-width:768px){
-  .hero-v2{padding:2rem 0 2rem;}
-  .hero-v2 h1{font-size:36px;}
-  .hero-lede{font-size:16px;margin-bottom:1.75rem;}
-  .hero-actions{grid-template-columns:1fr;}
-  .thesis-strip{grid-template-columns:1fr;}
-  .thesis-item{border-right:none;border-bottom:0.5px solid var(--border);}
-  .thesis-item:last-child{border-bottom:none;}
-  .vision-block{padding:1.5rem;}
-  .vision-text{font-size:18px;}
+ .hero-v2{padding:2rem 0 2rem;}
+ .hero-v2 h1{font-size:36px;}
+ .hero-lede{font-size:16px;margin-bottom:1.75rem;}
+ .hero-actions{grid-template-columns:1fr;}
+ .thesis-strip{grid-template-columns:1fr;}
+ .thesis-item{border-right:none;border-bottom:0.5px solid var(--border);}
+ .thesis-item:last-child{border-bottom:none;}
+ .vision-block{padding:1.5rem;}
+ .vision-text{font-size:18px;}
 }
 .tag{display:inline-block;background:var(--gl);color:var(--gd);font-size:12px;padding:4px 12px;border-radius:var(--r);margin-bottom:1.25rem;font-weight:500;}
 h1{font-family:var(--serif);font-size:38px;line-height:1.15;margin-bottom:1rem;}
@@ -270,54 +270,54 @@ tbody tr:last-child td{border-bottom:none;}
 .pw-wrap{max-width:320px;margin:0 auto;}
 .scan-badge{display:inline-flex;align-items:center;gap:5px;background:var(--pl);color:var(--pd);font-size:11px;padding:3px 10px;border-radius:99px;font-weight:500;}
 @media(max-width:520px){
-  h1{font-size:28px;}
-  .stats,.tg,.rg,.form-row,.form-row-3,.sub-row{grid-template-columns:1fr;}
-  .lc-grid{grid-template-columns:1fr;}
-  .nb{padding:5px 10px;font-size:12px;}
+ h1{font-size:28px;}
+ .stats,.tg,.rg,.form-row,.form-row-3,.sub-row{grid-template-columns:1fr;}
+ .lc-grid{grid-template-columns:1fr;}
+ .nb{padding:5px 10px;font-size:12px;}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
 <nav>
-  <a class="brand" href="#" onclick="showView('home');return false;">Know<span>Your</span>Lease</a>
-  <div class="nav-links">
-    <button class="nb active" id="nav-home" onclick="showView('home')">Home</button>
-    <button class="nb" id="nav-analyze" onclick="showView('analyze')">Analyze</button>
-    <button class="nb" id="nav-landlords" onclick="showView('landlords')">Landlords</button>
-    <button class="nb" id="nav-compare" onclick="showView('compare')">Compare</button>
-    <button class="nb" id="nav-checklist" onclick="showView('checklist')">Checklist</button>
-    <button class="nb" id="nav-rights" onclick="showView('rights')">Rights</button>
-    <button class="nb" id="nav-submit" onclick="showView('submit')">Submit experience</button>
-    <button class="nb" id="nav-about" onclick="showView('about')">About</button>
-    <button class="nb dev-btn" id="nav-dev" onclick="showView('dev')">⚙ Dev</button>
-  </div>
-  <button class="hamburger" id="hamburger" onclick="openDrawer()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+ <a class="brand" href="#" onclick="showView('home');return false;">Know<span>Your</span>Lease</a>
+ <div class="nav-links">
+  <button class="nb active" id="nav-home" onclick="showView('home')">Home</button>
+  <button class="nb" id="nav-analyze" onclick="showView('analyze')">Analyze</button>
+  <button class="nb" id="nav-landlords" onclick="showView('landlords')">Landlords</button>
+  <button class="nb" id="nav-compare" onclick="showView('compare')">Compare</button>
+  <button class="nb" id="nav-checklist" onclick="showView('checklist')">Checklist</button>
+  <button class="nb" id="nav-rights" onclick="showView('rights')">Rights</button>
+  <button class="nb" id="nav-submit" onclick="showView('submit')">Submit experience</button>
+  <button class="nb" id="nav-about" onclick="showView('about')">About</button>
+  <button class="nb dev-btn" id="nav-dev" onclick="showView('dev')">⚙ Dev</button>
+ </div>
+ <button class="hamburger" id="hamburger" onclick="openDrawer()" aria-label="Menu">
+  <span></span><span></span><span></span>
+ </button>
 </nav>
 
 <!-- MOBILE DRAWER -->
 <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
 <div class="drawer" id="drawer">
-  <div class="drawer-close"><button onclick="closeDrawer()">✕</button></div>
-  <button class="nb" id="dnav-home" onclick="showView('home');closeDrawer()">Home</button>
-  <button class="nb" id="dnav-analyze" onclick="showView('analyze');closeDrawer()">Analyze</button>
-  <button class="nb" id="dnav-landlords" onclick="showView('landlords');closeDrawer()">Landlords</button>
-  <button class="nb" id="dnav-compare" onclick="showView('compare');closeDrawer()">Compare</button>
-  <button class="nb" id="dnav-checklist" onclick="showView('checklist');closeDrawer()">Checklist</button>
-  <button class="nb" id="dnav-rights" onclick="showView('rights');closeDrawer()">Rights</button>
-  <button class="nb" id="dnav-submit" onclick="showView('submit');closeDrawer()">Submit experience</button>
-  <button class="nb" id="dnav-about" onclick="showView('about');closeDrawer()">About</button>
-  <button class="nb dev-btn" id="dnav-dev" onclick="showView('dev');closeDrawer()">⚙ Dev</button>
+ <div class="drawer-close"><button onclick="closeDrawer()">✕</button></div>
+ <button class="nb" id="dnav-home" onclick="showView('home');closeDrawer()">Home</button>
+ <button class="nb" id="dnav-analyze" onclick="showView('analyze');closeDrawer()">Analyze</button>
+ <button class="nb" id="dnav-landlords" onclick="showView('landlords');closeDrawer()">Landlords</button>
+ <button class="nb" id="dnav-compare" onclick="showView('compare');closeDrawer()">Compare</button>
+ <button class="nb" id="dnav-checklist" onclick="showView('checklist');closeDrawer()">Checklist</button>
+ <button class="nb" id="dnav-rights" onclick="showView('rights');closeDrawer()">Rights</button>
+ <button class="nb" id="dnav-submit" onclick="showView('submit');closeDrawer()">Submit experience</button>
+ <button class="nb" id="dnav-about" onclick="showView('about');closeDrawer()">About</button>
+ <button class="nb dev-btn" id="dnav-dev" onclick="showView('dev');closeDrawer()">⚙ Dev</button>
 </div>
 
 <!-- DISCLAIMER -->
 <div style="background:#FEF3C7;border-bottom:1px solid #F59E0B;padding:10px 0;margin:0 -40px;width:calc(100% + 80px);"><!-- @media handled inline -->
-  <div style="padding:0 40px;display:flex;gap:10px;align-items:flex-start;">
-    <span style="font-size:16px;flex-shrink:0">⚠️</span>
-    <p style="font-size:12px;color:#92400E;line-height:1.6;margin:0"><strong>Not legal advice.</strong> This tool is for informational purposes only and does not constitute legal advice. AI analysis may contain errors — always verify flagged clauses independently and consult a licensed attorney or OSU Student Legal Services (614-247-5853) before making decisions based on this output. Ohio law is complex and fact-specific.</p>
-  </div>
+ <div style="padding:0 40px;display:flex;gap:10px;align-items:flex-start;">
+  <span style="font-size:16px;flex-shrink:0">⚠️</span>
+  <p style="font-size:12px;color:#92400E;line-height:1.6;margin:0"><strong>Not legal advice.</strong> This tool is for informational purposes only and does not constitute legal advice. AI analysis may contain errors, always verify flagged clauses independently and consult a licensed attorney or OSU Student Legal Services (614-247-5853) before making decisions based on this output. Ohio law is complex and fact-specific.</p>
+ </div>
 </div>
 
 <!-- TOAST -->
@@ -325,447 +325,435 @@ tbody tr:last-child td{border-bottom:none;}
 
 <!-- HOME -->
 <div class="view active" id="view-home">
-  <div class="hero hero-v2">
-    <div class="tag">Columbus, OH · OSU student housing</div>
-    <h1>Every lease has a story.<br/><em>Read yours before you sign it.</em></h1>
-    <p class="hero-lede">Columbus landlords know their leases inside and out. You should too. KnowYourLease analyzes your specific lease against Ohio law, flags what your landlord won't tell you, and tracks what actually happens after move-out — building the dataset student renters never had.</p>
-    <div class="hero-actions">
-      <button class="btn-hero btn-hero-p" onclick="showView('analyze')">
-        <span class="bh-label">Analyze my lease</span>
-        <span class="bh-sub">Upload your PDF · 30-second AI analysis</span>
-      </button>
-      <button class="btn-hero btn-hero-s" onclick="showView('submit')">
-        <span class="bh-label">Share your move-out experience</span>
-        <span class="bh-sub">Help build the dataset · Anonymous</span>
-      </button>
-      <button class="btn-hero btn-hero-s" onclick="showView('landlords')">
-        <span class="bh-label">Browse Columbus landlords</span>
-        <span class="bh-sub">13 profiles · 5 verified from sample leases</span>
-      </button>
-    </div>
+ <div class="hero hero-v2">
+  <div class="tag">Columbus, OH · OSU student housing</div>
+  <h1>Know your lease<br/><em>before you sign it.</em></h1>
+  <p class="hero-lede">Signing a lease is one of the first big contracts most students ever sign. The terms are dense, the stakes are real, and landlords have read these documents a hundred times more than you have. KnowYourLease helps you understand what you're agreeing to before you put your name on it.</p>
+  <div class="hero-actions">
+   <button class="btn-hero btn-hero-p" onclick="showView('analyze')">
+    <span class="bh-label">Analyze my lease</span>
+    <span class="bh-sub">Upload your PDF for a 30-second review</span>
+   </button>
+   <button class="btn-hero btn-hero-s" onclick="showView('submit')">
+    <span class="bh-label">Share your move-out experience</span>
+    <span class="bh-sub">Help the next student. Anonymous.</span>
+   </button>
+   <button class="btn-hero btn-hero-s" onclick="showView('landlords')">
+    <span class="bh-label">Browse Columbus landlords</span>
+    <span class="bh-sub">13 profiles. 5 verified from sample leases.</span>
+   </button>
   </div>
+ </div>
 
-  <div class="thesis-strip">
-    <div class="thesis-item"><div class="ti-num">1</div><div class="ti-body"><strong>Analyze.</strong> Upload your lease for an instant breakdown of red flags, illegal clauses, and the exact Ohio statutes that protect you.</div></div>
-    <div class="thesis-item"><div class="ti-num">2</div><div class="ti-body"><strong>Compare.</strong> See how your landlord stacks up against every other major Columbus operator on the terms that actually matter.</div></div>
-    <div class="thesis-item"><div class="ti-num">3</div><div class="ti-body"><strong>Report back.</strong> Submit what happened at move-out. Your experience makes the next student's analysis sharper.</div></div>
-  </div>
+ <div class="thesis-strip">
+  <div class="thesis-item"><div class="ti-num">1</div><div class="ti-body"><strong>Analyze.</strong> Upload your lease and see what your landlord won't go out of their way to explain. Red flags, illegal clauses, and the Ohio statutes that protect you.</div></div>
+  <div class="thesis-item"><div class="ti-num">2</div><div class="ti-body"><strong>Compare.</strong> See how your landlord stacks up against every other major Columbus operator on the terms that actually matter at move-out.</div></div>
+  <div class="thesis-item"><div class="ti-num">3</div><div class="ti-body"><strong>Report back.</strong> When you move out, tell us what actually happened. The next student signing with your landlord will know what to expect.</div></div>
+ </div>
 
-  <div class="sl">Columbus landlords · traditional</div>
-  <div class="lc-grid" id="home-trad"></div>
-  <div class="sl">Columbus landlords · luxury complexes</div>
-  <div class="lc-grid" id="home-lux"></div>
+ <div class="sl">Columbus landlords · traditional</div>
+ <div class="lc-grid" id="home-trad"></div>
+ <div class="sl">Columbus landlords · luxury complexes</div>
+ <div class="lc-grid" id="home-lux"></div>
 
-  <div class="vision-block">
-    <div class="vision-eyebrow">The thesis</div>
-    <p class="vision-text">Consumer real estate runs on information asymmetry. Landlords have data; tenants have hope. We're building the data layer underneath consumer rentals — what landlords do versus what they say they do — starting with Columbus student housing because it's the highest-frequency, highest-friction wedge into the problem.</p>
-    <p class="vision-text" style="margin-top:1rem">Same broken dynamics exist in every college town. Ann Arbor, Madison, Austin, Berkeley — same concentrated landlord pools, same inexperienced tenants, same August lease cycles. Columbus is first. Big Ten campuses next.</p>
-  </div>
-
-  <div class="fn-box">Ratings sourced from OSU Undergraduate Student Government Renter's Guide (2018–2024), <em>The Lantern</em> investigative reporting, Birdeye and Yelp aggregated reviews, BBB complaint records, and Columbus city code enforcement data. Lease analysis applies Ohio Revised Code Chapter 5321 to your specific lease text. Landlord rows marked <span style="background:var(--gl);color:var(--gd);padding:1px 5px;border-radius:99px;font-size:10px">✓ lease</span> have terms verified directly from sample lease documents.</div>
+ <div class="fn-box">Ratings sourced from OSU Undergraduate Student Government Renter's Guide (2018 to 2024), <em>The Lantern</em> investigative reporting, Birdeye and Yelp aggregated reviews, BBB complaint records, and Columbus city code enforcement data. Lease analysis applies Ohio Revised Code Chapter 5321 to your specific lease text. Landlord rows marked <span style="background:var(--gl);color:var(--gd);padding:1px 5px;border-radius:99px;font-size:10px">✓ lease</span> have terms verified directly from sample lease documents.</div>
 </div>
 
 <!-- ANALYZE -->
 <div class="view" id="view-analyze">
-  <div id="af">
-    <button class="back" onclick="showView('home')">← back</button>
-    <div class="card">
-      <h2>Analyze your lease</h2>
-      <p>Upload your lease PDF. We'll flag Columbus-specific red flags, match it to your landlord's known patterns, and cite the exact Ohio law that protects you. Anonymous data from your lease helps improve landlord profiles for future students.</p>
-      <div id="ae" class="err" style="display:none"></div>
-      <label class="flabel">Upload your lease PDF</label>
-      <div class="upload-zone" id="uz" onclick="document.getElementById('fi').click()" ondragover="dov(event)" ondragleave="dol()" ondrop="dod(event)">
-        <input type="file" id="fi" accept=".pdf" style="display:none" onchange="hfs(event)">
-        <div class="upload-icon">📄</div>
-        <div class="upload-title">Click to upload or drag and drop</div>
-        <div class="upload-sub">PDF only · sensitive info (name, address) never stored</div>
-      </div>
-      <div id="fsel" class="file-sel" style="display:none">
-        <span class="fn" id="fn-disp"></span><span class="fsz" id="fsz-disp"></span>
-        <button class="frem" onclick="rfil(event)">✕</button>
-      </div>
-      <div id="ext" class="extracting" style="display:none"><div class="ms"></div><span>Extracting text from PDF...</span></div>
-      <div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap">
-        <button class="btn btn-p" style="flex:1" onclick="doAnalyze()">Analyze my lease →</button>
-        <button class="btn btn-s" onclick="runDemo()">Try demo</button>
-      </div>
-    </div>
-    <p style="font-size:12px;color:var(--text3);line-height:1.7">OSU Student Legal Services: student-legal.osu.edu · (614) 247-5853</p>
+ <div id="af">
+  <button class="back" onclick="showView('home')">← back</button>
+  <div class="card">
+   <h2>Analyze your lease</h2>
+   <p>Upload your lease PDF. We'll flag Columbus-specific red flags, match it to your landlord's known patterns, and cite the exact Ohio law that protects you. Anonymous data from your lease helps improve landlord profiles for future students.</p>
+   <div id="ae" class="err" style="display:none"></div>
+   <label class="flabel">Upload your lease PDF</label>
+   <div class="upload-zone" id="uz" onclick="document.getElementById('fi').click()" ondragover="dov(event)" ondragleave="dol()" ondrop="dod(event)">
+    <input type="file" id="fi" accept=".pdf" style="display:none" onchange="hfs(event)">
+    <div class="upload-icon">📄</div>
+    <div class="upload-title">Click to upload or drag and drop</div>
+    <div class="upload-sub">PDF only · sensitive info (name, address) never stored</div>
+   </div>
+   <div id="fsel" class="file-sel" style="display:none">
+    <span class="fn" id="fn-disp"></span><span class="fsz" id="fsz-disp"></span>
+    <button class="frem" onclick="rfil(event)">✕</button>
+   </div>
+   <div id="ext" class="extracting" style="display:none"><div class="ms"></div><span>Extracting text from PDF...</span></div>
+   <div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap">
+    <button class="btn btn-p" style="flex:1" onclick="doAnalyze()">Analyze my lease →</button>
+    <button class="btn btn-s" onclick="runDemo()">Try demo</button>
+   </div>
   </div>
-  <div id="al" class="sw" style="display:none"><div class="sp"></div><p id="lmsg">Analyzing your lease...</p></div>
+  <p style="font-size:12px;color:var(--text3);line-height:1.7">OSU Student Legal Services: student-legal.osu.edu · (614) 247-5853</p>
+ </div>
+ <div id="al" class="sw" style="display:none"><div class="sp"></div><p id="lmsg">Analyzing your lease...</p></div>
 </div>
 
 <!-- RESULTS -->
 <div class="view" id="view-results">
-  <button class="back" onclick="showView('analyze')">← analyze another</button>
-  <div style="background:#FEF3C7;border:1px solid #F59E0B;border-radius:8px;padding:10px 14px;margin-bottom:1rem;font-size:12px;color:#92400E;line-height:1.6;">
-    <strong>⚠️ Not legal advice.</strong> AI analysis may contain errors. Verify all flagged clauses independently. Consult OSU Student Legal Services (614-247-5853) or an attorney before acting on this output.
-  </div>
-  <div id="rc"></div>
+ <button class="back" onclick="showView('analyze')">← analyze another</button>
+ <div style="background:#FEF3C7;border:1px solid #F59E0B;border-radius:8px;padding:10px 14px;margin-bottom:1rem;font-size:12px;color:#92400E;line-height:1.6;">
+  <strong>⚠️ Not legal advice.</strong> AI analysis may contain errors. Verify all flagged clauses independently. Consult OSU Student Legal Services (614-247-5853) or an attorney before acting on this output.
+ </div>
+ <div id="rc"></div>
 </div>
 
 <!-- LANDLORDS -->
 <div class="view" id="view-landlords">
-  <div id="ll">
-    <div class="pt">Columbus landlord profiles</div>
-    <p class="ps">Ratings from OSU USG surveys, public records, and crowdsourced lease data. Click any landlord for full profile.</p>
-    <div class="ftabs">
-      <button class="ftab on" onclick="filterLL('all',this)">All</button>
-      <button class="ftab" onclick="filterLL('traditional',this)">Traditional</button>
-      <button class="ftab" onclick="filterLL('luxury',this)">Luxury complexes</button>
-    </div>
-    <div class="lc-grid" id="ll-grid"></div>
+ <div id="ll">
+  <div class="pt">Columbus landlord profiles</div>
+  <p class="ps">Ratings from OSU USG surveys, public records, and crowdsourced lease data. Click any landlord for full profile.</p>
+  <div class="ftabs">
+   <button class="ftab on" onclick="filterLL('all',this)">All</button>
+   <button class="ftab" onclick="filterLL('traditional',this)">Traditional</button>
+   <button class="ftab" onclick="filterLL('luxury',this)">Luxury complexes</button>
   </div>
-  <div id="ld" style="display:none"></div>
+  <div class="lc-grid" id="ll-grid"></div>
+ </div>
+ <div id="ld" style="display:none"></div>
 </div>
 
 <!-- COMPARE -->
 <div class="view" id="view-compare">
-  <div class="submit-eyebrow">Compare</div>
-  <h1 style="font-family:var(--serif);font-size:36px;line-height:1.15;margin-bottom:.75rem;letter-spacing:-0.01em">How Columbus landlords actually compare.</h1>
-  <p class="ps" style="max-width:640px">Each landlord's biggest strength and biggest concern at a glance. Detailed term-by-term comparison further down. Rows marked <span style="background:var(--gl);color:var(--gd);padding:1px 6px;border-radius:99px;font-size:10px;font-weight:500">✓ lease</span> are verified from sample lease documents.</p>
+ <div class="submit-eyebrow">Compare</div>
+ <h1 style="font-family:var(--serif);font-size:36px;line-height:1.15;margin-bottom:.75rem;letter-spacing:-0.01em">How Columbus landlords actually compare.</h1>
+ <p class="ps" style="max-width:640px">Each landlord's biggest strength and biggest concern at a glance. Detailed term-by-term comparison further down. Rows marked <span style="background:var(--gl);color:var(--gd);padding:1px 6px;border-radius:99px;font-size:10px;font-weight:500">✓ lease</span> are verified from sample lease documents.</p>
 
-  <div id="comp-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:2rem 0 3rem"></div>
+ <div id="comp-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:2rem 0 3rem"></div>
 
-  <div class="ftabs">
-    <button class="ftab on" onclick="filterComp('all',this)">All landlords</button>
-    <button class="ftab" onclick="filterComp('traditional',this)">Traditional</button>
-    <button class="ftab" onclick="filterComp('luxury',this)">Luxury complexes</button>
-  </div>
-  <div class="comp-wrap">
-    <table><thead><tr>
-      <th>Landlord</th><th>Type</th>
-      <th>Deposit<span style="display:block;font-weight:400;font-size:10px;opacity:.7">Held until move-out</span></th>
-      <th>Auto-renewal<span style="display:block;font-weight:400;font-size:10px;opacity:.7">Does lease renew automatically?</span></th>
-      <th>Entry notice<span style="display:block;font-weight:400;font-size:10px;opacity:.7">How much warning before landlord enters</span></th>
-      <th>Roommate liability<span style="display:block;font-weight:400;font-size:10px;opacity:.7">If roommate skips rent, can landlord charge you the full amount?</span></th>
-      <th>Utilities included</th>
-      <th>Furnished</th><th>Pets</th><th>Rating</th><th>Scans</th>
-    </tr></thead><tbody id="comp-body"></tbody></table>
-  </div>
-  <div class="fn-box">⚠ <strong style="color:var(--text2)">Data accuracy notice.</strong> Terms marked "Verified" are sourced directly from landlord FAQs, official lease samples, or The Lantern/USG reporting. Other terms reflect typical patterns and may vary by unit and year. Always read your specific lease. Sources: NorthSteppe FAQ, Hometeam Properties FAQ, OSU USG Renter's Guide (2018-2024), The Lantern, Birdeye, Columbus city code enforcement records.</div>
+ <div class="ftabs">
+  <button class="ftab on" onclick="filterComp('all',this)">All landlords</button>
+  <button class="ftab" onclick="filterComp('traditional',this)">Traditional</button>
+  <button class="ftab" onclick="filterComp('luxury',this)">Luxury complexes</button>
+ </div>
+ <div class="comp-wrap">
+  <table><thead><tr>
+   <th>Landlord</th><th>Type</th>
+   <th>Deposit<span style="display:block;font-weight:400;font-size:10px;opacity:.7">Held until move-out</span></th>
+   <th>Auto-renewal<span style="display:block;font-weight:400;font-size:10px;opacity:.7">Does lease renew automatically?</span></th>
+   <th>Entry notice<span style="display:block;font-weight:400;font-size:10px;opacity:.7">How much warning before landlord enters</span></th>
+   <th>Roommate liability<span style="display:block;font-weight:400;font-size:10px;opacity:.7">If roommate skips rent, can landlord charge you the full amount?</span></th>
+   <th>Utilities included</th>
+   <th>Furnished</th><th>Pets</th><th>Rating</th><th>Scans</th>
+  </tr></thead><tbody id="comp-body"></tbody></table>
+ </div>
+ <div class="fn-box">⚠ <strong style="color:var(--text2)">Data accuracy notice.</strong> Terms marked "Verified" are sourced directly from landlord FAQs, official lease samples, or The Lantern/USG reporting. Other terms reflect typical patterns and may vary by unit and year. Always read your specific lease. Sources: NorthSteppe FAQ, Hometeam Properties FAQ, OSU USG Renter's Guide (2018-2024), The Lantern, Birdeye, Columbus city code enforcement records.</div>
 </div>
 
 <!-- CHECKLIST -->
 <div class="view" id="view-checklist">
-  <div class="pt">Lease clause checklist</div>
-  <p class="ps">Every clause to find and understand before signing. Know what's normal, what's a red flag, and what's illegal.</p>
-  <div class="cl-cat"><div class="cl-cat-title">💰 Money clauses</div>
-    <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Security deposit amount and conditions</div><div class="cl-desc">Find the exact deposit amount and how deductions are calculated. Any "damage schedule" with preset prices is illegal under ORC 5321.16.</div><span class="cl-normal">Normal: 1-2 months rent, returned within 30 days with itemized list</span><span class="cl-redflag">Red flag: flat-fee damage schedules, no itemization clause</span></div></div>
-    <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Utility estimates and billing method</div><div class="cl-desc">Columbus gas averages $80-120/month in winter for student houses. A $40 estimate is likely misrepresentation — NorthSteppe has been sued for this.</div><span class="cl-normal">Normal: utilities excluded with no estimate, or accurate estimates disclosed</span><span class="cl-redflag">Red flag: artificially low utility estimates in the lease</span></div></div>
-    <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Late fees</div><div class="cl-desc">Ohio doesn't cap late fees but they must be reasonable. Look for the grace period — no grace period is a red flag.</div><span class="cl-normal">Normal: $25-50 after a 3-5 day grace period</span><span class="cl-redflag">Red flag: no grace period, or fees exceeding 10-15% of monthly rent</span></div></div>
-    <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Early termination fee</div><div class="cl-desc">If you break the lease, what do you owe? The landlord must mitigate by trying to re-rent — you only owe for vacant months, not every remaining month.</div><span class="cl-normal">Normal: 1-2 months rent or liability until re-rented</span><span class="cl-redflag">Red flag: 3+ months penalty, or clause waiving landlord's duty to mitigate</span></div></div>
-  </div>
-  <div class="cl-cat"><div class="cl-cat-title">🔄 Renewal and termination</div>
-    <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Automatic renewal clause</div><div class="cl-desc">The most common trap. Does the lease auto-renew for another year unless you give written notice? Mark your calendar immediately.</div><span class="cl-normal">Normal: 30 days notice required, or no auto-renewal</span><span class="cl-redflag">Red flag: 60-90 day notice requirement buried in fine print</span></div></div>
-    <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Lease end date and move-out procedure</div><div class="cl-desc">Is there a specific move-out time (e.g. noon)? Being late can trigger holdover rent charges at 2x the daily rate.</div><span class="cl-normal">Normal: end of day on lease end date</span><span class="cl-redflag">Red flag: noon or earlier with no flexibility, steep holdover fees</span></div></div>
-  </div>
-  <div class="cl-cat"><div class="cl-cat-title">👥 Occupancy and guests</div>
-    <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Joint and several liability</div><div class="cl-desc">On a multi-person lease, all tenants are liable for the full rent. If a roommate doesn't pay, the landlord can come after any of you for the entire amount.</div><span class="cl-normal">Normal: standard in multi-tenant leases — just make sure you trust your roommates</span><span class="cl-redflag">Red flag: no clear allocation of responsibility between tenants</span></div></div>
-    <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Guest policy</div><div class="cl-desc">How long can guests stay before they're unauthorized occupants? Some leases limit guests to 3-7 consecutive nights.</div><span class="cl-normal">Normal: 7-14 consecutive days or 30 days cumulative per year</span><span class="cl-redflag">Red flag: 3 days or fewer, or undefined with landlord discretion</span></div></div>
-    <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Subletting policy</div><div class="cl-desc">Can you sublet if you study abroad or leave for a summer? Most Columbus leases require written landlord approval.</div><span class="cl-normal">Normal: allowed with written approval within 14-30 days</span><span class="cl-redflag">Red flag: entirely prohibited, or no response deadline for approval</span></div></div>
-  </div>
-  <div class="cl-cat"><div class="cl-cat-title">🏠 Property access and maintenance</div>
-    <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Landlord entry notice</div><div class="cl-desc">Ohio law requires minimum 24 hours notice before entry for non-emergencies (ORC 5321.04). Any clause requiring less is unenforceable.</div><span class="cl-normal">Normal: 24 hours written notice, entry during reasonable hours</span><span class="cl-redflag">Red flag: less than 24 hours, or "reasonable notice" without specifying</span></div></div>
-    <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Maintenance responsibility</div><div class="cl-desc">Who handles what repairs? Some landlords shift routine maintenance costs to tenants through lease language.</div><span class="cl-normal">Normal: landlord handles structural, systems, appliances</span><span class="cl-redflag">Red flag: tenant responsible for appliance repairs or HVAC maintenance</span></div></div>
-    <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Move-in inspection procedure</div><div class="cl-desc">Your most important protection against bogus move-out charges. If not in the lease, create your own checklist and email it with photos on day one.</div><span class="cl-normal">Normal: written move-in checklist signed by both parties</span><span class="cl-redflag">Red flag: no move-in inspection mentioned</span></div></div>
-  </div>
-  <div class="cl-cat"><div class="cl-cat-title">⚖️ Illegal clauses — void even if you signed</div>
-    <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Waiver of statutory tenant rights</div><div class="cl-desc">Any clause waiving your rights under Ohio landlord-tenant law is void under ORC 5321.13. You cannot sign away habitability, deposit protection, or entry notice rights.</div><span class="cl-redflag">Always illegal — unenforceable regardless of signature</span></div></div>
-    <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Landlord property seizure</div><div class="cl-desc">Any clause giving the landlord the right to take your belongings for unpaid rent is illegal in Ohio.</div><span class="cl-redflag">Always illegal under ORC 5321.13</span></div></div>
-    <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Utility shutoff as eviction tool</div><div class="cl-desc">Any clause allowing the landlord to cut off gas, electric, or water as a means of forcing you out is illegal under ORC 5321.15. Only a court order can authorize eviction.</div><span class="cl-redflag">Always illegal — call Columbus police at 614-645-4545 if this happens</span></div></div>
-  </div>
-  <div class="cl-cat"><div class="cl-cat-title">📋 Verified landlord-specific red flags</div>
-    <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">NorthSteppe: Jury trial waiver (§14)</div><div class="cl-desc">NorthSteppe leases require arbitration and waive jury trial rights. You pay half the arbitration cost. This is legal but heavily landlord-favorable — courts have found similar clauses questionable.</div><span class="cl-redflag">Verified from NorthSteppe sample lease (Ver. 2023)</span></div></div>
-    <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Buckeye: Guarantor waives ORC 5321 rights</div><div class="cl-desc">Buckeye's guarantor clause states the guarantor "waives any notice required by ORC 5321." Waiving statutory notice rights is legally questionable and parents signing as guarantors should know this.</div><span class="cl-redflag">Verified from Buckeye Real Estate sample lease (§6.2)</span></div></div>
-    <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Inn Town: All rent returned if any roommate NSFs</div><div class="cl-desc">Inn Town's payment policy returns ALL partial rent received if any roommate has insufficient funds — then proceeds with eviction. One roommate's bank problem can trigger the whole group's eviction.</div><span class="cl-warn">Verified from Inn Town Homes sample lease (§1.2)</span></div></div>
-    <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">OSU Properties: $350/month rent increase for any pet</div><div class="cl-desc">OSU Properties has zero pet tolerance. If any pet or animal is discovered on premises — even a visiting pet for one day — rent increases by $350/month for the remainder of the lease including the current month.</div><span class="cl-warn">Verified from OSU Properties sample lease (§19.1)</span></div></div>
-    <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Move-out deadline is NOON — not midnight</div><div class="cl-desc">NorthSteppe, Kohr, and Buckeye leases end at noon (12:00 PM) on the final day, not midnight. Being in the unit after noon triggers holdover penalties. Plan move-out accordingly.</div><span class="cl-warn">Verified from NorthSteppe and Buckeye sample leases</span></div></div>
-  </div>
+ <div class="pt">Lease clause checklist</div>
+ <p class="ps">Every clause to find and understand before signing. Know what's normal, what's a red flag, and what's illegal.</p>
+ <div class="cl-cat"><div class="cl-cat-title">💰 Money clauses</div>
+  <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Security deposit amount and conditions</div><div class="cl-desc">Find the exact deposit amount and how deductions are calculated. Any "damage schedule" with preset prices is illegal under ORC 5321.16.</div><span class="cl-normal">Normal: 1-2 months rent, returned within 30 days with itemized list</span><span class="cl-redflag">Red flag: flat-fee damage schedules, no itemization clause</span></div></div>
+  <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Utility estimates and billing method</div><div class="cl-desc">Columbus gas averages $80-120/month in winter for student houses. A $40 estimate is likely misrepresentation. NorthSteppe has been sued for this.</div><span class="cl-normal">Normal: utilities excluded with no estimate, or accurate estimates disclosed</span><span class="cl-redflag">Red flag: artificially low utility estimates in the lease</span></div></div>
+  <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Late fees</div><div class="cl-desc">Ohio doesn't cap late fees but they must be reasonable. Look for the grace period, no grace period is a red flag.</div><span class="cl-normal">Normal: $25-50 after a 3-5 day grace period</span><span class="cl-redflag">Red flag: no grace period, or fees exceeding 10-15% of monthly rent</span></div></div>
+  <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Early termination fee</div><div class="cl-desc">If you break the lease, what do you owe? The landlord must mitigate by trying to re-rent, you only owe for vacant months, not every remaining month.</div><span class="cl-normal">Normal: 1-2 months rent or liability until re-rented</span><span class="cl-redflag">Red flag: 3+ months penalty, or clause waiving landlord's duty to mitigate</span></div></div>
+ </div>
+ <div class="cl-cat"><div class="cl-cat-title">🔄 Renewal and termination</div>
+  <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Automatic renewal clause</div><div class="cl-desc">The most common trap. Does the lease auto-renew for another year unless you give written notice? Mark your calendar immediately.</div><span class="cl-normal">Normal: 30 days notice required, or no auto-renewal</span><span class="cl-redflag">Red flag: 60-90 day notice requirement buried in fine print</span></div></div>
+  <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Lease end date and move-out procedure</div><div class="cl-desc">Is there a specific move-out time (e.g. noon)? Being late can trigger holdover rent charges at 2x the daily rate.</div><span class="cl-normal">Normal: end of day on lease end date</span><span class="cl-redflag">Red flag: noon or earlier with no flexibility, steep holdover fees</span></div></div>
+ </div>
+ <div class="cl-cat"><div class="cl-cat-title">👥 Occupancy and guests</div>
+  <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Joint and several liability</div><div class="cl-desc">On a multi-person lease, all tenants are liable for the full rent. If a roommate doesn't pay, the landlord can come after any of you for the entire amount.</div><span class="cl-normal">Normal: standard in multi-tenant leases, just make sure you trust your roommates</span><span class="cl-redflag">Red flag: no clear allocation of responsibility between tenants</span></div></div>
+  <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Guest policy</div><div class="cl-desc">How long can guests stay before they're unauthorized occupants? Some leases limit guests to 3-7 consecutive nights.</div><span class="cl-normal">Normal: 7-14 consecutive days or 30 days cumulative per year</span><span class="cl-redflag">Red flag: 3 days or fewer, or undefined with landlord discretion</span></div></div>
+  <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Subletting policy</div><div class="cl-desc">Can you sublet if you study abroad or leave for a summer? Most Columbus leases require written landlord approval.</div><span class="cl-normal">Normal: allowed with written approval within 14-30 days</span><span class="cl-redflag">Red flag: entirely prohibited, or no response deadline for approval</span></div></div>
+ </div>
+ <div class="cl-cat"><div class="cl-cat-title">🏠 Property access and maintenance</div>
+  <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Landlord entry notice</div><div class="cl-desc">Ohio law requires minimum 24 hours notice before entry for non-emergencies (ORC 5321.04). Any clause requiring less is unenforceable.</div><span class="cl-normal">Normal: 24 hours written notice, entry during reasonable hours</span><span class="cl-redflag">Red flag: less than 24 hours, or "reasonable notice" without specifying</span></div></div>
+  <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Maintenance responsibility</div><div class="cl-desc">Who handles what repairs? Some landlords shift routine maintenance costs to tenants through lease language.</div><span class="cl-normal">Normal: landlord handles structural, systems, appliances</span><span class="cl-redflag">Red flag: tenant responsible for appliance repairs or HVAC maintenance</span></div></div>
+  <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Move-in inspection procedure</div><div class="cl-desc">Your most important protection against bogus move-out charges. If not in the lease, create your own checklist and email it with photos on day one.</div><span class="cl-normal">Normal: written move-in checklist signed by both parties</span><span class="cl-redflag">Red flag: no move-in inspection mentioned</span></div></div>
+ </div>
+ <div class="cl-cat"><div class="cl-cat-title">⚖️ Illegal clauses, void even if you signed</div>
+  <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Waiver of statutory tenant rights</div><div class="cl-desc">Any clause waiving your rights under Ohio landlord-tenant law is void under ORC 5321.13. You cannot sign away habitability, deposit protection, or entry notice rights.</div><span class="cl-redflag">Always illegal, unenforceable regardless of signature</span></div></div>
+  <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Landlord property seizure</div><div class="cl-desc">Any clause giving the landlord the right to take your belongings for unpaid rent is illegal in Ohio.</div><span class="cl-redflag">Always illegal under ORC 5321.13</span></div></div>
+  <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Utility shutoff as eviction tool</div><div class="cl-desc">Any clause allowing the landlord to cut off gas, electric, or water as a means of forcing you out is illegal under ORC 5321.15. Only a court order can authorize eviction.</div><span class="cl-redflag">Always illegal, call Columbus police at 614-645-4545 if this happens</span></div></div>
+ </div>
+ <div class="cl-cat"><div class="cl-cat-title">📋 Verified landlord-specific red flags</div>
+  <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">NorthSteppe: Jury trial waiver (§14)</div><div class="cl-desc">NorthSteppe leases require arbitration and waive jury trial rights. You pay half the arbitration cost. This is legal but heavily landlord-favorable. Courts have found similar clauses questionable.</div><span class="cl-redflag">Verified from NorthSteppe sample lease (Ver. 2023)</span></div></div>
+  <div class="cl-item"><div class="cl-icon danger">!</div><div><div class="cl-title">Buckeye: Guarantor waives ORC 5321 rights</div><div class="cl-desc">Buckeye's guarantor clause states the guarantor "waives any notice required by ORC 5321." Waiving statutory notice rights is legally questionable and parents signing as guarantors should know this.</div><span class="cl-redflag">Verified from Buckeye Real Estate sample lease (§6.2)</span></div></div>
+  <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Inn Town: All rent returned if any roommate NSFs</div><div class="cl-desc">Inn Town's payment policy returns ALL partial rent received if any roommate has insufficient funds, and then proceeds with eviction. One roommate's bank problem can trigger the whole group's eviction.</div><span class="cl-warn">Verified from Inn Town Homes sample lease (§1.2)</span></div></div>
+  <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">OSU Properties: $350/month rent increase for any pet</div><div class="cl-desc">OSU Properties has zero pet tolerance. If any pet or animal is discovered on premises, even a visiting pet for one day, rent increases by $350/month for the remainder of the lease including the current month.</div><span class="cl-warn">Verified from OSU Properties sample lease (§19.1)</span></div></div>
+  <div class="cl-item"><div class="cl-icon warn">!</div><div><div class="cl-title">Move-out deadline is NOON, not midnight</div><div class="cl-desc">NorthSteppe, Kohr, and Buckeye leases end at noon (12:00 PM) on the final day, not midnight. Being in the unit after noon triggers holdover penalties. Plan move-out accordingly.</div><span class="cl-warn">Verified from NorthSteppe and Buckeye sample leases</span></div></div>
+ </div>
 </div>
 
 <!-- OHIO RIGHTS -->
 <div class="view" id="view-rights">
-  <div class="pt">Your Ohio tenant rights</div>
-  <p class="ps">Complete coverage of the Ohio Landlord-Tenant Act (ORC Chapter 5321) in plain English.</p>
-  <div class="rc"><div class="rc-title">Security deposits <span class="orc">ORC 5321.16</span></div>
-    <div class="rrow"><div><strong>30-day return deadline.</strong> Landlord must return your deposit within 30 days after the lease ends, along with a written itemized list of any deductions. Miss this deadline and you can sue for double the withheld amount plus attorney fees — but only if you gave a written forwarding address.</div></div>
-    <div class="rrow"><div><strong>Written itemized deductions required.</strong> Every deduction must be explained in writing with actual costs. A vague or flat-fee damage schedule is illegal.</div></div>
-    <div class="rrow"><div><strong>Normal wear and tear is protected.</strong> Landlord cannot charge for ordinary deterioration — only actual damage beyond normal use.</div></div>
-    <div class="rrow"><div><strong>Interest on large deposits.</strong> If your deposit exceeds the greater of $50 or one month's rent, the landlord owes 5% annual interest on the excess portion after 6 months. If your deposit is equal to or less than one month's rent, no interest is owed regardless of amount.</div></div>
-    <div class="rrow"><div><strong>Flat-fee damage schedules are illegal.</strong> Deductions must reflect actual documented repair costs, not preset amounts.</div></div>
-  </div>
-  <div class="rc"><div class="rc-title">Landlord entry <span class="orc">ORC 5321.04</span></div>
-    <div class="rrow"><div><strong>24-hour advance notice required.</strong> Except genuine emergencies, landlord must give at least 24 hours notice and enter only at reasonable times. Any lease clause permitting less than 24 hours is unenforceable.</div></div>
-    <div class="rrow"><div><strong>Maintenance requests = entry authorization.</strong> If you submit a maintenance request, that counts as permission for the landlord to enter and make repairs — no separate notice needed.</div></div>
-  </div>
-  <div class="rc"><div class="rc-title">Habitability <span class="orc">ORC 5321.04</span></div>
-    <div class="rrow"><div><strong>Landlord must maintain a habitable unit.</strong> Required: working heat, plumbing, electrical systems, structural integrity, hot water, and common area safety.</div></div>
-    <div class="rrow"><div><strong>Utility shutoff during tenancy is illegal.</strong> Landlord cannot cut off gas, electric, or water as a means of eviction or retaliation while you have the right of occupancy.</div></div>
-    <div class="rrow"><div><strong>Rent escrow remedy.</strong> If landlord fails to fix a serious habitability issue within 30 days of written notice, you may deposit rent with the court clerk under ORC 5321.07 instead of paying the landlord directly.</div></div>
-    <div class="rrow"><div><strong>Landlord responsible for structural repairs.</strong> Clauses shifting window, door, or structural repair costs to tenants "regardless of cause" likely violate ORC 5321.04.</div></div>
-  </div>
-  <div class="rc"><div class="rc-title">Prohibited lease terms <span class="orc">ORC 5321.13</span></div>
-    <div class="rrow"><div><strong>These clauses are void even if you signed.</strong> A lease cannot: (1) exempt the landlord from their own negligence; (2) authorize the landlord to seize your property; (3) require you to pay the landlord's attorney fees; (4) waive your rights under ORC 5321. Note: clauses limiting landlord liability for third-party acts or events beyond their control are permitted — only the landlord's own negligence cannot be waived.</div></div>
-  </div>
-  <div class="rc"><div class="rc-title">Eviction protections <span class="orc">ORC 5321.15</span></div>
-    <div class="rrow"><div><strong>Self-help eviction is illegal.</strong> Landlord cannot change locks, remove doors, cut utilities, or remove your belongings without a court order — even after a court grants eviction, only a bailiff can remove you. Columbus police: 614-645-4545.</div></div>
-    <div class="rrow"><div><strong>3-day written notice required before filing for eviction.</strong> For nonpayment of rent, landlord must serve a written 3-day notice before going to court.</div></div>
-  </div>
-  <div class="rc"><div class="rc-title">Retaliation protection <span class="orc">ORC 5321.02</span></div>
-    <div class="rrow"><div><strong>Landlord cannot retaliate for complaints.</strong> If you complain to a government agency about code violations, complain to your landlord about ORC 5321.04 violations, or organize with other tenants — landlord cannot raise rent, reduce services, or threaten eviction. Adverse action within 90 days of a protected complaint is legally presumed retaliatory.</div></div>
-  </div>
-  <div class="rc"><div class="rc-title">Lease termination <span class="orc">ORC 5321.17</span></div>
-    <div class="rrow"><div><strong>Month-to-month: 30-day written notice required</strong> from either party to terminate. Week-to-week requires 7-day notice. Fixed-term leases end at their stated date unless renewed.</div></div>
-    <div class="rrow"><div><strong>Landlord must mitigate damages.</strong> If you break a fixed-term lease, landlord must make reasonable efforts to re-rent. You only owe rent for months the unit sits vacant, not every remaining month automatically.</div></div>
-    <div class="rrow"><div><strong>Auto-renewal must be clearly disclosed.</strong> Check your lease for renewal notice deadlines — missing them can lock you into another full year.</div></div>
-  </div>
-  <div class="fn-box"><strong style="color:var(--text2);display:block;margin-bottom:6px">Get help</strong>
-    OSU Student Legal Services: student-legal.osu.edu · (614) 247-5853<br>
-    Ohio Legal Help: ohiolegalhelp.org · Columbus Tenant Hotline: (614) 645-6966<br>
-    Community Legal Aid: clslaw.org · Full ORC: codes.ohio.gov/ohio-revised-code/chapter-5321
-  </div>
+ <div class="pt">Your Ohio tenant rights</div>
+ <p class="ps">Complete coverage of the Ohio Landlord-Tenant Act (ORC Chapter 5321) in plain English.</p>
+ <div class="rc"><div class="rc-title">Security deposits <span class="orc">ORC 5321.16</span></div>
+  <div class="rrow"><div><strong>30-day return deadline.</strong> Landlord must return your deposit within 30 days after the lease ends, along with a written itemized list of any deductions. Miss this deadline and you can sue for double the withheld amount plus attorney fees, but only if you gave a written forwarding address.</div></div>
+  <div class="rrow"><div><strong>Written itemized deductions required.</strong> Every deduction must be explained in writing with actual costs. A vague or flat-fee damage schedule is illegal.</div></div>
+  <div class="rrow"><div><strong>Normal wear and tear is protected.</strong> Landlord cannot charge for ordinary deterioration, only actual damage beyond normal use.</div></div>
+  <div class="rrow"><div><strong>Interest on large deposits.</strong> If your deposit exceeds the greater of $50 or one month's rent, the landlord owes 5% annual interest on the excess portion after 6 months. If your deposit is equal to or less than one month's rent, no interest is owed regardless of amount.</div></div>
+  <div class="rrow"><div><strong>Flat-fee damage schedules are illegal.</strong> Deductions must reflect actual documented repair costs, not preset amounts.</div></div>
+ </div>
+ <div class="rc"><div class="rc-title">Landlord entry <span class="orc">ORC 5321.04</span></div>
+  <div class="rrow"><div><strong>24-hour advance notice required.</strong> Except genuine emergencies, landlord must give at least 24 hours notice and enter only at reasonable times. Any lease clause permitting less than 24 hours is unenforceable.</div></div>
+  <div class="rrow"><div><strong>Maintenance requests = entry authorization.</strong> If you submit a maintenance request, that counts as permission for the landlord to enter and make repairs, no separate notice needed.</div></div>
+ </div>
+ <div class="rc"><div class="rc-title">Habitability <span class="orc">ORC 5321.04</span></div>
+  <div class="rrow"><div><strong>Landlord must maintain a habitable unit.</strong> Required: working heat, plumbing, electrical systems, structural integrity, hot water, and common area safety.</div></div>
+  <div class="rrow"><div><strong>Utility shutoff during tenancy is illegal.</strong> Landlord cannot cut off gas, electric, or water as a means of eviction or retaliation while you have the right of occupancy.</div></div>
+  <div class="rrow"><div><strong>Rent escrow remedy.</strong> If landlord fails to fix a serious habitability issue within 30 days of written notice, you may deposit rent with the court clerk under ORC 5321.07 instead of paying the landlord directly.</div></div>
+  <div class="rrow"><div><strong>Landlord responsible for structural repairs.</strong> Clauses shifting window, door, or structural repair costs to tenants "regardless of cause" likely violate ORC 5321.04.</div></div>
+ </div>
+ <div class="rc"><div class="rc-title">Prohibited lease terms <span class="orc">ORC 5321.13</span></div>
+  <div class="rrow"><div><strong>These clauses are void even if you signed.</strong> A lease cannot: (1) exempt the landlord from their own negligence; (2) authorize the landlord to seize your property; (3) require you to pay the landlord's attorney fees; (4) waive your rights under ORC 5321. Note: clauses limiting landlord liability for third-party acts or events beyond their control are permitted, only the landlord's own negligence cannot be waived.</div></div>
+ </div>
+ <div class="rc"><div class="rc-title">Eviction protections <span class="orc">ORC 5321.15</span></div>
+  <div class="rrow"><div><strong>Self-help eviction is illegal.</strong> Landlord cannot change locks, remove doors, cut utilities, or remove your belongings without a court order, even after a court grants eviction, only a bailiff can remove you. Columbus police: 614-645-4545.</div></div>
+  <div class="rrow"><div><strong>3-day written notice required before filing for eviction.</strong> For nonpayment of rent, landlord must serve a written 3-day notice before going to court.</div></div>
+ </div>
+ <div class="rc"><div class="rc-title">Retaliation protection <span class="orc">ORC 5321.02</span></div>
+  <div class="rrow"><div><strong>Landlord cannot retaliate for complaints.</strong> If you complain to a government agency about code violations, complain to your landlord about ORC 5321.04 violations, or organize with other tenants, landlord cannot raise rent, reduce services, or threaten eviction. Adverse action within 90 days of a protected complaint is legally presumed retaliatory.</div></div>
+ </div>
+ <div class="rc"><div class="rc-title">Lease termination <span class="orc">ORC 5321.17</span></div>
+  <div class="rrow"><div><strong>Month-to-month: 30-day written notice required</strong> from either party to terminate. Week-to-week requires 7-day notice. Fixed-term leases end at their stated date unless renewed.</div></div>
+  <div class="rrow"><div><strong>Landlord must mitigate damages.</strong> If you break a fixed-term lease, landlord must make reasonable efforts to re-rent. You only owe rent for months the unit sits vacant, not every remaining month automatically.</div></div>
+  <div class="rrow"><div><strong>Auto-renewal must be clearly disclosed.</strong> Check your lease for renewal notice deadlines, missing them can lock you into another full year.</div></div>
+ </div>
+ <div class="fn-box"><strong style="color:var(--text2);display:block;margin-bottom:6px">Get help</strong>
+  OSU Student Legal Services: student-legal.osu.edu · (614) 247-5853<br>
+  Ohio Legal Help: ohiolegalhelp.org · Columbus Tenant Hotline: (614) 645-6966<br>
+  Community Legal Aid: clslaw.org · Full ORC: codes.ohio.gov/ohio-revised-code/chapter-5321
+ </div>
 </div>
 
 <!-- DEV TAB -->
 <div class="view" id="view-dev">
-  <!-- LOCKED STATE -->
-  <div id="dev-locked" class="dev-locked">
-    <h2>Developer panel</h2>
-    <p>Admin access only. Enter the password to continue.</p>
-    <div class="pw-wrap">
-      <input type="password" id="dev-pw" placeholder="Password..." onkeydown="if(event.key==='Enter')devLogin()"/>
-      <button class="btn btn-d btn-full" style="margin-top:8px" onclick="devLogin()">Unlock →</button>
-      <p id="dev-pw-err" class="err" style="display:none;margin-top:8px">Incorrect password.</p>
-    </div>
+ <!-- LOCKED STATE -->
+ <div id="dev-locked" class="dev-locked">
+  <h2>Developer panel</h2>
+  <p>Admin access only. Enter the password to continue.</p>
+  <div class="pw-wrap">
+   <input type="password" id="dev-pw" placeholder="Password..." onkeydown="if(event.key==='Enter')devLogin()"/>
+   <button class="btn btn-d btn-full" style="margin-top:8px" onclick="devLogin()">Unlock →</button>
+   <p id="dev-pw-err" class="err" style="display:none;margin-top:8px">Incorrect password.</p>
   </div>
-  <!-- UNLOCKED STATE -->
-  <div id="dev-panel" style="display:none">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:10px">
-      <div><div class="pt" style="margin-bottom:0">Developer panel</div><p style="font-size:13px;color:var(--text2)">Manage landlord data and review lease submissions</p></div>
-      <button class="btn btn-s btn-sm" onclick="devLogout()">Lock panel</button>
-    </div>
-
-    <!-- LEASE SUBMISSIONS -->
-    <div class="dev-section">
-      <div class="dev-section-title">
-        <span>Lease submissions <span class="scan-badge" id="total-scans-badge">0 total</span></span>
-        <div style="display:flex;gap:8px">
-          <button class="btn btn-s btn-sm" onclick="exportData()">Export JSON</button>
-          <button class="btn btn-r btn-sm" onclick="clearAllScans()">Clear all</button>
-        </div>
-      </div>
-      <div class="sub-row" id="sub-summary"></div>
-      <div id="sub-detail-wrap"></div>
-    </div>
-
-    <!-- ADD NEW LANDLORD -->
-    <div class="dev-section">
-      <div class="dev-section-title">Add new landlord</div>
-      <div class="form-row">
-        <div><label class="flabel">Landlord ID (no spaces)</label><input type="text" id="new-id" placeholder="e.g. hometeam"/></div>
-        <div><label class="flabel">Display name</label><input type="text" id="new-name" placeholder="HomeTeam Properties"/></div>
-      </div>
-      <div class="form-row">
-        <div><label class="flabel">Type</label>
-          <select id="new-type"><option value="traditional">Traditional</option><option value="luxury">Luxury complex</option></select>
-        </div>
-        <div><label class="flabel">Price range</label><input type="text" id="new-price" placeholder="$650-950/bed/mo"/></div>
-      </div>
-      <div class="form-row">
-        <div><label class="flabel">Units / description</label><input type="text" id="new-units" placeholder="Properties near OSU campus"/></div>
-        <div><label class="flabel">Overall rating (1-5)</label><input type="text" id="new-overall" placeholder="3.5"/></div>
-      </div>
-      <div class="form-row">
-        <div><label class="flabel">Deposit rating (1-5)</label><input type="text" id="new-dep" placeholder="3.5"/></div>
-        <div><label class="flabel">Maintenance rating (1-5)</label><input type="text" id="new-maint" placeholder="3.5"/></div>
-      </div>
-      <div class="form-row">
-        <div><label class="flabel">Move-out rating (1-5)</label><input type="text" id="new-mo" placeholder="3.5"/></div>
-        <div><label class="flabel">Communication rating (1-5)</label><input type="text" id="new-comm" placeholder="3.5"/></div>
-      </div>
-      <label class="flabel">Known red flag patterns (one per line)</label>
-      <textarea id="new-flags" placeholder="Automatic renewal clauses&#10;Flat-fee damage schedules&#10;Joint & several liability"></textarea>
-      <label class="flabel">What to watch for (one per line)</label>
-      <textarea id="new-watch" placeholder="Document unit condition at move-in&#10;Compare utility estimates to market rates"></textarea>
-      <label class="flabel">Legal history</label>
-      <textarea id="new-legal" placeholder="No significant legal history."></textarea>
-      <label class="flabel">USG / community notes</label>
-      <textarea id="new-usg" placeholder="Mid-range in USG survey ratings."></textarea>
-      <div style="margin-top:8px">
-        <button class="btn btn-d btn-full" onclick="addLandlord()">Add landlord to database</button>
-      </div>
-      <div id="add-success" class="success-msg" style="display:none;margin-top:8px">Landlord added successfully.</div>
-    </div>
-
-    <!-- EDIT EXISTING LANDLORD PATTERNS -->
-    <div class="dev-section">
-      <div class="dev-section-title">Add patterns to existing landlord</div>
-      <div class="form-row">
-        <div><label class="flabel">Select landlord</label>
-          <select id="edit-landlord-sel" onchange="loadEditPatterns()"></select>
-        </div>
-        <div><label class="flabel">New red flag to add</label><input type="text" id="edit-new-flag" placeholder="e.g. Mold complaints documented"/></div>
-      </div>
-      <div class="form-row">
-        <div><label class="flabel">New watch item to add</label><input type="text" id="edit-new-watch" placeholder="e.g. Check for black mold in basement"/></div>
-        <div><label class="flabel">Update legal notes (appends)</label><input type="text" id="edit-legal" placeholder="Additional legal note..."/></div>
-      </div>
-      <label class="flabel">Add lease pattern notes (from reading a lease)</label>
-      <textarea id="edit-notes" placeholder="e.g. Lease reviewed Jan 2025 — includes 60-day auto-renewal clause in section 12, flat damage schedule in exhibit B..."></textarea>
-      <button class="btn btn-d btn-sm btn-full" style="margin-top:8px" onclick="saveEditPatterns()">Save changes</button>
-      <div id="edit-success" class="success-msg" style="display:none;margin-top:8px">Changes saved.</div>
-    </div>
-
-    <!-- SYSTEM PROMPT EDITOR -->
-    <div class="dev-section">
-      <div class="dev-section-title">AI system prompt preview</div>
-      <p style="font-size:13px;color:var(--text2);margin-bottom:.75rem">This is what gets sent to Claude with every lease analysis. Automatically includes all landlords in the database.</p>
-      <textarea id="prompt-preview" style="min-height:200px;font-size:11px" readonly></textarea>
-    </div>
+ </div>
+ <!-- UNLOCKED STATE -->
+ <div id="dev-panel" style="display:none">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:10px">
+   <div><div class="pt" style="margin-bottom:0">Developer panel</div><p style="font-size:13px;color:var(--text2)">Manage landlord data and review lease submissions</p></div>
+   <button class="btn btn-s btn-sm" onclick="devLogout()">Lock panel</button>
   </div>
+
+  <!-- LEASE SUBMISSIONS -->
+  <div class="dev-section">
+   <div class="dev-section-title">
+    <span>Lease submissions <span class="scan-badge" id="total-scans-badge">0 total</span></span>
+    <div style="display:flex;gap:8px">
+     <button class="btn btn-s btn-sm" onclick="exportData()">Export JSON</button>
+     <button class="btn btn-r btn-sm" onclick="clearAllScans()">Clear all</button>
+    </div>
+   </div>
+   <div class="sub-row" id="sub-summary"></div>
+   <div id="sub-detail-wrap"></div>
+  </div>
+
+  <!-- ADD NEW LANDLORD -->
+  <div class="dev-section">
+   <div class="dev-section-title">Add new landlord</div>
+   <div class="form-row">
+    <div><label class="flabel">Landlord ID (no spaces)</label><input type="text" id="new-id" placeholder="e.g. hometeam"/></div>
+    <div><label class="flabel">Display name</label><input type="text" id="new-name" placeholder="HomeTeam Properties"/></div>
+   </div>
+   <div class="form-row">
+    <div><label class="flabel">Type</label>
+     <select id="new-type"><option value="traditional">Traditional</option><option value="luxury">Luxury complex</option></select>
+    </div>
+    <div><label class="flabel">Price range</label><input type="text" id="new-price" placeholder="$650-950/bed/mo"/></div>
+   </div>
+   <div class="form-row">
+    <div><label class="flabel">Units / description</label><input type="text" id="new-units" placeholder="Properties near OSU campus"/></div>
+    <div><label class="flabel">Overall rating (1-5)</label><input type="text" id="new-overall" placeholder="3.5"/></div>
+   </div>
+   <div class="form-row">
+    <div><label class="flabel">Deposit rating (1-5)</label><input type="text" id="new-dep" placeholder="3.5"/></div>
+    <div><label class="flabel">Maintenance rating (1-5)</label><input type="text" id="new-maint" placeholder="3.5"/></div>
+   </div>
+   <div class="form-row">
+    <div><label class="flabel">Move-out rating (1-5)</label><input type="text" id="new-mo" placeholder="3.5"/></div>
+    <div><label class="flabel">Communication rating (1-5)</label><input type="text" id="new-comm" placeholder="3.5"/></div>
+   </div>
+   <label class="flabel">Known red flag patterns (one per line)</label>
+   <textarea id="new-flags" placeholder="Automatic renewal clauses&#10;Flat-fee damage schedules&#10;Joint & several liability"></textarea>
+   <label class="flabel">What to watch for (one per line)</label>
+   <textarea id="new-watch" placeholder="Document unit condition at move-in&#10;Compare utility estimates to market rates"></textarea>
+   <label class="flabel">Legal history</label>
+   <textarea id="new-legal" placeholder="No significant legal history."></textarea>
+   <label class="flabel">USG / community notes</label>
+   <textarea id="new-usg" placeholder="Mid-range in USG survey ratings."></textarea>
+   <div style="margin-top:8px">
+    <button class="btn btn-d btn-full" onclick="addLandlord()">Add landlord to database</button>
+   </div>
+   <div id="add-success" class="success-msg" style="display:none;margin-top:8px">Landlord added successfully.</div>
+  </div>
+
+  <!-- EDIT EXISTING LANDLORD PATTERNS -->
+  <div class="dev-section">
+   <div class="dev-section-title">Add patterns to existing landlord</div>
+   <div class="form-row">
+    <div><label class="flabel">Select landlord</label>
+     <select id="edit-landlord-sel" onchange="loadEditPatterns()"></select>
+    </div>
+    <div><label class="flabel">New red flag to add</label><input type="text" id="edit-new-flag" placeholder="e.g. Mold complaints documented"/></div>
+   </div>
+   <div class="form-row">
+    <div><label class="flabel">New watch item to add</label><input type="text" id="edit-new-watch" placeholder="e.g. Check for black mold in basement"/></div>
+    <div><label class="flabel">Update legal notes (appends)</label><input type="text" id="edit-legal" placeholder="Additional legal note..."/></div>
+   </div>
+   <label class="flabel">Add lease pattern notes (from reading a lease)</label>
+   <textarea id="edit-notes" placeholder="e.g. Lease reviewed Jan 2025, includes 60-day auto-renewal clause in section 12, flat damage schedule in exhibit B..."></textarea>
+   <button class="btn btn-d btn-sm btn-full" style="margin-top:8px" onclick="saveEditPatterns()">Save changes</button>
+   <div id="edit-success" class="success-msg" style="display:none;margin-top:8px">Changes saved.</div>
+  </div>
+
+  <!-- SYSTEM PROMPT EDITOR -->
+  <div class="dev-section">
+   <div class="dev-section-title">AI system prompt preview</div>
+   <p style="font-size:13px;color:var(--text2);margin-bottom:.75rem">This is what gets sent to Claude with every lease analysis. Automatically includes all landlords in the database.</p>
+   <textarea id="prompt-preview" style="min-height:200px;font-size:11px" readonly></textarea>
+  </div>
+ </div>
 </div>
 
 
 <!-- SUBMIT MOVE-OUT EXPERIENCE -->
 <div class="view" id="view-submit">
-  <div class="submit-wrap">
-    <div class="submit-eyebrow">Submit your move-out experience</div>
-    <h1 class="submit-h1">What actually happened?</h1>
-    <p class="submit-lede">Your move-out experience is data nobody else has. Did your deposit come back in 30 days? What was deducted? Was it justified? Six anonymous questions. The next student signing with your landlord will know what to expect.</p>
+ <div class="submit-wrap">
+  <div class="submit-eyebrow">Submit your move-out experience</div>
+  <h1 class="submit-h1">What actually happened?</h1>
+  <p class="submit-lede">Your move-out experience is information no other student has access to. Did your deposit come back in 30 days? What got deducted? Was it justified? Six anonymous questions. The next student signing with your landlord will know what to expect.</p>
 
-    <div id="submit-form">
-      <div class="q-block">
-        <div class="q-num">01</div>
-        <div class="q-text">Which landlord?</div>
-        <div class="q-help">Select the property management company on your lease.</div>
-        <select id="sub-landlord" style="width:100%"></select>
-      </div>
+  <div id="submit-form">
+   <div class="q-block">
+    <div class="q-num">01</div>
+    <div class="q-text">Which landlord?</div>
+    <div class="q-help">Select the property management company on your lease.</div>
+    <select id="sub-landlord" style="width:100%"></select>
+   </div>
 
-      <div class="q-block">
-        <div class="q-num">02</div>
-        <div class="q-text">Was your security deposit returned within 30 days?</div>
-        <div class="q-help">Ohio law (ORC 5321.16) requires return within 30 days of lease end with itemized deductions.</div>
-        <div class="q-options" data-q="deposit-returned">
-          <button class="q-opt" data-v="yes-full">Yes, in full</button>
-          <button class="q-opt" data-v="yes-partial">Yes, but with deductions</button>
-          <button class="q-opt" data-v="late">Returned late (after 30 days)</button>
-          <button class="q-opt" data-v="never">Never returned</button>
-          <button class="q-opt" data-v="pending">Still waiting</button>
-        </div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-num">03</div>
-        <div class="q-text">If deductions were taken, how much?</div>
-        <div class="q-help">Approximate range. Skip if no deductions.</div>
-        <div class="q-options" data-q="deduction-range">
-          <button class="q-opt" data-v="under-100">Under $100</button>
-          <button class="q-opt" data-v="100-300">$100–$300</button>
-          <button class="q-opt" data-v="300-700">$300–$700</button>
-          <button class="q-opt" data-v="700-plus">Over $700</button>
-          <button class="q-opt" data-v="full">Full deposit kept</button>
-        </div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-num">04</div>
-        <div class="q-text">Were the deductions itemized in writing?</div>
-        <div class="q-help">Ohio law requires written itemization of every deduction. Vague or flat-fee charges may be illegal.</div>
-        <div class="q-options" data-q="itemized">
-          <button class="q-opt" data-v="yes">Yes, clearly itemized</button>
-          <button class="q-opt" data-v="vague">Vague — flat fees, no detail</button>
-          <button class="q-opt" data-v="no">No itemization at all</button>
-          <button class="q-opt" data-v="na">N/A — no deductions</button>
-        </div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-num">05</div>
-        <div class="q-text">Did you dispute any deductions? What happened?</div>
-        <div class="q-options" data-q="dispute">
-          <button class="q-opt" data-v="no-dispute">Did not dispute</button>
-          <button class="q-opt" data-v="dispute-won">Disputed and got money back</button>
-          <button class="q-opt" data-v="dispute-partial">Disputed and got partial refund</button>
-          <button class="q-opt" data-v="dispute-lost">Disputed and they refused</button>
-          <button class="q-opt" data-v="court">Took it to small claims</button>
-        </div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-num">06</div>
-        <div class="q-text">Anything else worth knowing?</div>
-        <div class="q-help">Optional. Specific incidents, things you wish you'd known, or what you'd tell the next tenant. Kept anonymous.</div>
-        <textarea id="sub-notes" placeholder="Examples: charged $150 for carpet that was already stained when I moved in; landlord entered without notice three times; deposit returned in 12 days, no issues..." style="min-height:100px;font-family:var(--sans);font-size:14px"></textarea>
-      </div>
-
-      <div style="display:flex;gap:10px;align-items:center;margin-top:1.5rem;flex-wrap:wrap">
-        <button class="btn btn-p" onclick="submitExperience()" style="font-size:15px;padding:12px 24px">Submit anonymously</button>
-        <span style="font-size:12px;color:var(--text3)">No account · No email · Stored locally and aggregated into landlord profiles</span>
-      </div>
+   <div class="q-block">
+    <div class="q-num">02</div>
+    <div class="q-text">Was your security deposit returned within 30 days?</div>
+    <div class="q-help">Ohio law (ORC 5321.16) requires return within 30 days of lease end with itemized deductions.</div>
+    <div class="q-options" data-q="deposit-returned">
+     <button class="q-opt" data-v="yes-full">Yes, in full</button>
+     <button class="q-opt" data-v="yes-partial">Yes, but with deductions</button>
+     <button class="q-opt" data-v="late">Returned late (after 30 days)</button>
+     <button class="q-opt" data-v="never">Never returned</button>
+     <button class="q-opt" data-v="pending">Still waiting</button>
     </div>
+   </div>
 
-    <div id="submit-thanks" style="display:none;text-align:center;padding:3rem 0">
-      <div style="font-family:var(--serif);font-size:32px;line-height:1.2;margin-bottom:1rem;color:var(--green)">Thank you.</div>
-      <p style="font-size:16px;color:var(--text2);line-height:1.6;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto">Your experience makes the dataset sharper. As more move-out reports come in, landlord profiles get more accurate, and the next student signing with the same landlord knows what to expect.</p>
-      <button class="btn btn-s" onclick="showView('home')">Back home</button>
+   <div class="q-block">
+    <div class="q-num">03</div>
+    <div class="q-text">If deductions were taken, how much?</div>
+    <div class="q-help">Approximate range. Skip if no deductions.</div>
+    <div class="q-options" data-q="deduction-range">
+     <button class="q-opt" data-v="under-100">Under $100</button>
+     <button class="q-opt" data-v="100-300">$100–$300</button>
+     <button class="q-opt" data-v="300-700">$300–$700</button>
+     <button class="q-opt" data-v="700-plus">Over $700</button>
+     <button class="q-opt" data-v="full">Full deposit kept</button>
     </div>
+   </div>
+
+   <div class="q-block">
+    <div class="q-num">04</div>
+    <div class="q-text">Were the deductions itemized in writing?</div>
+    <div class="q-help">Ohio law requires written itemization of every deduction. Vague or flat-fee charges may be illegal.</div>
+    <div class="q-options" data-q="itemized">
+     <button class="q-opt" data-v="yes">Yes, clearly itemized</button>
+     <button class="q-opt" data-v="vague">Vague, flat fees, no detail</button>
+     <button class="q-opt" data-v="no">No itemization at all</button>
+     <button class="q-opt" data-v="na">N/A, no deductions</button>
+    </div>
+   </div>
+
+   <div class="q-block">
+    <div class="q-num">05</div>
+    <div class="q-text">Did you dispute any deductions? What happened?</div>
+    <div class="q-options" data-q="dispute">
+     <button class="q-opt" data-v="no-dispute">Did not dispute</button>
+     <button class="q-opt" data-v="dispute-won">Disputed and got money back</button>
+     <button class="q-opt" data-v="dispute-partial">Disputed and got partial refund</button>
+     <button class="q-opt" data-v="dispute-lost">Disputed and they refused</button>
+     <button class="q-opt" data-v="court">Took it to small claims</button>
+    </div>
+   </div>
+
+   <div class="q-block">
+    <div class="q-num">06</div>
+    <div class="q-text">Anything else worth knowing?</div>
+    <div class="q-help">Optional. Specific incidents, things you wish you'd known, or what you'd tell the next tenant. Kept anonymous.</div>
+    <textarea id="sub-notes" placeholder="Examples: charged $150 for carpet that was already stained when I moved in; landlord entered without notice three times; deposit returned in 12 days, no issues..." style="min-height:100px;font-family:var(--sans);font-size:14px"></textarea>
+   </div>
+
+   <div style="display:flex;gap:10px;align-items:center;margin-top:1.5rem;flex-wrap:wrap">
+    <button class="btn btn-p" onclick="submitExperience()" style="font-size:15px;padding:12px 24px">Submit anonymously</button>
+    <span style="font-size:12px;color:var(--text3)">No account · No email · Stored locally and aggregated into landlord profiles</span>
+   </div>
   </div>
+
+  <div id="submit-thanks" style="display:none;text-align:center;padding:3rem 0">
+   <div style="font-family:var(--serif);font-size:32px;line-height:1.2;margin-bottom:1rem;color:var(--green)">Thank you.</div>
+   <p style="font-size:16px;color:var(--text2);line-height:1.6;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto">Your experience helps the next student signing with the same landlord know what to expect. As more move-out reports come in, landlord profiles get more accurate.</p>
+   <button class="btn btn-s" onclick="showView('home')">Back home</button>
+  </div>
+ </div>
 </div>
 
 <div class="view" id="view-about">
-  <div style="max-width:680px;margin:0 auto;padding:2rem 0;">
-    <div class="submit-eyebrow">About</div>
-    <h1 style="font-family:var(--serif);font-size:42px;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-0.01em">The data layer underneath consumer rentals.</h1>
+ <div style="max-width:680px;margin:0 auto;padding:2rem 0;">
+  <div class="submit-eyebrow">About</div>
+  <h1 style="font-family:var(--serif);font-size:42px;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-0.01em">Why this exists.</h1>
 
-    <p style="font-size:17px;color:var(--text);line-height:1.65;margin-bottom:1.25rem;">Built by an OSU student who got tired of watching friends sign leases they didn't fully understand. Columbus landlords know their leases inside and out. You should too.</p>
+  <p style="font-size:17px;color:var(--text);line-height:1.65;margin-bottom:1.25rem;">Signing a lease is one of the first big contracts most students ever sign. The terms are dense, the stakes are real, and landlords have read these documents a hundred times more than you have. KnowYourLease helps you understand what you're agreeing to before you put your name on it.</p>
 
-    <p style="font-size:15px;color:var(--text2);line-height:1.7;margin-bottom:1.25rem;">KnowYourLease started as a single feature: upload your lease, get it analyzed against Ohio law. But that's the wedge, not the product. The actual product is the dataset that nobody has — what landlords do versus what they say they do — built one student tenant at a time.</p>
+  <p style="font-size:15px;color:var(--text2);line-height:1.7;margin-bottom:1.25rem;">Built by an OSU student who watched too many friends get burned by Columbus landlords. Most of the time, the issues weren't a surprise. They were buried in the lease the whole time. Most students just didn't know what to look for, and nobody made it easy to find out.</p>
 
-    <p style="font-size:15px;color:var(--text2);line-height:1.7;margin-bottom:2.5rem;">Every lease analyzed adds to landlord profiles. Every move-out experience submitted in July tells the next student what to expect. As the year cycles, the data sharpens. After enough cycles, this is the only longitudinal dataset on student housing outcomes that exists.</p>
+  <p style="font-size:15px;color:var(--text2);line-height:1.7;margin-bottom:2.5rem;">Every lease analyzed sharpens our landlord profiles. Every move-out experience shared makes the picture clearer for the next student. The whole point is that you shouldn't have to learn this stuff the hard way the way most of us did.</p>
 
-    <div style="border-top:1px solid var(--border);padding-top:2rem;margin-bottom:2.5rem;">
-      <div class="submit-eyebrow" style="margin-bottom:1rem">Why Columbus first</div>
-      <p style="font-size:15px;color:var(--text2);line-height:1.7;margin-bottom:1rem;">Student housing is a uniquely good wedge into consumer real estate. The same handful of landlords own most inventory in any college town. Lease cycles are concentrated in August. Tenants are inexperienced and underprotected. The population turns over annually, so the dataset refreshes constantly.</p>
-      <p style="font-size:15px;color:var(--text2);line-height:1.7;">Columbus is the largest student rental market in Ohio and the natural starting point. The same dynamics — concentrated landlord pools, inexperienced tenants, identical August cycles — exist in every Big Ten campus. Ann Arbor next. Then Madison, Austin, Berkeley. Same architecture, different landlord database.</p>
-    </div>
-
-    <div style="border-top:1px solid var(--border);padding-top:2rem;margin-bottom:2.5rem;">
-      <div class="submit-eyebrow" style="margin-bottom:1rem">FAQ</div>
-      <div style="display:flex;flex-direction:column;gap:1.25rem;">
-        <div><div style="font-size:15px;font-weight:500;margin-bottom:4px;">Is this legal advice?</div><div style="font-size:14px;color:var(--text2);line-height:1.6;">No. This is informational. For real legal advice, contact OSU Student Legal Services at (614) 247-5853 — they review leases for free.</div></div>
-        <div><div style="font-size:15px;font-weight:500;margin-bottom:4px;">How accurate is the AI analysis?</div><div style="font-size:14px;color:var(--text2);line-height:1.6;">The AI applies Ohio Revised Code Chapter 5321 to your specific lease text. Accurate on well-established legal standards but can miss nuance. Always verify flagged clauses independently before acting on them.</div></div>
-        <div><div style="font-size:15px;font-weight:500;margin-bottom:4px;">Where does landlord data come from?</div><div style="font-size:14px;color:var(--text2);line-height:1.6;">OSU student government Renter's Guide surveys (2018–2024), actual sample lease documents, <em>The Lantern</em> investigative reporting, Birdeye reviews, BBB complaint records, and Columbus city code enforcement data. Rows marked "✓ lease" are verified from real lease documents — five landlords currently.</div></div>
-        <div><div style="font-size:15px;font-weight:500;margin-bottom:4px;">Is my lease data stored?</div><div style="font-size:14px;color:var(--text2);line-height:1.6;">Anonymous aggregated metadata — landlord matched, red flags found, fairness score — is stored locally in your browser. Your actual lease PDF is never stored or transmitted beyond the analysis itself.</div></div>
-        <div><div style="font-size:15px;font-weight:500;margin-bottom:4px;">Why submit a move-out experience?</div><div style="font-size:14px;color:var(--text2);line-height:1.6;">Your experience is data nobody else has. Did your deposit return in 30 days? Were deductions itemized? Aggregated answers feed back into landlord profiles, so the next student signing with your landlord knows what actually happens.</div></div>
-        <div><div style="font-size:15px;font-weight:500;margin-bottom:4px;">My landlord isn't listed. What do I do?</div><div style="font-size:14px;color:var(--text2);line-height:1.6;">Upload your lease anyway — the AI analysis works for any Columbus lease regardless of landlord. If your landlord appears frequently in submissions, they'll be added to the database.</div></div>
-      </div>
-    </div>
-
-    <div style="border-top:1px solid var(--border);padding-top:2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;">
-      <div>
-        <div class="submit-eyebrow" style="margin-bottom:.5rem">Built for</div>
-        <div style="font-size:14px;color:var(--text2);line-height:1.6;">OSU students signing Columbus leases. Expanding to Big Ten campuses next.</div>
-      </div>
-      <div>
-        <div class="submit-eyebrow" style="margin-bottom:.5rem">Cost</div>
-        <div style="font-size:14px;color:var(--text2);line-height:1.6;">Free, always.</div>
-      </div>
-      <div>
-        <div class="submit-eyebrow" style="margin-bottom:.5rem">Affiliation</div>
-        <div style="font-size:14px;color:var(--text2);line-height:1.6;">None. Independent and student-built.</div>
-      </div>
-      <div>
-        <div class="submit-eyebrow" style="margin-bottom:.5rem">Legal advice?</div>
-        <div style="font-size:14px;color:var(--text2);line-height:1.6;">No. Always verify with <a href="tel:6142475853" style="color:var(--green);">OSU Student Legal Services</a>.</div>
-      </div>
-    </div>
+  <div style="border-top:1px solid var(--border);padding-top:2rem;margin-bottom:2.5rem;">
+   <div class="submit-eyebrow" style="margin-bottom:1rem">FAQ</div>
+   <div style="display:flex;flex-direction:column;gap:1.25rem;">
+    <div><div style="font-size:15px;font-weight:500;margin-bottom:4px;">Is this legal advice?</div><div style="font-size:14px;color:var(--text2);line-height:1.6;">No. This is informational. For real legal advice, contact OSU Student Legal Services at (614) 247-5853, they review leases for free.</div></div>
+    <div><div style="font-size:15px;font-weight:500;margin-bottom:4px;">How accurate is the AI analysis?</div><div style="font-size:14px;color:var(--text2);line-height:1.6;">The AI applies Ohio Revised Code Chapter 5321 to your specific lease text. Accurate on well-established legal standards but can miss nuance. Always verify flagged clauses independently before acting on them.</div></div>
+    <div><div style="font-size:15px;font-weight:500;margin-bottom:4px;">Where does landlord data come from?</div><div style="font-size:14px;color:var(--text2);line-height:1.6;">OSU student government Renter's Guide surveys (2018 to 2024), actual sample lease documents, <em>The Lantern</em> investigative reporting, Birdeye reviews, BBB complaint records, and Columbus city code enforcement data. Rows marked "✓ lease" are verified from real lease documents, five landlords currently.</div></div>
+    <div><div style="font-size:15px;font-weight:500;margin-bottom:4px;">Is my lease data stored?</div><div style="font-size:14px;color:var(--text2);line-height:1.6;">Anonymous aggregated metadata, landlord matched, red flags found, fairness score, is stored locally in your browser. Your actual lease PDF is never stored or transmitted beyond the analysis itself.</div></div>
+    <div><div style="font-size:15px;font-weight:500;margin-bottom:4px;">Why submit a move-out experience?</div><div style="font-size:14px;color:var(--text2);line-height:1.6;">Your experience is data nobody else has. Did your deposit return in 30 days? Were deductions itemized? Aggregated answers feed back into landlord profiles, so the next student signing with your landlord knows what actually happens.</div></div>
+    <div><div style="font-size:15px;font-weight:500;margin-bottom:4px;">My landlord isn't listed. What do I do?</div><div style="font-size:14px;color:var(--text2);line-height:1.6;">Upload your lease anyway, the AI analysis works for any Columbus lease regardless of landlord. If your landlord appears frequently in submissions, they'll be added to the database.</div></div>
+   </div>
   </div>
+
+  <div style="border-top:1px solid var(--border);padding-top:2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;">
+   <div>
+    <div class="submit-eyebrow" style="margin-bottom:.5rem">Built for</div>
+    <div style="font-size:14px;color:var(--text2);line-height:1.6;">OSU students signing Columbus leases.</div>
+   </div>
+   <div>
+    <div class="submit-eyebrow" style="margin-bottom:.5rem">Cost</div>
+    <div style="font-size:14px;color:var(--text2);line-height:1.6;">Free, always.</div>
+   </div>
+   <div>
+    <div class="submit-eyebrow" style="margin-bottom:.5rem">Affiliation</div>
+    <div style="font-size:14px;color:var(--text2);line-height:1.6;">None. Independent and student-built.</div>
+   </div>
+   <div>
+    <div class="submit-eyebrow" style="margin-bottom:.5rem">Legal advice?</div>
+    <div style="font-size:14px;color:var(--text2);line-height:1.6;">No. Always verify with <a href="tel:6142475853" style="color:var(--green);">OSU Student Legal Services</a>.</div>
+   </div>
+  </div>
+ </div>
 </div>
 
 <footer class="site-footer">
-  <p class="sf-vision"><em>Building the data layer underneath consumer rentals,</em> starting with Columbus student housing. Big Ten campuses next.</p>
-  <p class="sf-meta">KnowYourLease · Independent and student-built · Not affiliated with any landlord, property management company, or The Ohio State University · Not legal advice — verify with <a href="tel:6142475853" style="color:var(--green);text-decoration:none">OSU Student Legal Services</a></p>
+ <p class="sf-vision">Helping OSU students <em>understand what they're signing</em> before they sign it.</p>
+ <p class="sf-meta">KnowYourLease. Independent and student-built. Not affiliated with any landlord, property management company, or The Ohio State University. Not legal advice. Verify with <a href="tel:6142475853" style="color:var(--green);text-decoration:none">OSU Student Legal Services</a>.</p>
 </footer>
 
 </div><!-- /wrap -->
@@ -781,67 +769,67 @@ const STORAGE_PATCHES = "kyl_patches";
 
 // ─── BASE LANDLORD DATA ───────────────────────────────────────────────────────
 const BASE_LANDLORDS = {
-  northsteppe:{name:"NorthSteppe Realty",type:"traditional",overall:2.8,deposit:1.8,maintenance:2.4,moveout:1.9,communication:2.1,units:"~100 dwellings near OSU campus area, founded 1986",price:"$650-900/bed/mo",comp:{deposit:"1 month base rent — holding fee becomes deposit (verified from lease)",autorenewal:"No — fixed term only, no auto-renewal clause (verified from lease)",entry:"Reasonable notice only — does NOT state 24 hrs (verified from lease §9)",jointSeveral:"Yes (verified from lease §1)",utilities:"Tenant pays all; flat-fee minimums where utilities included",furnished:"No (verified)",pets:"$200/yr nonrefundable + $25/mo per pet (verified from lease)",parking:"$300/yr nonrefundable (verified from lease)"},redFlags:["Entry notice says 'reasonable' not 24 hours — legally ambiguous","Jury trial waiver — Section 14 (highly unusual, legal but worth knowing)","Flat-fee move-out damage schedules — illegal under ORC 5321.16","Carpet cleaning mandatory at move-out — minimum $100 if no invoice","No grace period — 5% or $50 late fee immediately on 1st"],watchItems:["Compare utility flat fees to Columbus market rates ($80-120/mo gas)","Photograph every room at move-in and email landlord immediately","Deposit returned within 30 days under ORC 5321.16","Return all keys — $75/door + $50 mailbox lock if not returned","Move-out deadline is NOON — not midnight"],legal:"220+ Columbus city housing code violations documented since 2008, including cockroach infestations and excessive trash (The Lantern, 2014). BBB accredited since 2009 with documented complaints about deposit deductions and guarantor liability.",usg:"Consistently among lowest-rated OSU landlords in annual USG Renter's Guide surveys. 2.1/5 on Birdeye (433 reviews). Lowest ranked in 2013-14 USG survey (The Lantern)."},
-  buckeye:{name:"Buckeye Real Estate",type:"traditional",overall:3.2,deposit:2.9,maintenance:3.2,moveout:2.9,communication:3.3,units:"1,000+ units near OSU, studio to 10BR, founded 1974",price:"$600-950/bed/mo",comp:{deposit:"Flexible — pay in full ($100/BR discount), 3 installments, or 6 installments (verified from lease §4.5)",autorenewal:"No — sends new lease in fall semester; no auto-renewal (verified from lease §5.6)",entry:"24 hours explicitly (verified from lease §4.1)",jointSeveral:"Yes — jointly and severally (verified from lease §1.1)",utilities:"Tenant pays ALL — electric, gas, water, sewer, internet (verified from lease §2.4)",furnished:"Unfurnished (verified)",pets:"$250 nonrefundable, written permission required, max 2 pets (verified from lease §2.1)",parking:"No provisions in lease — separate permit basis at landlord discretion (verified from lease §2.2)"},redFlags:["Guarantor waives ORC 5321 notice rights — legally questionable clause (verified from lease §6.2)","Keys: $120/deadbolt, $95 mailbox lock, $225 keypad replacement — high key fees","$50 fee per payment made in office; $20 digital convenience fee at signing","No parking included in lease — street or separate permit only","Water/sewer/stormwater all tenant-paid — confirm monthly cost estimate before signing"],watchItems:["Deposit paid in installments — or save $100/BR paying upfront","Entry explicitly 24 hours — stronger notice than NorthSteppe or Inn Town","Move-in inspection: 7 days to note defects and return form","Confirm parking situation before signing — not included in lease","Request itemized damage fee schedule before move-out"],legal:"112 Columbus city code violations documented 2008-2014, including mice infestations, sewage backup in basement, and missing smoke detectors (The Lantern, 2014). Not BBB accredited.",usg:"2.6/5 on Birdeye (212 reviews). Mid-range in USG Renter's Guide surveys. Largest traditional OSU housing portfolio."},
-  kohr:{name:"Kohr Royer Griffith",type:"traditional",overall:4.1,deposit:3.8,maintenance:4.0,moveout:3.9,communication:4.2,units:"Properties across campus area",price:"$700-1,000/bed/mo",comp:{deposit:"Listed per unit (verified from lease)",autorenewal:"No — renewal requested in October, no auto-renewal (verified from lease §9)",entry:"Not explicitly stated in lease — confirm before signing",jointSeveral:"Yes — joint tenancy (verified from lease §3)",utilities:"Tenant pays electric, gas, sewer, water (verified from lease §5)",furnished:"No",pets:"No pets of any kind permitted (verified from lease §6)",parking:"Off-street where available — not guaranteed (verified from lease §10)"},redFlags:["Shorter lease terms available (Aug–May) — unit vacated before summer","No pets policy — no exceptions verified in sample lease","Tenant pays all utilities including water/sewer"],watchItems:["Confirm lease term length — Aug-May vs Aug-Jul leases available","Late fee after 5 days ($50) — longer grace period than most","Renewal requested in October — watch for renewal deadline communication","Check off-street parking availability before signing"],legal:"No significant legal history.",usg:"Above average in USG survey ratings."},
-  oxford:{name:"Oxford Companies",type:"traditional",overall:3.8,deposit:3.5,maintenance:3.7,moveout:3.6,communication:3.9,units:"Properties near OSU campus",price:"$650-950/bed/mo",comp:{deposit:"1 month rent",autorenewal:"Yes — 30 days",entry:"24 hrs",jointSeveral:"Yes",utilities:"Typically excluded",furnished:"No",pets:"Case by case",parking:"Varies"},redFlags:["Joint & several liability","Strict noise and guest policies"],watchItems:["Read guest policy carefully","Parking often a separate cost"],legal:"No major legal history.",usg:"Mid-to-high range in USG survey."},
-  peak:{name:"Peak Property Group",type:"traditional",overall:2.6,deposit:2.4,maintenance:2.8,moveout:2.5,communication:2.7,units:"Large portfolio near OSU, 1-8BR",price:"$600-900/bed/mo",comp:{deposit:"1-2 months rent",autorenewal:"Yes — 60 days",entry:"24 hrs",jointSeveral:"Yes",utilities:"Typically excluded",furnished:"No",pets:"Pet friendly",parking:"Often included"},redFlags:["Unauthorized landlord entry reported","Mold complaints documented","Aggressive rent increases on turnover"],watchItems:["Document unit condition extensively at move-in","Report unauthorized entry in writing immediately","Confirm all verbal repair promises in writing"],legal:"Rated 2.6/5 USG — among lowest. Reviews document unauthorized entry and mold. Parent company Coastal Ridge displaced tenants with near-50% rent increases.",usg:"2.6/5 in USG 2018-2019 survey — among five lowest-rated OSU landlords."},
-  inntown:{name:"Inn Town Homes",type:"traditional",overall:3.9,deposit:3.7,maintenance:3.8,moveout:3.8,communication:4.0,units:"60+ buildings, 750+ units since 1969",price:"$650-950/bed/mo",comp:{deposit:"Flexible — pay in full, 3 installments, or 6 installments (verified from lease)",autorenewal:"No — does not auto-renew (verified from lease §5.1)",entry:"Reasonable notice — vague, not explicitly 24 hrs (verified from lease §2.2)",jointSeveral:"Yes (verified from lease §3.2)",utilities:"Water/CAM included; tenant pays gas, electric, internet (verified)",furnished:"Unfurnished (some furnished units available)",pets:"$250 nonrefundable + pet rent; max 2 pets; case by case written permission",parking:"$200/permit/year, one-time fee per lease term (verified from lease §4.1)"},redFlags:["Entry notice says 'reasonable' not explicitly 24 hrs","Partial payment returns — if any roommate NSF, ALL rent returned and eviction proceeds","Holdover penalty: $500/day if not out by lease end","Sublease fee $150; lessee replacement fee $35"],watchItems:["Turn off auto-payments at lease end (required per lease §1.2)","Deposit can be paid in installments — confirm in writing","Pet request must be submitted in writing by July 1st","Notify all utility providers of lease end date before vacating"],legal:"No significant legal history. Family-owned OSU-area operator since 1969.",usg:"Generally above average in student feedback."},
-  statehouse:{name:"StateHouse Columbus",type:"luxury",overall:4.2,deposit:4.0,maintenance:4.3,moveout:4.1,communication:4.3,units:"Multiple locations near OSU",price:"$900-1,500/bed/mo",comp:{deposit:"$300-500 flat fee",autorenewal:"Yes — 60 days",entry:"24 hrs",jointSeveral:"By-the-bed available",utilities:"Water/trash included",furnished:"Yes",pets:"Pet friendly",parking:"$75-125/mo add-on"},redFlags:["Premium pricing — confirm all fees","Parking not in advertised rent"],watchItems:["By-the-bed leasing = responsible for your rent only","Confirm furnished details in writing","Ask about guest parking"],legal:"No significant legal history. Professionally managed.",usg:"Winner of The Lantern's 2025 Best of OSU poll for best off-campus housing (365 votes). Several locations now operate under master lease agreement with Ohio State. Modern amenities, professionally managed."},
-  rambler:{name:"Rambler Columbus",type:"luxury",overall:4.3,deposit:4.1,maintenance:4.2,moveout:4.0,communication:4.4,units:"Luxury complex, pools, on-site coffee shop",price:"$950-1,600/bed/mo",comp:{deposit:"$300-500 flat fee",autorenewal:"Yes — 60 days",entry:"24 hrs",jointSeveral:"By-the-bed",utilities:"Water/trash/internet included",furnished:"Yes",pets:"Pet friendly",parking:"$100-150/mo add-on"},redFlags:["Priciest option near OSU","Parking significantly adds to cost"],watchItems:["Internet typically included — confirm speed","Amenities are a real differentiator — factor into value"],legal:"No legal history. Professionally managed luxury complex.",usg:"Strong student satisfaction. Premium product at premium price."},
-  blume:{name:"Blume on 16th",type:"luxury",overall:4.2,deposit:4.0,maintenance:4.1,moveout:4.0,communication:4.2,units:"74 units / 325 beds, 2-6BR, opened 2024",price:"$900-1,500/bed/mo",comp:{deposit:"$300-500 flat fee",autorenewal:"Yes — 60 days",entry:"24 hrs",jointSeveral:"By-the-bed available",utilities:"Water/trash included",furnished:"Yes",pets:"Confirm",parking:"Additional fee"},redFlags:["New development — limited lease history","Parking costs add significantly"],watchItems:["New building — get all amenity guarantees in lease","2 blocks from Oval, steps from Greek row — confirm noise policy"],legal:"New development by Up Campus Living. No legal history yet.",usg:"Too new for USG survey data. Located at 1988 N High St."},
-  verve:{name:"Verve Columbus",type:"luxury",overall:4.0,deposit:3.9,maintenance:4.0,moveout:3.9,communication:4.1,units:"High Street, studio-5BR, pet-friendly",price:"$850-1,400/bed/mo",comp:{deposit:"$300-500 flat fee",autorenewal:"Yes — 60 days",entry:"24 hrs",jointSeveral:"By-the-bed available",utilities:"Water/trash included",furnished:"Yes",pets:"Yes — bark park",parking:"Additional fee"},redFlags:["Parking costs can be significant"],watchItems:["Bark park on site — good for dog owners","Confirm amenity access included vs additional fee"],legal:"No significant legal history.",usg:"Generally positive student reviews."},
-  hometeam:{name:"Hometeam Properties",type:"traditional",overall:3.9,deposit:3.7,maintenance:3.9,moveout:3.7,communication:4.0,units:"Largest selection near OSU — studios to 10+ BR homes",price:"$600-950/bed/mo",comp:{deposit:"1 month rent",autorenewal:"No auto-renewal — sends new lease each year",entry:"24 hrs",jointSeveral:"Yes",utilities:"Water/sewer $24/person/mo included; gas managed by Hometeam (billed via portal); electric tenant-setup",furnished:"No",pets:"Case by case",parking:"Varies by property"},redFlags:["Security deposit required before lease review (documented complaint)","$50 admin fee if electric not set up in tenant name by move-in"],watchItems:["Water/sewer included at flat $24/person — confirm in your specific lease","Gas billed back at usage via resident portal — not a flat fee","Set up electric before move-in date to avoid $50 admin fee"],legal:"No significant legal history. Generally well-reviewed. Some complaints about deposit practices.",usg:"Generally positive student reviews. Well-regarded for maintenance responsiveness."},
-  osuproperties:{name:"OSU Properties (Kanellopoulos)",type:"traditional",overall:4.5,deposit:4.2,maintenance:4.4,moveout:4.3,communication:4.5,units:"65+ properties, 170 units, 750 tenants near OSU",price:"$600-900/bed/mo",comp:{deposit:"1 month rent; flexible installment options available (verified from lease §7)",autorenewal:"No — must execute new lease; no auto-renewal (verified from lease §16)",entry:"Explicitly 24 hours — strongest notice policy of all landlords (verified from lease §11)",jointSeveral:"Yes — but guarantor only responsible for 1/N share (verified from lease §3-4)",utilities:"Water and sewer included; tenant pays gas, electric, cable, internet (verified from lease §9)",furnished:"Unfurnished — explicitly stated (verified from lease §25)",pets:"NO PETS ALLOWED — $350/mo rent increase + carpet replacement if discovered (verified from lease §19.1)",parking:"Unit-specific yearly fee (verified from lease §2)"},redFlags:["Zero pet tolerance — $350/month rent increase if any animal found on premises","Sublease fee $300; tenant replacement fee $750 — expensive to get out","Holdover: prorated daily rent + $300/day service charge","3–6 routine inspections per year","Late fee $50 immediately on 2nd — no grace period"],watchItems:["Best entry notice policy: explicitly 24 hours (stronger than most Columbus leases)","Water and sewer always included — rare for traditional landlords","Guarantor only responsible for their share (1/N) — better than full joint guaranty","Must submit maintenance requests via AppFolio for record and entry authorization","Move-in inspection: email condition report within 3 days of receiving keypad code"],legal:"No significant legal history. Not BBB accredited. Long-standing Columbus operator.",usg:"4.1/5 in USG 2018-2019 Renter's Guide — tied highest rated. Consistently top-ranked across multiple USG surveys. Includes water, electric, and gas in rent per 2024 USG guide."},
-  uncommon:{name:"Uncommon Columbus",type:"luxury",overall:4.1,deposit:3.9,maintenance:4.0,moveout:4.0,communication:4.1,units:"6-story, studio-4BR, modern finishes",price:"$900-1,450/bed/mo",comp:{deposit:"$300-500 flat fee",autorenewal:"Yes — 60 days",entry:"24 hrs",jointSeveral:"By-the-bed available",utilities:"Water/trash included",furnished:"Yes",pets:"Pet friendly",parking:"Additional fee"},redFlags:["Premium pricing","Parking always additional"],watchItems:["Confirm internet provider and speed in writing","Ask about guest policy and common area hours"],legal:"No significant legal history.",usg:"Positive student reviews. Quality finishes noted."}
+ northsteppe:{name:"NorthSteppe Realty",type:"traditional",overall:2.8,deposit:1.8,maintenance:2.4,moveout:1.9,communication:2.1,units:"~100 dwellings near OSU campus area, founded 1986",price:"$650-900/bed/mo",comp:{deposit:"1 month base rent, holding fee becomes deposit (verified from lease)",autorenewal:"No, fixed term only, no auto-renewal clause (verified from lease)",entry:"Reasonable notice only, does NOT state 24 hrs (verified from lease §9)",jointSeveral:"Yes (verified from lease §1)",utilities:"Tenant pays all; flat-fee minimums where utilities included",furnished:"No (verified)",pets:"$200/yr nonrefundable + $25/mo per pet (verified from lease)",parking:"$300/yr nonrefundable (verified from lease)"},redFlags:["Entry notice says 'reasonable' not 24 hours, legally ambiguous","Jury trial waiver. Section 14 (highly unusual, legal but worth knowing)","Flat-fee move-out damage schedules, illegal under ORC 5321.16","Carpet cleaning mandatory at move-out, minimum $100 if no invoice","No grace period, 5% or $50 late fee immediately on 1st"],watchItems:["Compare utility flat fees to Columbus market rates ($80-120/mo gas)","Photograph every room at move-in and email landlord immediately","Deposit returned within 30 days under ORC 5321.16","Return all keys, $75/door + $50 mailbox lock if not returned","Move-out deadline is NOON, not midnight"],legal:"220+ Columbus city housing code violations documented since 2008, including cockroach infestations and excessive trash (The Lantern, 2014). BBB accredited since 2009 with documented complaints about deposit deductions and guarantor liability.",usg:"Consistently among lowest-rated OSU landlords in annual USG Renter's Guide surveys. 2.1/5 on Birdeye (433 reviews). Lowest ranked in 2013-14 USG survey (The Lantern)."},
+ buckeye:{name:"Buckeye Real Estate",type:"traditional",overall:3.2,deposit:2.9,maintenance:3.2,moveout:2.9,communication:3.3,units:"1,000+ units near OSU, studio to 10BR, founded 1974",price:"$600-950/bed/mo",comp:{deposit:"Flexible, pay in full ($100/BR discount), 3 installments, or 6 installments (verified from lease §4.5)",autorenewal:"No, sends new lease in fall semester; no auto-renewal (verified from lease §5.6)",entry:"24 hours explicitly (verified from lease §4.1)",jointSeveral:"Yes, jointly and severally (verified from lease §1.1)",utilities:"Tenant pays ALL, electric, gas, water, sewer, internet (verified from lease §2.4)",furnished:"Unfurnished (verified)",pets:"$250 nonrefundable, written permission required, max 2 pets (verified from lease §2.1)",parking:"No provisions in lease, separate permit basis at landlord discretion (verified from lease §2.2)"},redFlags:["Guarantor waives ORC 5321 notice rights, legally questionable clause (verified from lease §6.2)","Keys: $120/deadbolt, $95 mailbox lock, $225 keypad replacement, high key fees","$50 fee per payment made in office; $20 digital convenience fee at signing","No parking included in lease, street or separate permit only","Water/sewer/stormwater all tenant-paid, confirm monthly cost estimate before signing"],watchItems:["Deposit paid in installments, or save $100/BR paying upfront","Entry explicitly 24 hours, stronger notice than NorthSteppe or Inn Town","Move-in inspection: 7 days to note defects and return form","Confirm parking situation before signing, not included in lease","Request itemized damage fee schedule before move-out"],legal:"112 Columbus city code violations documented 2008-2014, including mice infestations, sewage backup in basement, and missing smoke detectors (The Lantern, 2014). Not BBB accredited.",usg:"2.6/5 on Birdeye (212 reviews). Mid-range in USG Renter's Guide surveys. Largest traditional OSU housing portfolio."},
+ kohr:{name:"Kohr Royer Griffith",type:"traditional",overall:4.1,deposit:3.8,maintenance:4.0,moveout:3.9,communication:4.2,units:"Properties across campus area",price:"$700-1,000/bed/mo",comp:{deposit:"Listed per unit (verified from lease)",autorenewal:"No, renewal requested in October, no auto-renewal (verified from lease §9)",entry:"Not explicitly stated in lease, confirm before signing",jointSeveral:"Yes, joint tenancy (verified from lease §3)",utilities:"Tenant pays electric, gas, sewer, water (verified from lease §5)",furnished:"No",pets:"No pets of any kind permitted (verified from lease §6)",parking:"Off-street where available, not guaranteed (verified from lease §10)"},redFlags:["Shorter lease terms available (Aug–May), unit vacated before summer","No pets policy, no exceptions verified in sample lease","Tenant pays all utilities including water/sewer"],watchItems:["Confirm lease term length. Aug-May vs Aug-Jul leases available","Late fee after 5 days ($50), longer grace period than most","Renewal requested in October, watch for renewal deadline communication","Check off-street parking availability before signing"],legal:"No significant legal history.",usg:"Above average in USG survey ratings."},
+ oxford:{name:"Oxford Companies",type:"traditional",overall:3.8,deposit:3.5,maintenance:3.7,moveout:3.6,communication:3.9,units:"Properties near OSU campus",price:"$650-950/bed/mo",comp:{deposit:"1 month rent",autorenewal:"Yes, 30 days",entry:"24 hrs",jointSeveral:"Yes",utilities:"Typically excluded",furnished:"No",pets:"Case by case",parking:"Varies"},redFlags:["Joint & several liability","Strict noise and guest policies"],watchItems:["Read guest policy carefully","Parking often a separate cost"],legal:"No major legal history.",usg:"Mid-to-high range in USG survey."},
+ peak:{name:"Peak Property Group",type:"traditional",overall:2.6,deposit:2.4,maintenance:2.8,moveout:2.5,communication:2.7,units:"Large portfolio near OSU, 1-8BR",price:"$600-900/bed/mo",comp:{deposit:"1-2 months rent",autorenewal:"Yes, 60 days",entry:"24 hrs",jointSeveral:"Yes",utilities:"Typically excluded",furnished:"No",pets:"Pet friendly",parking:"Often included"},redFlags:["Unauthorized landlord entry reported","Mold complaints documented","Aggressive rent increases on turnover"],watchItems:["Document unit condition extensively at move-in","Report unauthorized entry in writing immediately","Confirm all verbal repair promises in writing"],legal:"Rated 2.6/5 USG, among lowest. Reviews document unauthorized entry and mold. Parent company Coastal Ridge displaced tenants with near-50% rent increases.",usg:"2.6/5 in USG 2018-2019 survey, among five lowest-rated OSU landlords."},
+ inntown:{name:"Inn Town Homes",type:"traditional",overall:3.9,deposit:3.7,maintenance:3.8,moveout:3.8,communication:4.0,units:"60+ buildings, 750+ units since 1969",price:"$650-950/bed/mo",comp:{deposit:"Flexible, pay in full, 3 installments, or 6 installments (verified from lease)",autorenewal:"No, does not auto-renew (verified from lease §5.1)",entry:"Reasonable notice, vague, not explicitly 24 hrs (verified from lease §2.2)",jointSeveral:"Yes (verified from lease §3.2)",utilities:"Water/CAM included; tenant pays gas, electric, internet (verified)",furnished:"Unfurnished (some furnished units available)",pets:"$250 nonrefundable + pet rent; max 2 pets; case by case written permission",parking:"$200/permit/year, one-time fee per lease term (verified from lease §4.1)"},redFlags:["Entry notice says 'reasonable' not explicitly 24 hrs","Partial payment returns, if any roommate NSF, ALL rent returned and eviction proceeds","Holdover penalty: $500/day if not out by lease end","Sublease fee $150; lessee replacement fee $35"],watchItems:["Turn off auto-payments at lease end (required per lease §1.2)","Deposit can be paid in installments, confirm in writing","Pet request must be submitted in writing by July 1st","Notify all utility providers of lease end date before vacating"],legal:"No significant legal history. Family-owned OSU-area operator since 1969.",usg:"Generally above average in student feedback."},
+ statehouse:{name:"StateHouse Columbus",type:"luxury",overall:4.2,deposit:4.0,maintenance:4.3,moveout:4.1,communication:4.3,units:"Multiple locations near OSU",price:"$900-1,500/bed/mo",comp:{deposit:"$300-500 flat fee",autorenewal:"Yes, 60 days",entry:"24 hrs",jointSeveral:"By-the-bed available",utilities:"Water/trash included",furnished:"Yes",pets:"Pet friendly",parking:"$75-125/mo add-on"},redFlags:["Premium pricing, confirm all fees","Parking not in advertised rent"],watchItems:["By-the-bed leasing = responsible for your rent only","Confirm furnished details in writing","Ask about guest parking"],legal:"No significant legal history. Professionally managed.",usg:"Winner of The Lantern's 2025 Best of OSU poll for best off-campus housing (365 votes). Several locations now operate under master lease agreement with Ohio State. Modern amenities, professionally managed."},
+ rambler:{name:"Rambler Columbus",type:"luxury",overall:4.3,deposit:4.1,maintenance:4.2,moveout:4.0,communication:4.4,units:"Luxury complex, pools, on-site coffee shop",price:"$950-1,600/bed/mo",comp:{deposit:"$300-500 flat fee",autorenewal:"Yes, 60 days",entry:"24 hrs",jointSeveral:"By-the-bed",utilities:"Water/trash/internet included",furnished:"Yes",pets:"Pet friendly",parking:"$100-150/mo add-on"},redFlags:["Priciest option near OSU","Parking significantly adds to cost"],watchItems:["Internet typically included, confirm speed","Amenities are a real differentiator, factor into value"],legal:"No legal history. Professionally managed luxury complex.",usg:"Strong student satisfaction. Premium product at premium price."},
+ blume:{name:"Blume on 16th",type:"luxury",overall:4.2,deposit:4.0,maintenance:4.1,moveout:4.0,communication:4.2,units:"74 units / 325 beds, 2-6BR, opened 2024",price:"$900-1,500/bed/mo",comp:{deposit:"$300-500 flat fee",autorenewal:"Yes, 60 days",entry:"24 hrs",jointSeveral:"By-the-bed available",utilities:"Water/trash included",furnished:"Yes",pets:"Confirm",parking:"Additional fee"},redFlags:["New development, limited lease history","Parking costs add significantly"],watchItems:["New building, get all amenity guarantees in lease","2 blocks from Oval, steps from Greek row, confirm noise policy"],legal:"New development by Up Campus Living. No legal history yet.",usg:"Too new for USG survey data. Located at 1988 N High St."},
+ verve:{name:"Verve Columbus",type:"luxury",overall:4.0,deposit:3.9,maintenance:4.0,moveout:3.9,communication:4.1,units:"High Street, studio-5BR, pet-friendly",price:"$850-1,400/bed/mo",comp:{deposit:"$300-500 flat fee",autorenewal:"Yes, 60 days",entry:"24 hrs",jointSeveral:"By-the-bed available",utilities:"Water/trash included",furnished:"Yes",pets:"Yes, bark park",parking:"Additional fee"},redFlags:["Parking costs can be significant"],watchItems:["Bark park on site, good for dog owners","Confirm amenity access included vs additional fee"],legal:"No significant legal history.",usg:"Generally positive student reviews."},
+ hometeam:{name:"Hometeam Properties",type:"traditional",overall:3.9,deposit:3.7,maintenance:3.9,moveout:3.7,communication:4.0,units:"Largest selection near OSU, studios to 10+ BR homes",price:"$600-950/bed/mo",comp:{deposit:"1 month rent",autorenewal:"No auto-renewal, sends new lease each year",entry:"24 hrs",jointSeveral:"Yes",utilities:"Water/sewer $24/person/mo included; gas managed by Hometeam (billed via portal); electric tenant-setup",furnished:"No",pets:"Case by case",parking:"Varies by property"},redFlags:["Security deposit required before lease review (documented complaint)","$50 admin fee if electric not set up in tenant name by move-in"],watchItems:["Water/sewer included at flat $24/person, confirm in your specific lease","Gas billed back at usage via resident portal, not a flat fee","Set up electric before move-in date to avoid $50 admin fee"],legal:"No significant legal history. Generally well-reviewed. Some complaints about deposit practices.",usg:"Generally positive student reviews. Well-regarded for maintenance responsiveness."},
+ osuproperties:{name:"OSU Properties (Kanellopoulos)",type:"traditional",overall:4.5,deposit:4.2,maintenance:4.4,moveout:4.3,communication:4.5,units:"65+ properties, 170 units, 750 tenants near OSU",price:"$600-900/bed/mo",comp:{deposit:"1 month rent; flexible installment options available (verified from lease §7)",autorenewal:"No, must execute new lease; no auto-renewal (verified from lease §16)",entry:"Explicitly 24 hours, strongest notice policy of all landlords (verified from lease §11)",jointSeveral:"Yes, but guarantor only responsible for 1/N share (verified from lease §3-4)",utilities:"Water and sewer included; tenant pays gas, electric, cable, internet (verified from lease §9)",furnished:"Unfurnished, explicitly stated (verified from lease §25)",pets:"NO PETS ALLOWED, $350/mo rent increase + carpet replacement if discovered (verified from lease §19.1)",parking:"Unit-specific yearly fee (verified from lease §2)"},redFlags:["Zero pet tolerance, $350/month rent increase if any animal found on premises","Sublease fee $300; tenant replacement fee $750, expensive to get out","Holdover: prorated daily rent + $300/day service charge","3–6 routine inspections per year","Late fee $50 immediately on 2nd, no grace period"],watchItems:["Best entry notice policy: explicitly 24 hours (stronger than most Columbus leases)","Water and sewer always included, rare for traditional landlords","Guarantor only responsible for their share (1/N), better than full joint guaranty","Must submit maintenance requests via AppFolio for record and entry authorization","Move-in inspection: email condition report within 3 days of receiving keypad code"],legal:"No significant legal history. Not BBB accredited. Long-standing Columbus operator.",usg:"4.1/5 in USG 2018-2019 Renter's Guide, tied highest rated. Consistently top-ranked across multiple USG surveys. Includes water, electric, and gas in rent per 2024 USG guide."},
+ uncommon:{name:"Uncommon Columbus",type:"luxury",overall:4.1,deposit:3.9,maintenance:4.0,moveout:4.0,communication:4.1,units:"6-story, studio-4BR, modern finishes",price:"$900-1,450/bed/mo",comp:{deposit:"$300-500 flat fee",autorenewal:"Yes, 60 days",entry:"24 hrs",jointSeveral:"By-the-bed available",utilities:"Water/trash included",furnished:"Yes",pets:"Pet friendly",parking:"Additional fee"},redFlags:["Premium pricing","Parking always additional"],watchItems:["Confirm internet provider and speed in writing","Ask about guest policy and common area hours"],legal:"No significant legal history.",usg:"Positive student reviews. Quality finishes noted."}
 };
 
 // ─── LIVE DATA ────────────────────────────────────────────────────────────────
 function getLandlords(){
-  const custom=JSON.parse(localStorage.getItem(STORAGE_CUSTOM)||'{}');
-  const patches=JSON.parse(localStorage.getItem(STORAGE_PATCHES)||'{}');
-  const all={...BASE_LANDLORDS,...custom};
-  Object.entries(patches).forEach(([id,patch])=>{
-    if(all[id]){
-      if(patch.redFlags?.length)all[id].redFlags=[...all[id].redFlags,...patch.redFlags];
-      if(patch.watchItems?.length)all[id].watchItems=[...all[id].watchItems,...patch.watchItems];
-      if(patch.legalNotes)all[id].legal+=' '+patch.legalNotes;
-      if(patch.notes)all[id]._notes=(all[id]._notes||[]); all[id]._notes?.push(patch.notes);
-    }
-  });
-  return all;
+ const custom=JSON.parse(localStorage.getItem(STORAGE_CUSTOM)||'{}');
+ const patches=JSON.parse(localStorage.getItem(STORAGE_PATCHES)||'{}');
+ const all={...BASE_LANDLORDS,...custom};
+ Object.entries(patches).forEach(([id,patch])=>{
+  if(all[id]){
+   if(patch.redFlags?.length)all[id].redFlags=[...all[id].redFlags,...patch.redFlags];
+   if(patch.watchItems?.length)all[id].watchItems=[...all[id].watchItems,...patch.watchItems];
+   if(patch.legalNotes)all[id].legal+=' '+patch.legalNotes;
+   if(patch.notes)all[id]._notes=(all[id]._notes||[]); all[id]._notes?.push(patch.notes);
+  }
+ });
+ return all;
 }
 
 function getScans(){return JSON.parse(localStorage.getItem(STORAGE_SCANS)||'{}');}
 function saveScans(s){localStorage.setItem(STORAGE_SCANS,JSON.stringify(s));}
 
 function storeLeaseData(result){
-  if(!result.landlord_match||result.landlord_match==='unknown')return;
-  const scans=getScans();
-  if(!scans[result.landlord_match])scans[result.landlord_match]=[];
-  const entry={
-    date:new Date().toISOString().slice(0,10),
-    rent:result.key_terms?.rent||null,
-    deposit:result.key_terms?.deposit||null,
-    renewalNotice:result.key_terms?.renewal_notice||null,
-    entryNotice:result.key_terms?.notice_to_enter||null,
-    earlyTermination:result.key_terms?.early_termination||null,
-    redFlagsFound:(result.red_flags||[]).map(f=>f.title),
-    score:result.overall_score||null
-  };
-  scans[result.landlord_match].push(entry);
-  saveScans(scans);
-  updateStatCounts();
+ if(!result.landlord_match||result.landlord_match==='unknown')return;
+ const scans=getScans();
+ if(!scans[result.landlord_match])scans[result.landlord_match]=[];
+ const entry={
+  date:new Date().toISOString().slice(0,10),
+  rent:result.key_terms?.rent||null,
+  deposit:result.key_terms?.deposit||null,
+  renewalNotice:result.key_terms?.renewal_notice||null,
+  entryNotice:result.key_terms?.notice_to_enter||null,
+  earlyTermination:result.key_terms?.early_termination||null,
+  redFlagsFound:(result.red_flags||[]).map(f=>f.title),
+  score:result.overall_score||null
+ };
+ scans[result.landlord_match].push(entry);
+ saveScans(scans);
+ updateStatCounts();
 }
 
 function updateStatCounts(){
-  const scans=getScans();
-  const total=Object.values(scans).reduce((a,b)=>a+b.length,0);
-  const el=document.getElementById('stat-scans');
-  if(el)el.textContent=total;
-  const ll=getLandlords();
-  const lc=document.getElementById('stat-landlords');
-  if(lc)lc.textContent=Object.keys(ll).length;
+ const scans=getScans();
+ const total=Object.values(scans).reduce((a,b)=>a+b.length,0);
+ const el=document.getElementById('stat-scans');
+ if(el)el.textContent=total;
+ const ll=getLandlords();
+ const lc=document.getElementById('stat-landlords');
+ if(lc)lc.textContent=Object.keys(ll).length;
 }
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
@@ -854,73 +842,73 @@ const fmtSz=b=>b>1048576?(b/1048576).toFixed(1)+' MB':Math.round(b/1024)+' KB';
 function toast(msg,dur=2500){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),dur);}
 
 function submitFeedback(positive){
-  document.getElementById('feedback-thanks').style.display='inline';
-  document.querySelectorAll('[onclick^="submitFeedback"]').forEach(b=>b.style.display='none');
-  // Store locally for dev panel
-  const feedback=JSON.parse(localStorage.getItem('kyl_feedback')||'[]');
-  feedback.push({positive,ts:Date.now()});
-  localStorage.setItem('kyl_feedback',JSON.stringify(feedback.slice(-50)));
+ document.getElementById('feedback-thanks').style.display='inline';
+ document.querySelectorAll('[onclick^="submitFeedback"]').forEach(b=>b.style.display='none');
+ // Store locally for dev panel
+ const feedback=JSON.parse(localStorage.getItem('kyl_feedback')||'[]');
+ feedback.push({positive,ts:Date.now()});
+ localStorage.setItem('kyl_feedback',JSON.stringify(feedback.slice(-50)));
 }
 
 function openDrawer(){
-  document.getElementById('drawer').classList.add('open');
-  document.getElementById('drawer-overlay').classList.add('open');
-  document.body.style.overflow='hidden';
+ document.getElementById('drawer').classList.add('open');
+ document.getElementById('drawer-overlay').classList.add('open');
+ document.body.style.overflow='hidden';
 }
 function closeDrawer(){
-  document.getElementById('drawer').classList.remove('open');
-  document.getElementById('drawer-overlay').classList.remove('open');
-  document.body.style.overflow='';
+ document.getElementById('drawer').classList.remove('open');
+ document.getElementById('drawer-overlay').classList.remove('open');
+ document.body.style.overflow='';
 }
 
 function showView(v){
-  document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
-  document.querySelectorAll('.nb').forEach(e=>e.classList.remove('active'));
-  document.getElementById('view-'+v).classList.add('active');
-  const m={results:'analyze'};
-  const key=m[v]||v;
-  document.getElementById('nav-'+key)?.classList.add('active');
-  document.getElementById('dnav-'+key)?.classList.add('active');
-  if(v==='analyze'){document.getElementById('af').style.display='';document.getElementById('al').style.display='none';}
-  if(v==='dev')renderDevPanel();
-  if(v==='submit')initSubmitView();
-  window.scrollTo(0,0);
+ document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
+ document.querySelectorAll('.nb').forEach(e=>e.classList.remove('active'));
+ document.getElementById('view-'+v).classList.add('active');
+ const m={results:'analyze'};
+ const key=m[v]||v;
+ document.getElementById('nav-'+key)?.classList.add('active');
+ document.getElementById('dnav-'+key)?.classList.add('active');
+ if(v==='analyze'){document.getElementById('af').style.display='';document.getElementById('al').style.display='none';}
+ if(v==='dev')renderDevPanel();
+ if(v==='submit')initSubmitView();
+ window.scrollTo(0,0);
 }
 
 // ─── SUBMIT MOVE-OUT EXPERIENCE ───────────────────────────────────────────────
 function initSubmitView(){
-  const sel=document.getElementById('sub-landlord');
-  if(sel.options.length>1)return;
-  const ll=getLandlords();
-  sel.innerHTML='<option value="">Select your landlord...</option>'+
-    Object.entries(ll).map(([id,l])=>`<option value="${id}">${l.name}</option>`).join('')+
-    '<option value="other">Other / not listed</option>';
-  document.querySelectorAll('.q-options').forEach(group=>{
-    group.querySelectorAll('.q-opt').forEach(btn=>{
-      btn.onclick=()=>{
-        group.querySelectorAll('.q-opt').forEach(b=>b.classList.remove('selected'));
-        btn.classList.add('selected');
-      };
-    });
+ const sel=document.getElementById('sub-landlord');
+ if(sel.options.length>1)return;
+ const ll=getLandlords();
+ sel.innerHTML='<option value="">Select your landlord...</option>'+
+  Object.entries(ll).map(([id,l])=>`<option value="${id}">${l.name}</option>`).join('')+
+  '<option value="other">Other / not listed</option>';
+ document.querySelectorAll('.q-options').forEach(group=>{
+  group.querySelectorAll('.q-opt').forEach(btn=>{
+   btn.onclick=()=>{
+    group.querySelectorAll('.q-opt').forEach(b=>b.classList.remove('selected'));
+    btn.classList.add('selected');
+   };
   });
+ });
 }
 
 function submitExperience(){
-  const landlord=document.getElementById('sub-landlord').value;
-  if(!landlord){toast('Please select a landlord');return;}
-  const answers={};
-  document.querySelectorAll('.q-options').forEach(group=>{
-    const q=group.dataset.q;
-    const sel=group.querySelector('.q-opt.selected');
-    if(sel)answers[q]=sel.dataset.v;
-  });
-  const notes=document.getElementById('sub-notes').value.trim();
-  const submission={landlord,answers,notes,ts:Date.now()};
-  const all=JSON.parse(localStorage.getItem('kyl_submissions')||'[]');
-  all.push(submission);
-  localStorage.setItem('kyl_submissions',JSON.stringify(all));
-  document.getElementById('submit-form').style.display='none';
-  document.getElementById('submit-thanks').style.display='block';
+ const landlord=document.getElementById('sub-landlord').value;
+ if(!landlord){toast('Please select a landlord');return;}
+ const answers={};
+ document.querySelectorAll('.q-options').forEach(group=>{
+  const q=group.dataset.q;
+  const sel=group.querySelector('.q-opt.selected');
+  if(sel)answers[q]=sel.dataset.v;
+ });
+ const notes=document.getElementById('sub-notes').value.trim();
+ const submission={landlord,answers,notes,ts:Date.now()};
+ const all=JSON.parse(localStorage.getItem('kyl_submissions')||'[]');
+ all.push(submission);
+ localStorage.setItem('kyl_submissions',JSON.stringify(all));
+ document.getElementById('submit-form').style.display='none';
+ document.getElementById('submit-thanks').style.display='block';
 }
 
 // ─── UPLOAD ───────────────────────────────────────────────────────────────────
@@ -931,62 +919,62 @@ function hfs(e){if(e.target.files[0])processFile(e.target.files[0]);}
 function rfil(e){if(e)e.stopPropagation();extractedText='';document.getElementById('fsel').style.display='none';document.getElementById('uz').style.display='';document.getElementById('fi').value='';}
 
 async function processFile(file){
-  document.getElementById('uz').style.display='none';
-  document.getElementById('fsel').style.display='flex';
-  document.getElementById('fn-disp').textContent=file.name;
-  document.getElementById('fsz-disp').textContent=fmtSz(file.size);
-  document.getElementById('ext').style.display='flex';
-  try{
-    const ab=await file.arrayBuffer();
-    const pdf=await pdfjsLib.getDocument({data:ab}).promise;
-    let text='';
-    for(let i=1;i<=pdf.numPages;i++){const p=await pdf.getPage(i);const c=await p.getTextContent();text+=c.items.map(x=>x.str).join(' ')+'\n';}
-    extractedText=text.trim();
-    document.getElementById('ext').style.display='none';
-    if(extractedText.length<100){showErr('Could not extract text — PDF may be scanned.');rfil(null);}
-  }catch(err){document.getElementById('ext').style.display='none';showErr('Error reading PDF: '+err.message);rfil(null);}
+ document.getElementById('uz').style.display='none';
+ document.getElementById('fsel').style.display='flex';
+ document.getElementById('fn-disp').textContent=file.name;
+ document.getElementById('fsz-disp').textContent=fmtSz(file.size);
+ document.getElementById('ext').style.display='flex';
+ try{
+  const ab=await file.arrayBuffer();
+  const pdf=await pdfjsLib.getDocument({data:ab}).promise;
+  let text='';
+  for(let i=1;i<=pdf.numPages;i++){const p=await pdf.getPage(i);const c=await p.getTextContent();text+=c.items.map(x=>x.str).join(' ')+'\n';}
+  extractedText=text.trim();
+  document.getElementById('ext').style.display='none';
+  if(extractedText.length<100){showErr('Could not extract text. PDF may be scanned.');rfil(null);}
+ }catch(err){document.getElementById('ext').style.display='none';showErr('Error reading PDF: '+err.message);rfil(null);}
 }
 
 function showErr(msg){const e=document.getElementById('ae');e.textContent=msg;e.style.display='';}
 
 // ─── SYSTEM PROMPT ─────────────────────────────────────────────────────────────
 function buildSystemPrompt(){
-  const ll=getLandlords();
-  const idList=Object.entries(ll).map(([id,l])=>`${l.name}→${id}`).join(', ');
-  return`You are KnowYourLease, an AI lease analyzer for OSU students in Columbus, Ohio. You have deep expertise in Ohio Revised Code Chapter 5321. You must apply the law PRECISELY — do not flag something as a violation unless you are certain it violates the exact statutory text below.
+ const ll=getLandlords();
+ const idList=Object.entries(ll).map(([id,l])=>`${l.name}→${id}`).join(', ');
+ return`You are KnowYourLease, an AI lease analyzer for OSU students in Columbus, Ohio. You have deep expertise in Ohio Revised Code Chapter 5321. You must apply the law PRECISELY, do not flag something as a violation unless you are certain it violates the exact statutory text below.
 
-OHIO REVISED CODE — EXACT STATUTORY TEXT:
+OHIO REVISED CODE. EXACT STATUTORY TEXT:
 
-ORC 5321.04 — LANDLORD OBLIGATIONS:
-Landlord must: maintain premises in fit/habitable condition; make all repairs; keep common areas safe; maintain electrical, plumbing, sanitary, heating, ventilating, and A/C systems; provide running water, hot water, and reasonable heat; NOT abuse right of access; give tenant reasonable notice before entry (minimum 24 hours for non-emergencies); entry only at reasonable times. "Reasonable notice" in a lease is ONLY a violation if it explicitly permits LESS than 24 hours — vague "reasonable notice" language is ambiguous but not necessarily illegal.
+ORC 5321.04. LANDLORD OBLIGATIONS:
+Landlord must: maintain premises in fit/habitable condition; make all repairs; keep common areas safe; maintain electrical, plumbing, sanitary, heating, ventilating, and A/C systems; provide running water, hot water, and reasonable heat; NOT abuse right of access; give tenant reasonable notice before entry (minimum 24 hours for non-emergencies); entry only at reasonable times. "Reasonable notice" in a lease is ONLY a violation if it explicitly permits LESS than 24 hours, vague "reasonable notice" language is ambiguous but not necessarily illegal.
 
-ORC 5321.05 — TENANT OBLIGATIONS:
+ORC 5321.05. TENANT OBLIGATIONS:
 Keep premises safe/sanitary; dispose of rubbish properly; keep plumbing fixtures clean; use electrical/plumbing fixtures properly; comply with housing codes; do not damage premises; maintain appliances supplied by landlord per lease terms; do not unreasonably withhold consent for landlord entry.
 
-ORC 5321.13 — PROHIBITED LEASE TERMS (VOID EVEN IF SIGNED):
-A rental agreement may NOT: (1) exempt landlord from liability caused by landlord's own negligence; (2) authorize landlord to confiscate tenant's property; (3) require tenant to pay landlord's attorney fees; (4) limit landlord's liability under ORC 5321. NOTE: Clauses limiting liability for third-party acts, elements, or acts beyond landlord's control are PERMITTED — only landlord's OWN NEGLIGENCE cannot be waived.
+ORC 5321.13. PROHIBITED LEASE TERMS (VOID EVEN IF SIGNED):
+A rental agreement may NOT: (1) exempt landlord from liability caused by landlord's own negligence; (2) authorize landlord to confiscate tenant's property; (3) require tenant to pay landlord's attorney fees; (4) limit landlord's liability under ORC 5321. NOTE: Clauses limiting liability for third-party acts, elements, or acts beyond landlord's control are PERMITTED, only landlord's OWN NEGLIGENCE cannot be waived.
 
-ORC 5321.15 — PROHIBITED LANDLORD ACTS:
+ORC 5321.15. PROHIBITED LANDLORD ACTS:
 While tenant has right of occupancy, landlord CANNOT: seize/hold tenant's property; interrupt/cut off utilities (gas, electric, water) as means of eviction or retaliation. This applies DURING tenancy. A lease clause stating utilities may be cut for non-payment of utility FEES (not rent) is illegal if it allows shutoff without court order.
 
-ORC 5321.16 — SECURITY DEPOSITS (READ THIS CAREFULLY):
+ORC 5321.16. SECURITY DEPOSITS (READ THIS CAREFULLY):
 (A) Landlord must return deposit within 30 days after lease end with itemized written statement of deductions.
-(B) INTEREST RULE — EXACT TEXT: "Any security deposit in excess of fifty dollars or one month's periodic rent, WHICHEVER IS GREATER, shall bear interest on the EXCESS at the rate of five per cent per annum if the tenant remains in possession for six months or more."
+(B) INTEREST RULE. EXACT TEXT: "Any security deposit in excess of fifty dollars or one month's periodic rent, WHICHEVER IS GREATER, shall bear interest on the EXCESS at the rate of five per cent per annum if the tenant remains in possession for six months or more."
 APPLY THIS WITH EXTREME PRECISION:
 - Step 1: Identify the deposit amount
 - Step 2: Identify one month's periodic rent (the base installment, not including utilities)
 - Step 3: The threshold = greater of $50 or one month's rent
-- Step 4: Interest is ONLY owed if deposit STRICTLY EXCEEDS (>) the threshold — equal to (=) does NOT trigger interest
-- Step 5: If deposit ≤ one month's rent, DO NOT flag the interest waiver clause — it is irrelevant
+- Step 4: Interest is ONLY owed if deposit STRICTLY EXCEEDS (>) the threshold, equal to (=) does NOT trigger interest
+- Step 5: If deposit ≤ one month's rent, DO NOT flag the interest waiver clause, it is irrelevant
 - Example: deposit $2,400, rent $2,400 → deposit does NOT exceed threshold → NO interest violation → do not flag
 - Example: deposit $2,700, rent $2,400 → deposit exceeds threshold by $300 → interest owed on $300 → flag the waiver
 (C) Wrongful withholding: if landlord fails to return deposit or provide itemized statement, tenant may recover double the withheld amount plus attorney fees, IF tenant provided written forwarding address.
 Flat-fee damage schedules that do not reflect actual costs are ILLEGAL.
 
-ORC 5321.17 — TERMINATION OF TENANCY:
+ORC 5321.17. TERMINATION OF TENANCY:
 Month-to-month: either party may terminate with 30-day written notice. Week-to-week: 7-day notice. Fixed-term lease: terminates at end of term unless renewal agreed. Auto-renewal clauses must be clearly disclosed. Landlord must give 30-day written notice before rent increase in month-to-month.
 
-ORC 5321.02 — RETALIATION PROHIBITED:
+ORC 5321.02. RETALIATION PROHIBITED:
 Landlord cannot increase rent, decrease services, or threaten eviction because tenant: (1) complained to government agency about code violation; (2) complained to landlord about ORC 5321.04 violations; (3) organized with other tenants. Adverse action within 90 days of protected activity is presumed retaliatory.
 
 COLUMBUS-SPECIFIC RED FLAGS (document these if present):
@@ -996,194 +984,194 @@ COLUMBUS-SPECIFIC RED FLAGS (document these if present):
 - Joint & several liability (flag but note it is LEGAL and common)
 - Entry notice that explicitly says LESS than 24 hours (not just "reasonable")
 - Mandatory carpet cleaning fees regardless of condition
-- Jury trial waiver (legal but highly unusual — always flag)
+- Jury trial waiver (legal but highly unusual, always flag)
 - Holding over at 2x rent (legal but flag the amount)
-- Deposit interest waiver — ONLY flag if deposit exceeds one month's rent
+- Deposit interest waiver. ONLY flag if deposit exceeds one month's rent
 
 IMPORTANT RULES:
-- Do NOT flag something as illegal if it is merely unfavorable to tenants — only flag actual ORC violations
-- Joint & several liability is LEGAL — flag as "worth understanding" not a red flag
-- Renter's insurance requirements are LEGAL — only flag if unusually burdensome
+- Do NOT flag something as illegal if it is merely unfavorable to tenants, only flag actual ORC violations
+- Joint & several liability is LEGAL, flag as "worth understanding" not a red flag
+- Renter's insurance requirements are LEGAL, only flag if unusually burdensome
 - Subletting restrictions requiring written approval are LEGAL
-- Late fees are legal in Ohio — only flag if no grace period or extremely high
+- Late fees are legal in Ohio, only flag if no grace period or extremely high
 - Be precise about severity: HIGH = clear ORC violation; MEDIUM = legally questionable; LOW = unfavorable but legal
-- BUCKEYE REAL ESTATE SPECIFIC: If analyzing a Buckeye lease, their guarantor clause states guarantors waive notice rights under ORC 5321 — flag this as HIGH severity, it is legally questionable
-- INN TOWN HOMES SPECIFIC: Their partial payment policy returns ALL rent if any roommate NSFs — flag this as a significant practical risk
-- OSU PROPERTIES SPECIFIC: No pets policy has $350/month rent increase penalty — flag immediately if any pets mentioned
+- BUCKEYE REAL ESTATE SPECIFIC: If analyzing a Buckeye lease, their guarantor clause states guarantors waive notice rights under ORC 5321, flag this as HIGH severity, it is legally questionable
+- INN TOWN HOMES SPECIFIC: Their partial payment policy returns ALL rent if any roommate NSFs, flag this as a significant practical risk
+- OSU PROPERTIES SPECIFIC: No pets policy has $350/month rent increase penalty, flag immediately if any pets mentioned
 
 Landlord IDs: ${idList}
 
 Return ONLY a single raw JSON object. No markdown, no preamble, no text after the closing brace. Keep ALL descriptions under 30 words each. Limit red_flags to maximum 8 items, watch_items to maximum 5 items. ohio_rights maximum 5 items under 20 words each:
-{"summary":"2-3 sentence plain English summary","overall_score":<1-10>,"landlord_match":"<id|unknown>","red_flags":[{"title":"...","description":"concise plain English for student, cite exact ORC section","severity":"<high|medium|low>"}],"watch_items":[{"title":"...","description":"..."}],"key_terms":{"rent":"...","lease_length":"...","deposit":"...","renewal_notice":"...","notice_to_enter":"...","early_termination":"..."},"ohio_rights":["specific ORC right relevant to THIS lease — be precise about what applies"]}`;
+{"summary":"2-3 sentence plain English summary","overall_score":<1-10>,"landlord_match":"<id|unknown>","red_flags":[{"title":"...","description":"concise plain English for student, cite exact ORC section","severity":"<high|medium|low>"}],"watch_items":[{"title":"...","description":"..."}],"key_terms":{"rent":"...","lease_length":"...","deposit":"...","renewal_notice":"...","notice_to_enter":"...","early_termination":"..."},"ohio_rights":["specific ORC right relevant to THIS lease, be precise about what applies"]}`;
 }
 
 // ─── DEMO ──────────────────────────────────────────────────────────────────────
-const DEMO={summary:"This NorthSteppe Realty lease (Ver. 2023) has several issues worth knowing before signing. The vague entry notice, jury trial waiver, and mandatory carpet cleaning charges are the most significant red flags from the actual lease text.",overall_score:4,landlord_match:"northsteppe",red_flags:[{title:"Vague entry notice — 'reasonable notice' only",description:"Section 9 says entry is on 'reasonable notice, except in an emergency.' Ohio law (ORC 5321.04) requires minimum 24 hours. This language is ambiguous and legally weaker than the statutory standard.",severity:"high"},{title:"Jury trial waiver — Section 14",description:"Section 14 states tenants waive the right to a jury trial and must submit all claims to arbitration, paying half the arbitration cost. This is unusual and heavily favors the landlord.",severity:"high"},{title:"No interest on security deposit",description:"Section 6 states 'No interest is paid on amounts held as a security deposit.' The deposit here equals one month's rent so ORC 5321.16 interest rules don't apply — but the waiver language is still worth flagging.",severity:"medium"},{title:"Joint and several liability",description:"All tenants are jointly liable for the full rent. If any roommate doesn't pay, NorthSteppe can pursue any individual tenant for the entire amount.",severity:"medium"},{title:"Tenant pays for all broken glass regardless of cause",description:"Section 3 makes tenants responsible for all cracked or broken glass, windows, and doors 'regardless of cause.' This may conflict with the landlord's duty to maintain habitable premises under ORC 5321.04.",severity:"medium"}],watch_items:[{title:"Carpet cleaning mandatory at move-out",description:"Must provide a professional carpet cleaning invoice when returning keys. If no invoice, NorthSteppe charges minimum $100 — even if carpet is clean."},{title:"Move-out deadline is NOON",description:"Lease ends at 12:00 PM not midnight. Holding over even one day triggers double rent plus a $500 fee."},{title:"Keys must be returned to office",description:"All keys and parking permits must be returned to the rental office at move-out. Late return = $75/door lock + $50 mailbox lock charge."}],key_terms:{rent:"$2,700/month (base $2,400 + utilities)",lease_length:"Aug 6, 2024 – Jul 23, 2025",deposit:"$2,400 (equal to base monthly installment)",renewal_notice:"No auto-renewal — fixed term lease",notice_to_enter:"Reasonable notice (Section 9) — not explicitly 24 hrs",early_termination:"Lease buyout available for 1-2BR only; otherwise full rent owed until re-rented"},ohio_rights:["ORC 5321.04: Landlord must give minimum 24-hour notice before entry. Section 9's 'reasonable notice' language may not meet this standard — you can request written clarification.","ORC 5321.16: Deposit must be returned within 30 days with itemized deductions. Any flat-fee damage charges not tied to actual repair costs are illegal.","ORC 5321.13: The jury trial waiver in Section 14 attempts to limit your statutory rights. Courts have found similar waivers void under Ohio law.","ORC 5321.15: Landlord cannot cut off utilities as a means of eviction or retaliation while you have the right of occupancy."]};
+const DEMO={summary:"This NorthSteppe Realty lease (Ver. 2023) has several issues worth knowing before signing. The vague entry notice, jury trial waiver, and mandatory carpet cleaning charges are the most significant red flags from the actual lease text.",overall_score:4,landlord_match:"northsteppe",red_flags:[{title:"Vague entry notice. 'reasonable notice' only",description:"Section 9 says entry is on 'reasonable notice, except in an emergency.' Ohio law (ORC 5321.04) requires minimum 24 hours. This language is ambiguous and legally weaker than the statutory standard.",severity:"high"},{title:"Jury trial waiver. Section 14",description:"Section 14 states tenants waive the right to a jury trial and must submit all claims to arbitration, paying half the arbitration cost. This is unusual and heavily favors the landlord.",severity:"high"},{title:"No interest on security deposit",description:"Section 6 states 'No interest is paid on amounts held as a security deposit.' The deposit here equals one month's rent so ORC 5321.16 interest rules don't apply, but the waiver language is still worth flagging.",severity:"medium"},{title:"Joint and several liability",description:"All tenants are jointly liable for the full rent. If any roommate doesn't pay, NorthSteppe can pursue any individual tenant for the entire amount.",severity:"medium"},{title:"Tenant pays for all broken glass regardless of cause",description:"Section 3 makes tenants responsible for all cracked or broken glass, windows, and doors 'regardless of cause.' This may conflict with the landlord's duty to maintain habitable premises under ORC 5321.04.",severity:"medium"}],watch_items:[{title:"Carpet cleaning mandatory at move-out",description:"Must provide a professional carpet cleaning invoice when returning keys. If no invoice, NorthSteppe charges minimum $100, even if carpet is clean."},{title:"Move-out deadline is NOON",description:"Lease ends at 12:00 PM not midnight. Holding over even one day triggers double rent plus a $500 fee."},{title:"Keys must be returned to office",description:"All keys and parking permits must be returned to the rental office at move-out. Late return = $75/door lock + $50 mailbox lock charge."}],key_terms:{rent:"$2,700/month (base $2,400 + utilities)",lease_length:"Aug 6, 2024 – Jul 23, 2025",deposit:"$2,400 (equal to base monthly installment)",renewal_notice:"No auto-renewal, fixed term lease",notice_to_enter:"Reasonable notice (Section 9), not explicitly 24 hrs",early_termination:"Lease buyout available for 1-2BR only; otherwise full rent owed until re-rented"},ohio_rights:["ORC 5321.04: Landlord must give minimum 24-hour notice before entry. Section 9's 'reasonable notice' language may not meet this standard, you can request written clarification.","ORC 5321.16: Deposit must be returned within 30 days with itemized deductions. Any flat-fee damage charges not tied to actual repair costs are illegal.","ORC 5321.13: The jury trial waiver in Section 14 attempts to limit your statutory rights. Courts have found similar waivers void under Ohio law.","ORC 5321.15: Landlord cannot cut off utilities as a means of eviction or retaliation while you have the right of occupancy."]};
 
 function runDemo(){
-  document.getElementById('af').style.display='none';
-  document.getElementById('al').style.display='';
-  document.getElementById('lmsg').textContent='Loading demo analysis...';
-  setTimeout(()=>{renderResults(DEMO);showView('results');},1200);
+ document.getElementById('af').style.display='none';
+ document.getElementById('al').style.display='';
+ document.getElementById('lmsg').textContent='Loading demo analysis...';
+ setTimeout(()=>{renderResults(DEMO);showView('results');},1200);
 }
 
 // ─── ANALYZE ──────────────────────────────────────────────────────────────────
 async function doAnalyze(){
-  document.getElementById('ae').style.display='none';
-  if(!extractedText||extractedText.length<100)return showErr('Please upload a lease PDF first.');
-  document.getElementById('af').style.display='none';
-  document.getElementById('al').style.display='';
-  document.getElementById('lmsg').textContent='Analyzing your lease for Columbus-specific red flags...';
-  try{
-    const controller=new AbortController();
-    const timeout=setTimeout(()=>controller.abort(),60000);
-    const res=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:4000,system:buildSystemPrompt(),messages:[{role:'user',content:'Analyze this lease:\n\n'+extractedText.slice(0,14000).replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g,'')}]})});
-    clearTimeout(timeout);
-    const data=await res.json();
-    if(data.error)throw new Error(data.error.message||'API error');
-    let raw=(data.content?.[0]?.text||'').replace(/```json|```/g,'').trim();
-    // Extract just the JSON object in case there's extra text
-    const jsonStart=raw.indexOf('{');
-    const jsonEnd=raw.lastIndexOf('}');
-    if(jsonStart!==-1&&jsonEnd!==-1)raw=raw.slice(jsonStart,jsonEnd+1);
-    const result=JSON.parse(raw);
-    storeLeaseData(result);
-    renderResults(result);
-    showView('results');
-  }catch(e){document.getElementById('af').style.display='';document.getElementById('al').style.display='none';showErr('Error: '+e.message);}
+ document.getElementById('ae').style.display='none';
+ if(!extractedText||extractedText.length<100)return showErr('Please upload a lease PDF first.');
+ document.getElementById('af').style.display='none';
+ document.getElementById('al').style.display='';
+ document.getElementById('lmsg').textContent='Analyzing your lease for Columbus-specific red flags...';
+ try{
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),60000);
+  const res=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:4000,system:buildSystemPrompt(),messages:[{role:'user',content:'Analyze this lease:\n\n'+extractedText.slice(0,14000).replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g,'')}]})});
+  clearTimeout(timeout);
+  const data=await res.json();
+  if(data.error)throw new Error(data.error.message||'API error');
+  let raw=(data.content?.[0]?.text||'').replace(/```json|```/g,'').trim();
+  // Extract just the JSON object in case there's extra text
+  const jsonStart=raw.indexOf('{');
+  const jsonEnd=raw.lastIndexOf('}');
+  if(jsonStart!==-1&&jsonEnd!==-1)raw=raw.slice(jsonStart,jsonEnd+1);
+  const result=JSON.parse(raw);
+  storeLeaseData(result);
+  renderResults(result);
+  showView('results');
+ }catch(e){document.getElementById('af').style.display='';document.getElementById('al').style.display='none';showErr('Error: '+e.message);}
 }
 
 // ─── RENDER RESULTS ────────────────────────────────────────────────────────────
 function renderResults(r){
-  const s=r.overall_score||5,col=scCol(s);
-  const ll=getLandlords();
-  const lm=r.landlord_match&&ll[r.landlord_match];
-  const scans=getScans();
-  const scanCount=(scans[r.landlord_match]||[]).length;
+ const s=r.overall_score||5,col=scCol(s);
+ const ll=getLandlords();
+ const lm=r.landlord_match&&ll[r.landlord_match];
+ const scans=getScans();
+ const scanCount=(scans[r.landlord_match]||[]).length;
 
-  // Find the anchor finding: the highest-severity red flag, or the first watch item if no red flags
-  const flagsBySev={high:[],medium:[],low:[]};
-  (r.red_flags||[]).forEach(f=>{(flagsBySev[f.severity]||flagsBySev.low).push(f);});
-  const sortedFlags=[...flagsBySev.high,...flagsBySev.medium,...flagsBySev.low];
-  const anchor=sortedFlags[0]||(r.watch_items||[])[0];
-  const anchorSev=sortedFlags[0]?sortedFlags[0].severity:'low';
-  const restFlags=sortedFlags.slice(1);
+ // Find the anchor finding: the highest-severity red flag, or the first watch item if no red flags
+ const flagsBySev={high:[],medium:[],low:[]};
+ (r.red_flags||[]).forEach(f=>{(flagsBySev[f.severity]||flagsBySev.low).push(f);});
+ const sortedFlags=[...flagsBySev.high,...flagsBySev.medium,...flagsBySev.low];
+ const anchor=sortedFlags[0]||(r.watch_items||[])[0];
+ const anchorSev=sortedFlags[0]?sortedFlags[0].severity:'low';
+ const restFlags=sortedFlags.slice(1);
 
-  document.getElementById('rc').innerHTML=`
-    <div class="rh">
-      <div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:.75rem;">Lease analysis</div>
-      <h2 style="font-family:var(--serif);font-size:30px;line-height:1.2;margin-bottom:1rem;">${r.summary||'Analysis complete.'}</h2>
-      <div class="score-row" style="max-width:420px"><span style="font-size:13px;color:var(--text2)">Fairness score</span>
-      <div class="score-track"><div class="score-fill" style="width:${s*10}%;background:${col}"></div></div>
-      <span class="score-num" style="color:${col}">${s}/10</span></div>
-      ${lm?`<div style="margin-top:1rem;font-size:13px;color:var(--text2);">Matched to <strong style="color:var(--text)">${lm.name}</strong> · USG/Birdeye rating ${lm.overall}/5 · <a href="#" onclick="showLandlordFromHome('${r.landlord_match}');return false;" style="color:var(--green)">view profile →</a></div>`:''}
-      ${scanCount>0?`<div style="font-size:12px;color:var(--text3);margin-top:.5rem">Your analysis added to ${lm?.name||'landlord'} dataset (${scanCount} total)</div>`:''}
-    </div>
+ document.getElementById('rc').innerHTML=`
+  <div class="rh">
+   <div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:.75rem;">Lease analysis</div>
+   <h2 style="font-family:var(--serif);font-size:30px;line-height:1.2;margin-bottom:1rem;">${r.summary||'Analysis complete.'}</h2>
+   <div class="score-row" style="max-width:420px"><span style="font-size:13px;color:var(--text2)">Fairness score</span>
+   <div class="score-track"><div class="score-fill" style="width:${s*10}%;background:${col}"></div></div>
+   <span class="score-num" style="color:${col}">${s}/10</span></div>
+   ${lm?`<div style="margin-top:1rem;font-size:13px;color:var(--text2);">Matched to <strong style="color:var(--text)">${lm.name}</strong> · USG/Birdeye rating ${lm.overall}/5 · <a href="#" onclick="showLandlordFromHome('${r.landlord_match}');return false;" style="color:var(--green)">view profile →</a></div>`:''}
+   ${scanCount>0?`<div style="font-size:12px;color:var(--text3);margin-top:.5rem">Your analysis added to ${lm?.name||'landlord'} dataset (${scanCount} total)</div>`:''}
+  </div>
 
-    ${anchor?`<div class="anchor-block ${anchorSev}">
-      <div class="anchor-eyebrow">The biggest issue with your lease</div>
-      <div class="anchor-title">${anchor.title}</div>
-      <div class="anchor-desc">${anchor.description}</div>
-    </div>`:''}
+  ${anchor?`<div class="anchor-block ${anchorSev}">
+   <div class="anchor-eyebrow">The biggest issue with your lease</div>
+   <div class="anchor-title">${anchor.title}</div>
+   <div class="anchor-desc">${anchor.description}</div>
+  </div>`:''}
 
-    ${restFlags.length?`<div class="rs"><h3>Other red flags (${restFlags.length})</h3>${restFlags.map(f=>`<div class="fi ${f.severity}"><div class="fd ${f.severity}"></div><div><div class="ft">${f.title}</div><div class="fdesc">${f.description}</div></div></div>`).join('')}</div>`:''}
-    ${(r.watch_items||[]).length?`<div class="rs"><h3>Worth understanding</h3>${r.watch_items.map(w=>`<div class="fi low"><div class="fd low"></div><div><div class="ft">${w.title}</div><div class="fdesc">${w.description}</div></div></div>`).join('')}</div>`:''}
-    ${r.key_terms?`<div class="rs"><h3>Key terms at a glance</h3><div class="tg">${Object.entries(r.key_terms).filter(([,v])=>v).map(([k,v])=>`<div class="ti"><div class="tk">${k.replace(/_/g,' ')}</div><div class="tv">${v}</div></div>`).join('')}</div></div>`:''}
-    ${r.ohio_rights?.length?`<div class="rs"><h3>Your Ohio rights — specific to this lease</h3><ul class="rlist">${r.ohio_rights.map(x=>`<li>${x}</li>`).join('')}</ul></div>`:''}
+  ${restFlags.length?`<div class="rs"><h3>Other red flags (${restFlags.length})</h3>${restFlags.map(f=>`<div class="fi ${f.severity}"><div class="fd ${f.severity}"></div><div><div class="ft">${f.title}</div><div class="fdesc">${f.description}</div></div></div>`).join('')}</div>`:''}
+  ${(r.watch_items||[]).length?`<div class="rs"><h3>Worth understanding</h3>${r.watch_items.map(w=>`<div class="fi low"><div class="fd low"></div><div><div class="ft">${w.title}</div><div class="fdesc">${w.description}</div></div></div>`).join('')}</div>`:''}
+  ${r.key_terms?`<div class="rs"><h3>Key terms at a glance</h3><div class="tg">${Object.entries(r.key_terms).filter(([,v])=>v).map(([k,v])=>`<div class="ti"><div class="tk">${k.replace(/_/g,' ')}</div><div class="tv">${v}</div></div>`).join('')}</div></div>`:''}
+  ${r.ohio_rights?.length?`<div class="rs"><h3>Your Ohio rights, specific to this lease</h3><ul class="rlist">${r.ohio_rights.map(x=>`<li>${x}</li>`).join('')}</ul></div>`:''}
 
-    <div style="margin-top:2rem;padding:1.5rem;background:var(--bg2);border-radius:var(--rlg);">
-      <div style="font-family:var(--serif);font-size:18px;line-height:1.3;margin-bottom:.5rem">When you move out, come back.</div>
-      <p style="font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:1rem">Did your deposit return in 30 days? Were deductions itemized? Your experience makes the next student's analysis sharper.</p>
-      <button class="btn btn-p" onclick="showView('submit')" style="font-size:13px">Submit your move-out experience →</button>
-    </div>
+  <div style="margin-top:2rem;padding:1.5rem;background:var(--bg2);border-radius:var(--rlg);">
+   <div style="font-family:var(--serif);font-size:18px;line-height:1.3;margin-bottom:.5rem">When you move out, come back.</div>
+   <p style="font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:1rem">Did your deposit come back in 30 days? Were the deductions itemized? Telling us what happened helps the next student signing with your landlord know what to expect.</p>
+   <button class="btn btn-p" onclick="showView('submit')" style="font-size:13px">Submit your move-out experience →</button>
+  </div>
 
-    <div style="margin-top:1.5rem;padding-top:1rem;border-top:0.5px solid var(--border);display:flex;flex-direction:column;gap:.75rem;">
-      <div style="font-size:12px;color:var(--text3)">⚠️ AI analysis may contain errors. Always verify with OSU Student Legal Services: student-legal.osu.edu · (614) 247-5853</div>
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-        <span style="font-size:13px;color:var(--text2)">Was this analysis helpful?</span>
-        <button onclick="submitFeedback(true)" style="background:var(--gl);border:0.5px solid var(--green);color:var(--gd);border-radius:var(--r);padding:4px 12px;font-size:12px;cursor:pointer;font-family:var(--sans)">👍 Yes</button>
-        <button onclick="submitFeedback(false)" style="background:var(--rl);border:0.5px solid var(--red);color:var(--rd);border-radius:var(--r);padding:4px 12px;font-size:12px;cursor:pointer;font-family:var(--sans)">👎 No</button>
-        <span id="feedback-thanks" style="font-size:12px;color:var(--green);display:none">Thanks — this helps improve the tool.</span>
-      </div>
-    </div>`;
+  <div style="margin-top:1.5rem;padding-top:1rem;border-top:0.5px solid var(--border);display:flex;flex-direction:column;gap:.75rem;">
+   <div style="font-size:12px;color:var(--text3)">⚠️ AI analysis may contain errors. Always verify with OSU Student Legal Services: student-legal.osu.edu · (614) 247-5853</div>
+   <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span style="font-size:13px;color:var(--text2)">Was this analysis helpful?</span>
+    <button onclick="submitFeedback(true)" style="background:var(--gl);border:0.5px solid var(--green);color:var(--gd);border-radius:var(--r);padding:4px 12px;font-size:12px;cursor:pointer;font-family:var(--sans)">👍 Yes</button>
+    <button onclick="submitFeedback(false)" style="background:var(--rl);border:0.5px solid var(--red);color:var(--rd);border-radius:var(--r);padding:4px 12px;font-size:12px;cursor:pointer;font-family:var(--sans)">👎 No</button>
+    <span id="feedback-thanks" style="font-size:12px;color:var(--green);display:none">Thanks, this helps improve the tool.</span>
+   </div>
+  </div>`;
 }
 
 // ─── LANDLORD CARDS ───────────────────────────────────────────────────────────
 function buildCard(id,l,fn){
-  const scans=getScans();
-  const count=(scans[id]||[]).length;
-  const typePill=l.type==='luxury'?'<span class="pill pill-blue">Luxury</span>':'';
-  const scanBadge=count>0?`<span class="scan-badge" style="margin-left:5px">${count} scans</span>`:'';
-  return`<div class="lc" onclick="${fn}('${id}')">
-    <div class="lc-name">${l.name}${typePill}${scanBadge}</div>
-    <div class="lc-type">${l.price||''}</div>
-    <div class="lc-score">USG/Birdeye rating<span class="pill ${sC(l.overall)}">${l.overall}/5</span></div>
-  </div>`;
+ const scans=getScans();
+ const count=(scans[id]||[]).length;
+ const typePill=l.type==='luxury'?'<span class="pill pill-blue">Luxury</span>':'';
+ const scanBadge=count>0?`<span class="scan-badge" style="margin-left:5px">${count} scans</span>`:'';
+ return`<div class="lc" onclick="${fn}('${id}')">
+  <div class="lc-name">${l.name}${typePill}${scanBadge}</div>
+  <div class="lc-type">${l.price||''}</div>
+  <div class="lc-score">USG/Birdeye rating<span class="pill ${sC(l.overall)}">${l.overall}/5</span></div>
+ </div>`;
 }
 
 function filterLL(type,btn){
-  document.querySelectorAll('#view-landlords .ftab').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
-  const ll=getLandlords();
-  const entries=Object.entries(ll).filter(([,l])=>type==='all'||l.type===type);
-  document.getElementById('ll-grid').innerHTML=entries.map(([id,l])=>buildCard(id,l,'showLandlordDetail')).join('');
+ document.querySelectorAll('#view-landlords .ftab').forEach(b=>b.classList.remove('on'));
+ btn.classList.add('on');
+ const ll=getLandlords();
+ const entries=Object.entries(ll).filter(([,l])=>type==='all'||l.type===type);
+ document.getElementById('ll-grid').innerHTML=entries.map(([id,l])=>buildCard(id,l,'showLandlordDetail')).join('');
 }
 
 function showLandlordDetail(id){
-  const ll=getLandlords();
-  const l=ll[id];if(!l)return;
-  document.getElementById('ll').style.display='none';
-  const det=document.getElementById('ld');det.style.display='';
-  const scans=getScans();
-  const scanData=scans[id]||[];
-  const typePill=l.type==='luxury'?'<span class="pill pill-blue">Luxury</span>':'';
+ const ll=getLandlords();
+ const l=ll[id];if(!l)return;
+ document.getElementById('ll').style.display='none';
+ const det=document.getElementById('ld');det.style.display='';
+ const scans=getScans();
+ const scanData=scans[id]||[];
+ const typePill=l.type==='luxury'?'<span class="pill pill-blue">Luxury</span>':'';
 
-  // Build crowdsourced insights
-  let crowdHtml='';
-  if(scanData.length>0){
-    const allFlags=scanData.flatMap(s=>s.redFlagsFound||[]);
-    const flagCounts={};
-    allFlags.forEach(f=>{flagCounts[f]=(flagCounts[f]||0)+1;});
-    const topFlags=Object.entries(flagCounts).sort((a,b)=>b[1]-a[1]).slice(0,5);
-    const avgScore=scanData.filter(s=>s.score).reduce((a,s)=>a+s.score,0)/scanData.filter(s=>s.score).length;
-    const rents=scanData.filter(s=>s.rent).map(s=>s.rent);
-    crowdHtml=`<div class="crowd-box">
-      <strong>📊 Crowdsourced data from ${scanData.length} submitted lease${scanData.length>1?'s':''}</strong>
-      ${!isNaN(avgScore)?`Average AI fairness score: <strong>${avgScore.toFixed(1)}/10</strong> · `:''}
-      ${rents.length?`Rent seen: ${rents.slice(-3).join(', ')}<br>`:''}
-      ${topFlags.length?`Top red flags found: ${topFlags.map(([f,c])=>`<span class="rtag">${f} (${c}x)</span>`).join('')}`:''}
-    </div>`;
-  }
+ // Build crowdsourced insights
+ let crowdHtml='';
+ if(scanData.length>0){
+  const allFlags=scanData.flatMap(s=>s.redFlagsFound||[]);
+  const flagCounts={};
+  allFlags.forEach(f=>{flagCounts[f]=(flagCounts[f]||0)+1;});
+  const topFlags=Object.entries(flagCounts).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  const avgScore=scanData.filter(s=>s.score).reduce((a,s)=>a+s.score,0)/scanData.filter(s=>s.score).length;
+  const rents=scanData.filter(s=>s.rent).map(s=>s.rent);
+  crowdHtml=`<div class="crowd-box">
+   <strong>📊 Crowdsourced data from ${scanData.length} submitted lease${scanData.length>1?'s':''}</strong>
+   ${!isNaN(avgScore)?`Average AI fairness score: <strong>${avgScore.toFixed(1)}/10</strong> · `:''}
+   ${rents.length?`Rent seen: ${rents.slice(-3).join(', ')}<br>`:''}
+   ${topFlags.length?`Top red flags found: ${topFlags.map(([f,c])=>`<span class="rtag">${f} (${c}x)</span>`).join('')}`:''}
+  </div>`;
+ }
 
-  det.innerHTML=`
-    <button class="back" onclick="closeLL()">← back to landlords</button>
-    <div class="lp">
-      <div class="lp-head">
-        <div><div class="lp-name">${l.name} ${typePill}</div><div class="lp-sub">${l.units} · ${l.price||''}</div></div>
-        <span class="pill ${sC(l.overall)}">${l.overall}/5 overall</span>
-      </div>
-      <div class="lp-body">
-        ${crowdHtml}
-        <div class="sl">Ratings</div>
-        <div class="rg">
-          ${[['Security deposit',l.deposit],['Maintenance',l.maintenance],['Move-out process',l.moveout],['Communication',l.communication]].map(([k,v])=>`
-          <div><div class="rl"><span>${k}</span><span>${v}/5</span></div>
-          <div class="rt"><div class="rf" style="width:${v/5*100}%;background:${rcCol(v)}"></div></div></div>`).join('')}
-        </div>
-        <div class="sl">Typical lease terms</div>
-        <div class="tg" style="margin-bottom:1.25rem">
-          ${Object.entries(l.comp||{}).map(([k,v])=>`<div class="ti"><div class="tk">${k.replace(/([A-Z])/g,' $1').toLowerCase()}</div><div class="tv" style="font-size:13px">${v}</div></div>`).join('')}
-        </div>
-        ${l.redFlags?.length?`<div class="sl">Known lease patterns</div><div style="margin-bottom:.75rem">${l.redFlags.map(f=>`<span class="rtag">${f}</span>`).join('')}</div>`:''}
-        ${l.watchItems?.length?`<div class="sl">What to watch for</div><ul class="rlist" style="margin-bottom:1rem">${l.watchItems.map(w=>`<li>${w}</li>`).join('')}</ul>`:''}
-        <div class="sl">Legal history</div>
-        <p style="font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:1rem">${l.legal}</p>
-        <div class="sl">Community ranking</div>
-        <p style="font-size:13px;color:var(--text2)">${l.usg}</p>
-        ${l._notes?.length?`<div class="sl" style="margin-top:1rem">Dev notes</div><ul class="rlist">${l._notes.map(n=>`<li>${n}</li>`).join('')}</ul>`:''}
-      </div>
-    </div>`;
-  window.scrollTo(0,0);
+ det.innerHTML=`
+  <button class="back" onclick="closeLL()">← back to landlords</button>
+  <div class="lp">
+   <div class="lp-head">
+    <div><div class="lp-name">${l.name} ${typePill}</div><div class="lp-sub">${l.units} · ${l.price||''}</div></div>
+    <span class="pill ${sC(l.overall)}">${l.overall}/5 overall</span>
+   </div>
+   <div class="lp-body">
+    ${crowdHtml}
+    <div class="sl">Ratings</div>
+    <div class="rg">
+     ${[['Security deposit',l.deposit],['Maintenance',l.maintenance],['Move-out process',l.moveout],['Communication',l.communication]].map(([k,v])=>`
+     <div><div class="rl"><span>${k}</span><span>${v}/5</span></div>
+     <div class="rt"><div class="rf" style="width:${v/5*100}%;background:${rcCol(v)}"></div></div></div>`).join('')}
+    </div>
+    <div class="sl">Typical lease terms</div>
+    <div class="tg" style="margin-bottom:1.25rem">
+     ${Object.entries(l.comp||{}).map(([k,v])=>`<div class="ti"><div class="tk">${k.replace(/([A-Z])/g,' $1').toLowerCase()}</div><div class="tv" style="font-size:13px">${v}</div></div>`).join('')}
+    </div>
+    ${l.redFlags?.length?`<div class="sl">Known lease patterns</div><div style="margin-bottom:.75rem">${l.redFlags.map(f=>`<span class="rtag">${f}</span>`).join('')}</div>`:''}
+    ${l.watchItems?.length?`<div class="sl">What to watch for</div><ul class="rlist" style="margin-bottom:1rem">${l.watchItems.map(w=>`<li>${w}</li>`).join('')}</ul>`:''}
+    <div class="sl">Legal history</div>
+    <p style="font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:1rem">${l.legal}</p>
+    <div class="sl">Community ranking</div>
+    <p style="font-size:13px;color:var(--text2)">${l.usg}</p>
+    ${l._notes?.length?`<div class="sl" style="margin-top:1rem">Dev notes</div><ul class="rlist">${l._notes.map(n=>`<li>${n}</li>`).join('')}</ul>`:''}
+   </div>
+  </div>`;
+ window.scrollTo(0,0);
 }
 
 function closeLL(){document.getElementById('ll').style.display='';document.getElementById('ld').style.display='none';}
@@ -1191,240 +1179,240 @@ function showLandlordFromHome(id){showView('landlords');setTimeout(()=>showLandl
 
 // ─── COMPARE ──────────────────────────────────────────────────────────────────
 function buildCompRow(id,l){
-  const scans=getScans();
-  const count=(scans[id]||[]).length;
-  const c=l.comp||{};
-  const verified=(c.deposit||'').includes('verified')||(c.autorenewal||'').includes('verified');
-  const vbadge=verified?'<span style="font-size:9px;background:var(--gl);color:var(--gd);padding:1px 5px;border-radius:99px;margin-left:4px;vertical-align:middle">✓ lease</span>':'';
-  function stripV(s){return (s||'—').replace(/\s*\(verified[^)]*\)/gi,'').trim();}
-  const dep=stripV(c.deposit);
-  const auto=stripV(c.autorenewal);
-  const entry=stripV(c.entry);
-  const js=stripV(c.jointSeveral);
-  const entryBad=(entry.toLowerCase().includes('reasonable')&&!entry.includes('24'));
-  const autoBad=(auto.toLowerCase().includes('yes'));
-  return`<tr>
-    <td class="td-name" style="cursor:pointer" onclick="showLandlordFromHome('${id}')">${l.name}${vbadge}</td>
-    <td><span class="pill ${l.type==='luxury'?'pill-blue':''}" style="${l.type!=='luxury'?'background:var(--bg3);color:var(--text3)':''}">${l.type==='luxury'?'Luxury':'Trad.'}</span></td>
-    <td style="font-size:12px">${dep}</td>
-    <td style="font-size:12px">${autoBad?`<span class="no">${auto}</span>`:auto}</td>
-    <td style="font-size:12px">${entryBad?`<span style="color:var(--amber)">${entry}</span>`:entry}</td>
-    <td style="font-size:12px">${js.toLowerCase().includes('yes')?'<span class="no">Yes — roommates share full liability</span>':js}</td>
-    <td style="font-size:12px">${c.utilities||'—'}</td>
-    <td class="td-check">${(c.furnished||'').toLowerCase().includes('yes')?'<span class="yes">Yes</span>':'No'}</td>
-    <td class="td-check">${(c.pets||'').toLowerCase().includes('yes')||(c.pets||'').toLowerCase().includes('friendly')?'<span class="yes">Yes</span>':'<span class="na">—</span>'}</td>
-    <td><span class="pill ${sC(l.overall)}">${l.overall}/5</span></td>
-    <td>${count>0?`<span class="scan-badge">${count}</span>`:'<span class="na">0</span>'}</td>
-  </tr>`;
+ const scans=getScans();
+ const count=(scans[id]||[]).length;
+ const c=l.comp||{};
+ const verified=(c.deposit||'').includes('verified')||(c.autorenewal||'').includes('verified');
+ const vbadge=verified?'<span style="font-size:9px;background:var(--gl);color:var(--gd);padding:1px 5px;border-radius:99px;margin-left:4px;vertical-align:middle">✓ lease</span>':'';
+ function stripV(s){return (s||', ').replace(/\s*\(verified[^)]*\)/gi,'').trim();}
+ const dep=stripV(c.deposit);
+ const auto=stripV(c.autorenewal);
+ const entry=stripV(c.entry);
+ const js=stripV(c.jointSeveral);
+ const entryBad=(entry.toLowerCase().includes('reasonable')&&!entry.includes('24'));
+ const autoBad=(auto.toLowerCase().includes('yes'));
+ return`<tr>
+  <td class="td-name" style="cursor:pointer" onclick="showLandlordFromHome('${id}')">${l.name}${vbadge}</td>
+  <td><span class="pill ${l.type==='luxury'?'pill-blue':''}" style="${l.type!=='luxury'?'background:var(--bg3);color:var(--text3)':''}">${l.type==='luxury'?'Luxury':'Trad.'}</span></td>
+  <td style="font-size:12px">${dep}</td>
+  <td style="font-size:12px">${autoBad?`<span class="no">${auto}</span>`:auto}</td>
+  <td style="font-size:12px">${entryBad?`<span style="color:var(--amber)">${entry}</span>`:entry}</td>
+  <td style="font-size:12px">${js.toLowerCase().includes('yes')?'<span class="no">Yes, roommates share full liability</span>':js}</td>
+  <td style="font-size:12px">${c.utilities||', '}</td>
+  <td class="td-check">${(c.furnished||'').toLowerCase().includes('yes')?'<span class="yes">Yes</span>':'No'}</td>
+  <td class="td-check">${(c.pets||'').toLowerCase().includes('yes')||(c.pets||'').toLowerCase().includes('friendly')?'<span class="yes">Yes</span>':'<span class="na">, </span>'}</td>
+  <td><span class="pill ${sC(l.overall)}">${l.overall}/5</span></td>
+  <td>${count>0?`<span class="scan-badge">${count}</span>`:'<span class="na">0</span>'}</td>
+ </tr>`;
 }
 
 function filterComp(type,btn){
-  document.querySelectorAll('#view-compare .ftab').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
-  const ll=getLandlords();
-  const entries=Object.entries(ll).filter(([,l])=>type==='all'||l.type===type);
-  document.getElementById('comp-body').innerHTML=entries.map(([id,l])=>buildCompRow(id,l)).join('');
-  renderCompCards();
+ document.querySelectorAll('#view-compare .ftab').forEach(b=>b.classList.remove('on'));
+ btn.classList.add('on');
+ const ll=getLandlords();
+ const entries=Object.entries(ll).filter(([,l])=>type==='all'||l.type===type);
+ document.getElementById('comp-body').innerHTML=entries.map(([id,l])=>buildCompRow(id,l)).join('');
+ renderCompCards();
 }
 
 function renderCompCards(){
-  const ll=getLandlords();
-  // Sort by overall rating descending so best landlords first
-  const sorted=Object.entries(ll).sort((a,b)=>(b[1].overall||0)-(a[1].overall||0));
-  document.getElementById('comp-cards').innerHTML=sorted.map(([id,l])=>{
-    const c=l.comp||{};
-    const verified=(c.deposit||'').includes('verified')||(c.autorenewal||'').includes('verified');
-    const vbadge=verified?'<span style="background:var(--gl);color:var(--gd);padding:1px 6px;border-radius:99px;font-size:9px;font-weight:500;letter-spacing:.02em">✓ lease</span>':'';
-    // Pick the strongest positive signal
-    let strength=null;
-    if((c.entry||'').toLowerCase().includes('24')&&(c.entry||'').toLowerCase().includes('explicit'))strength='Explicitly 24-hour entry notice';
-    else if((c.utilities||'').toLowerCase().includes('water')&&(c.utilities||'').toLowerCase().includes('included'))strength='Utilities included in rent';
-    else if((c.autorenewal||'').toLowerCase().includes('no'))strength='No auto-renewal — fixed term only';
-    else if(l.overall>=4.0)strength='Above-average tenant ratings';
-    else strength='Standard Columbus terms';
-    // Pick the biggest concern from redFlags
-    const concern=(l.redFlags||[])[0]||'No major concerns documented';
-    const sCol=l.overall>=4?'var(--green)':l.overall>=3.3?'var(--amber)':'var(--red)';
-    return `<div style="background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rlg);padding:1.25rem;cursor:pointer;transition:all .15s" onclick="showLandlordFromHome('${id}')" onmouseover="this.style.borderColor='var(--text2)'" onmouseout="this.style.borderColor='var(--border)'">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:.25rem">
-        <div style="font-family:var(--serif);font-size:18px;line-height:1.2;color:var(--text)">${l.name}</div>
-        ${vbadge}
-      </div>
-      <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem">${l.type==='luxury'?'Luxury complex':'Traditional'} · <span style="color:${sCol}">${l.overall}/5</span></div>
-      <div style="margin-bottom:.875rem;padding:.625rem .75rem;background:var(--gl);border-radius:var(--r);">
-        <div style="font-size:10px;font-weight:500;color:var(--gd);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px">Strength</div>
-        <div style="font-size:13px;color:var(--text);line-height:1.4">${strength}</div>
-      </div>
-      <div style="padding:.625rem .75rem;background:var(--rl);border-radius:var(--r);">
-        <div style="font-size:10px;font-weight:500;color:var(--rd);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px">Concern</div>
-        <div style="font-size:13px;color:var(--text);line-height:1.4">${concern}</div>
-      </div>
-    </div>`;
-  }).join('');
+ const ll=getLandlords();
+ // Sort by overall rating descending so best landlords first
+ const sorted=Object.entries(ll).sort((a,b)=>(b[1].overall||0)-(a[1].overall||0));
+ document.getElementById('comp-cards').innerHTML=sorted.map(([id,l])=>{
+  const c=l.comp||{};
+  const verified=(c.deposit||'').includes('verified')||(c.autorenewal||'').includes('verified');
+  const vbadge=verified?'<span style="background:var(--gl);color:var(--gd);padding:1px 6px;border-radius:99px;font-size:9px;font-weight:500;letter-spacing:.02em">✓ lease</span>':'';
+  // Pick the strongest positive signal
+  let strength=null;
+  if((c.entry||'').toLowerCase().includes('24')&&(c.entry||'').toLowerCase().includes('explicit'))strength='Explicitly 24-hour entry notice';
+  else if((c.utilities||'').toLowerCase().includes('water')&&(c.utilities||'').toLowerCase().includes('included'))strength='Utilities included in rent';
+  else if((c.autorenewal||'').toLowerCase().includes('no'))strength='No auto-renewal, fixed term only';
+  else if(l.overall>=4.0)strength='Above-average tenant ratings';
+  else strength='Standard Columbus terms';
+  // Pick the biggest concern from redFlags
+  const concern=(l.redFlags||[])[0]||'No major concerns documented';
+  const sCol=l.overall>=4?'var(--green)':l.overall>=3.3?'var(--amber)':'var(--red)';
+  return `<div style="background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rlg);padding:1.25rem;cursor:pointer;transition:all .15s" onclick="showLandlordFromHome('${id}')" onmouseover="this.style.borderColor='var(--text2)'" onmouseout="this.style.borderColor='var(--border)'">
+   <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:.25rem">
+    <div style="font-family:var(--serif);font-size:18px;line-height:1.2;color:var(--text)">${l.name}</div>
+    ${vbadge}
+   </div>
+   <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem">${l.type==='luxury'?'Luxury complex':'Traditional'} · <span style="color:${sCol}">${l.overall}/5</span></div>
+   <div style="margin-bottom:.875rem;padding:.625rem .75rem;background:var(--gl);border-radius:var(--r);">
+    <div style="font-size:10px;font-weight:500;color:var(--gd);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px">Strength</div>
+    <div style="font-size:13px;color:var(--text);line-height:1.4">${strength}</div>
+   </div>
+   <div style="padding:.625rem .75rem;background:var(--rl);border-radius:var(--r);">
+    <div style="font-size:10px;font-weight:500;color:var(--rd);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px">Concern</div>
+    <div style="font-size:13px;color:var(--text);line-height:1.4">${concern}</div>
+   </div>
+  </div>`;
+ }).join('');
 }
 
 // ─── DEV PANEL ────────────────────────────────────────────────────────────────
 let devUnlocked=false;
 
 function devLogin(){
-  const pw=document.getElementById('dev-pw').value;
-  if(pw===DEV_PASSWORD){
-    devUnlocked=true;
-    document.getElementById('dev-locked').style.display='none';
-    document.getElementById('dev-panel').style.display='';
-    renderDevPanel();
-  }else{
-    document.getElementById('dev-pw-err').style.display='';
-  }
+ const pw=document.getElementById('dev-pw').value;
+ if(pw===DEV_PASSWORD){
+  devUnlocked=true;
+  document.getElementById('dev-locked').style.display='none';
+  document.getElementById('dev-panel').style.display='';
+  renderDevPanel();
+ }else{
+  document.getElementById('dev-pw-err').style.display='';
+ }
 }
 
 function devLogout(){
-  devUnlocked=false;
-  document.getElementById('dev-locked').style.display='';
-  document.getElementById('dev-panel').style.display='none';
-  document.getElementById('dev-pw').value='';
-  document.getElementById('dev-pw-err').style.display='none';
+ devUnlocked=false;
+ document.getElementById('dev-locked').style.display='';
+ document.getElementById('dev-panel').style.display='none';
+ document.getElementById('dev-pw').value='';
+ document.getElementById('dev-pw-err').style.display='none';
 }
 
 function renderDevPanel(){
-  if(!devUnlocked)return;
-  const scans=getScans();
-  const ll=getLandlords();
-  const total=Object.values(scans).reduce((a,b)=>a+b.length,0);
-  document.getElementById('total-scans-badge').textContent=`${total} total`;
+ if(!devUnlocked)return;
+ const scans=getScans();
+ const ll=getLandlords();
+ const total=Object.values(scans).reduce((a,b)=>a+b.length,0);
+ document.getElementById('total-scans-badge').textContent=`${total} total`;
 
-  // Submission summary cards
-  const summaryEl=document.getElementById('sub-summary');
-  const landlordIds=Object.keys(ll);
-  summaryEl.innerHTML=landlordIds.map(id=>{
-    const count=(scans[id]||[]).length;
-    return`<div class="sub-card" onclick="showSubDetail('${id}')">
-      <div class="sub-count">${count}</div>
-      <div class="sub-landlord">${ll[id].name}</div>
-      <div class="sub-date">${count>0?'Last: '+(scans[id].slice(-1)[0].date):'No submissions yet'}</div>
-    </div>`;
-  }).join('');
+ // Submission summary cards
+ const summaryEl=document.getElementById('sub-summary');
+ const landlordIds=Object.keys(ll);
+ summaryEl.innerHTML=landlordIds.map(id=>{
+  const count=(scans[id]||[]).length;
+  return`<div class="sub-card" onclick="showSubDetail('${id}')">
+   <div class="sub-count">${count}</div>
+   <div class="sub-landlord">${ll[id].name}</div>
+   <div class="sub-date">${count>0?'Last: '+(scans[id].slice(-1)[0].date):'No submissions yet'}</div>
+  </div>`;
+ }).join('');
 
-  // Populate landlord selector for edit
-  const sel=document.getElementById('edit-landlord-sel');
-  sel.innerHTML=landlordIds.map(id=>`<option value="${id}">${ll[id].name}</option>`).join('');
+ // Populate landlord selector for edit
+ const sel=document.getElementById('edit-landlord-sel');
+ sel.innerHTML=landlordIds.map(id=>`<option value="${id}">${ll[id].name}</option>`).join('');
 
-  // System prompt preview
-  document.getElementById('prompt-preview').value=buildSystemPrompt();
+ // System prompt preview
+ document.getElementById('prompt-preview').value=buildSystemPrompt();
 }
 
 function showSubDetail(id){
-  const scans=getScans();
-  const ll=getLandlords();
-  const data=scans[id]||[];
-  const wrap=document.getElementById('sub-detail-wrap');
-  if(data.length===0){wrap.innerHTML=`<p style="font-size:13px;color:var(--text3);padding:.5rem 0">No submissions yet for ${ll[id]?.name}.</p>`;return;}
-  wrap.innerHTML=`<div class="sub-detail">
-    <div style="font-size:14px;font-weight:500;margin-bottom:.75rem">${ll[id]?.name} — ${data.length} submission${data.length>1?'s':''}</div>
-    ${data.slice().reverse().map((s,i)=>`<div class="sub-item">
-      <div class="sub-item-date">${s.date} · Score: ${s.score||'N/A'}/10</div>
-      <div style="font-size:13px;color:var(--text2)">
-        ${s.rent?`Rent: <strong>${s.rent}</strong> · `:''}${s.deposit?`Deposit: <strong>${s.deposit}</strong> · `:''}${s.renewalNotice?`Renewal notice: <strong>${s.renewalNotice}</strong>`:''}
-      </div>
-      <div class="sub-item-flags">${(s.redFlagsFound||[]).map(f=>`<span class="flag-sm">${f}</span>`).join('')}</div>
-    </div>`).join('')}
-    <button class="btn btn-r btn-sm" style="margin-top:.75rem" onclick="clearLandlordScans('${id}')">Clear ${ll[id]?.name} data</button>
-  </div>`;
+ const scans=getScans();
+ const ll=getLandlords();
+ const data=scans[id]||[];
+ const wrap=document.getElementById('sub-detail-wrap');
+ if(data.length===0){wrap.innerHTML=`<p style="font-size:13px;color:var(--text3);padding:.5rem 0">No submissions yet for ${ll[id]?.name}.</p>`;return;}
+ wrap.innerHTML=`<div class="sub-detail">
+  <div style="font-size:14px;font-weight:500;margin-bottom:.75rem">${ll[id]?.name}, ${data.length} submission${data.length>1?'s':''}</div>
+  ${data.slice().reverse().map((s,i)=>`<div class="sub-item">
+   <div class="sub-item-date">${s.date} · Score: ${s.score||'N/A'}/10</div>
+   <div style="font-size:13px;color:var(--text2)">
+    ${s.rent?`Rent: <strong>${s.rent}</strong> · `:''}${s.deposit?`Deposit: <strong>${s.deposit}</strong> · `:''}${s.renewalNotice?`Renewal notice: <strong>${s.renewalNotice}</strong>`:''}
+   </div>
+   <div class="sub-item-flags">${(s.redFlagsFound||[]).map(f=>`<span class="flag-sm">${f}</span>`).join('')}</div>
+  </div>`).join('')}
+  <button class="btn btn-r btn-sm" style="margin-top:.75rem" onclick="clearLandlordScans('${id}')">Clear ${ll[id]?.name} data</button>
+ </div>`;
 }
 
 function clearLandlordScans(id){
-  const scans=getScans();
-  delete scans[id];
-  saveScans(scans);
-  toast('Cleared scans for '+getLandlords()[id]?.name);
-  renderDevPanel();
-  updateStatCounts();
+ const scans=getScans();
+ delete scans[id];
+ saveScans(scans);
+ toast('Cleared scans for '+getLandlords()[id]?.name);
+ renderDevPanel();
+ updateStatCounts();
 }
 
 function clearAllScans(){
-  if(!confirm('Clear all lease submission data?'))return;
-  localStorage.removeItem(STORAGE_SCANS);
-  toast('All scan data cleared');
-  renderDevPanel();
-  updateStatCounts();
+ if(!confirm('Clear all lease submission data?'))return;
+ localStorage.removeItem(STORAGE_SCANS);
+ toast('All scan data cleared');
+ renderDevPanel();
+ updateStatCounts();
 }
 
 function loadEditPatterns(){}// placeholder for future auto-load
 
 function saveEditPatterns(){
-  const id=document.getElementById('edit-landlord-sel').value;
-  const newFlag=document.getElementById('edit-new-flag').value.trim();
-  const newWatch=document.getElementById('edit-new-watch').value.trim();
-  const legalNote=document.getElementById('edit-legal').value.trim();
-  const notes=document.getElementById('edit-notes').value.trim();
-  if(!id)return;
-  const patches=JSON.parse(localStorage.getItem(STORAGE_PATCHES)||'{}');
-  if(!patches[id])patches[id]={redFlags:[],watchItems:[]};
-  if(newFlag)patches[id].redFlags.push(newFlag);
-  if(newWatch)patches[id].watchItems.push(newWatch);
-  if(legalNote)patches[id].legalNotes=(patches[id].legalNotes||'')+' '+legalNote;
-  if(notes)patches[id].notes=notes;
-  localStorage.setItem(STORAGE_PATCHES,JSON.stringify(patches));
-  document.getElementById('edit-new-flag').value='';
-  document.getElementById('edit-new-watch').value='';
-  document.getElementById('edit-legal').value='';
-  document.getElementById('edit-notes').value='';
-  document.getElementById('edit-success').style.display='';
-  setTimeout(()=>document.getElementById('edit-success').style.display='none',2000);
-  toast('Patterns saved for '+getLandlords()[id]?.name);
-  renderDevPanel();
-  refreshAllViews();
+ const id=document.getElementById('edit-landlord-sel').value;
+ const newFlag=document.getElementById('edit-new-flag').value.trim();
+ const newWatch=document.getElementById('edit-new-watch').value.trim();
+ const legalNote=document.getElementById('edit-legal').value.trim();
+ const notes=document.getElementById('edit-notes').value.trim();
+ if(!id)return;
+ const patches=JSON.parse(localStorage.getItem(STORAGE_PATCHES)||'{}');
+ if(!patches[id])patches[id]={redFlags:[],watchItems:[]};
+ if(newFlag)patches[id].redFlags.push(newFlag);
+ if(newWatch)patches[id].watchItems.push(newWatch);
+ if(legalNote)patches[id].legalNotes=(patches[id].legalNotes||'')+' '+legalNote;
+ if(notes)patches[id].notes=notes;
+ localStorage.setItem(STORAGE_PATCHES,JSON.stringify(patches));
+ document.getElementById('edit-new-flag').value='';
+ document.getElementById('edit-new-watch').value='';
+ document.getElementById('edit-legal').value='';
+ document.getElementById('edit-notes').value='';
+ document.getElementById('edit-success').style.display='';
+ setTimeout(()=>document.getElementById('edit-success').style.display='none',2000);
+ toast('Patterns saved for '+getLandlords()[id]?.name);
+ renderDevPanel();
+ refreshAllViews();
 }
 
 function addLandlord(){
-  const id=document.getElementById('new-id').value.trim().toLowerCase().replace(/\s/g,'');
-  const name=document.getElementById('new-name').value.trim();
-  if(!id||!name){toast('ID and name are required.');return;}
-  const custom=JSON.parse(localStorage.getItem(STORAGE_CUSTOM)||'{}');
-  const newL={
-    name,
-    type:document.getElementById('new-type').value,
-    price:document.getElementById('new-price').value.trim(),
-    units:document.getElementById('new-units').value.trim(),
-    overall:parseFloat(document.getElementById('new-overall').value)||3.0,
-    deposit:parseFloat(document.getElementById('new-dep').value)||3.0,
-    maintenance:parseFloat(document.getElementById('new-maint').value)||3.0,
-    moveout:parseFloat(document.getElementById('new-mo').value)||3.0,
-    communication:parseFloat(document.getElementById('new-comm').value)||3.0,
-    redFlags:document.getElementById('new-flags').value.split('\n').map(s=>s.trim()).filter(Boolean),
-    watchItems:document.getElementById('new-watch').value.split('\n').map(s=>s.trim()).filter(Boolean),
-    legal:document.getElementById('new-legal').value.trim()||'No significant legal history.',
-    usg:document.getElementById('new-usg').value.trim()||'No USG data available.',
-    comp:{deposit:'1 month rent',autorenewal:'Yes — 30 days',entry:'24 hrs',jointSeveral:'Yes',utilities:'Typically excluded',furnished:'No',pets:'Case by case',parking:'Varies'}
-  };
-  custom[id]=newL;
-  localStorage.setItem(STORAGE_CUSTOM,JSON.stringify(custom));
-  // clear form
-  ['new-id','new-name','new-price','new-units','new-overall','new-dep','new-maint','new-mo','new-comm','new-flags','new-watch','new-legal','new-usg'].forEach(i=>document.getElementById(i).value='');
-  document.getElementById('add-success').style.display='';
-  setTimeout(()=>document.getElementById('add-success').style.display='none',2000);
-  toast(`${name} added to database`);
-  renderDevPanel();
-  refreshAllViews();
+ const id=document.getElementById('new-id').value.trim().toLowerCase().replace(/\s/g,'');
+ const name=document.getElementById('new-name').value.trim();
+ if(!id||!name){toast('ID and name are required.');return;}
+ const custom=JSON.parse(localStorage.getItem(STORAGE_CUSTOM)||'{}');
+ const newL={
+  name,
+  type:document.getElementById('new-type').value,
+  price:document.getElementById('new-price').value.trim(),
+  units:document.getElementById('new-units').value.trim(),
+  overall:parseFloat(document.getElementById('new-overall').value)||3.0,
+  deposit:parseFloat(document.getElementById('new-dep').value)||3.0,
+  maintenance:parseFloat(document.getElementById('new-maint').value)||3.0,
+  moveout:parseFloat(document.getElementById('new-mo').value)||3.0,
+  communication:parseFloat(document.getElementById('new-comm').value)||3.0,
+  redFlags:document.getElementById('new-flags').value.split('\n').map(s=>s.trim()).filter(Boolean),
+  watchItems:document.getElementById('new-watch').value.split('\n').map(s=>s.trim()).filter(Boolean),
+  legal:document.getElementById('new-legal').value.trim()||'No significant legal history.',
+  usg:document.getElementById('new-usg').value.trim()||'No USG data available.',
+  comp:{deposit:'1 month rent',autorenewal:'Yes, 30 days',entry:'24 hrs',jointSeveral:'Yes',utilities:'Typically excluded',furnished:'No',pets:'Case by case',parking:'Varies'}
+ };
+ custom[id]=newL;
+ localStorage.setItem(STORAGE_CUSTOM,JSON.stringify(custom));
+ // clear form
+ ['new-id','new-name','new-price','new-units','new-overall','new-dep','new-maint','new-mo','new-comm','new-flags','new-watch','new-legal','new-usg'].forEach(i=>document.getElementById(i).value='');
+ document.getElementById('add-success').style.display='';
+ setTimeout(()=>document.getElementById('add-success').style.display='none',2000);
+ toast(`${name} added to database`);
+ renderDevPanel();
+ refreshAllViews();
 }
 
 function exportData(){
-  const data={scans:getScans(),customLandlords:JSON.parse(localStorage.getItem(STORAGE_CUSTOM)||'{}'),patches:JSON.parse(localStorage.getItem(STORAGE_PATCHES)||'{}'),exportedAt:new Date().toISOString()};
-  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='knowyourlease-data.json';a.click();
-  toast('Data exported');
+ const data={scans:getScans(),customLandlords:JSON.parse(localStorage.getItem(STORAGE_CUSTOM)||'{}'),patches:JSON.parse(localStorage.getItem(STORAGE_PATCHES)||'{}'),exportedAt:new Date().toISOString()};
+ const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='knowyourlease-data.json';a.click();
+ toast('Data exported');
 }
 
 function refreshAllViews(){
-  // Rebuild home grids
-  const ll=getLandlords();
-  const trad=Object.entries(ll).filter(([,l])=>l.type==='traditional');
-  const lux=Object.entries(ll).filter(([,l])=>l.type==='luxury');
-  document.getElementById('home-trad').innerHTML=trad.map(([id,l])=>buildCard(id,l,'showLandlordFromHome')).join('');
-  document.getElementById('home-lux').innerHTML=lux.map(([id,l])=>buildCard(id,l,'showLandlordFromHome')).join('');
-  document.getElementById('ll-grid').innerHTML=Object.entries(ll).map(([id,l])=>buildCard(id,l,'showLandlordDetail')).join('');
-  filterComp('all',document.querySelector('#view-compare .ftab'));
-  updateStatCounts();
+ // Rebuild home grids
+ const ll=getLandlords();
+ const trad=Object.entries(ll).filter(([,l])=>l.type==='traditional');
+ const lux=Object.entries(ll).filter(([,l])=>l.type==='luxury');
+ document.getElementById('home-trad').innerHTML=trad.map(([id,l])=>buildCard(id,l,'showLandlordFromHome')).join('');
+ document.getElementById('home-lux').innerHTML=lux.map(([id,l])=>buildCard(id,l,'showLandlordFromHome')).join('');
+ document.getElementById('ll-grid').innerHTML=Object.entries(ll).map(([id,l])=>buildCard(id,l,'showLandlordDetail')).join('');
+ filterComp('all',document.querySelector('#view-compare .ftab'));
+ updateStatCounts();
 }
 
 // ─── INIT ──────────────────────────────────────────────────────────────────────
