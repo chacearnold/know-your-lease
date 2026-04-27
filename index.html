@@ -351,6 +351,17 @@ tbody tr:last-child td{border-bottom:none;}
   <div class="thesis-item"><div class="ti-num">3</div><div class="ti-body"><strong>Report back.</strong> When you move out, tell us what actually happened. The next student signing with your landlord will know what to expect.</div></div>
  </div>
 
+ <div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--rlg);padding:2rem 2.5rem;margin:2.5rem 0;">
+  <div class="submit-eyebrow">For parents co-signing a lease</div>
+  <h2 style="font-family:var(--serif);font-size:26px;line-height:1.2;margin-bottom:.75rem;letter-spacing:-0.01em">Before you sign as guarantor, understand what you are agreeing to.</h2>
+  <p style="font-size:15px;color:var(--text2);line-height:1.7;margin-bottom:1rem">Most traditional Columbus student leases are joint and several. That means if your student's roommates stop paying rent, the landlord can come after you for the full household amount. Not your student's share. All of it. On a four-person house at $2,400 per month, that is $28,800 in annual exposure before damages.</p>
+  <p style="font-size:15px;color:var(--text2);line-height:1.7;margin-bottom:1.5rem">Many Columbus student leases include joint and several liability, but some structure leases individually so each guarantor is only responsible for their student's share. The difference is in the lease. KnowYourLease shows you which structure your landlord uses, and flags guarantor clauses in any lease you upload.</p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+   <button class="btn btn-p" onclick="showView('analyze')" style="font-size:14px">Upload the lease before signing</button>
+   <button class="btn btn-s" onclick="showView('rights')" style="font-size:14px">Understand guarantor liability</button>
+  </div>
+ </div>
+
  <div class="sl">Columbus landlords · traditional</div>
  <div class="lc-grid" id="home-trad"></div>
  <div class="sl">Columbus landlords · luxury complexes</div>
@@ -481,8 +492,20 @@ tbody tr:last-child td{border-bottom:none;}
 
 <!-- OHIO RIGHTS -->
 <div class="view" id="view-rights">
- <div class="pt">Your Ohio tenant rights</div>
- <p class="ps">Complete coverage of the Ohio Landlord-Tenant Act (ORC Chapter 5321) in plain English.</p>
+ <div class="pt">Your tenant rights</div>
+ <p class="ps">Ohio state law and federal law both protect you. Ohio's ORC Chapter 5321 governs most day-to-day landlord-tenant issues. Federal law adds additional protections that apply on top of state law.</p>
+
+ <div class="rc" style="background:var(--bg2);border-left:3px solid var(--green);">
+  <div class="rc-title" style="color:var(--green)">For parents and guarantors</div>
+  <div class="rrow"><div><strong>What you are agreeing to when you co-sign.</strong> As a guarantor, you are making a legally binding promise to the landlord that if the tenant fails to pay rent, damages, fees, or any other amount owed under the lease, you will pay it. This is not a formality. It is a personal financial obligation.</div></div>
+  <div class="rrow"><div><strong>Joint and several liability means full household exposure.</strong> Most traditional Columbus student leases are signed jointly and severally by all tenants. If your student's three roommates stop paying rent and move out, the landlord can pursue you, the guarantor, for the entire household rent. Not your student's share. The whole house. On a 4-person house at $2,400 per month, that is $28,800 per year of exposure before damages.</div></div>
+  <div class="rrow"><div><strong>Some leases limit guarantor liability to your student's share only.</strong> Not all Columbus leases use full joint and several liability. Some landlords structure leases individually, meaning each guarantor is only responsible for their own student's portion of rent and damages. OSU Properties is one example, explicitly limiting guarantors to 1 divided by the number of tenants on the lease. Before co-signing, ask whether the lease is joint or individual.</div></div>
+  <div class="rrow"><div><strong>Guarantor liability survives the student leaving.</strong> If the lease is renewed and your student stays but a roommate is replaced, most guarantor forms continue through the renewal. Read whether your guaranty covers extensions and renewals.</div></div>
+  <div class="rrow"><div><strong>Damage liability is also joint.</strong> If any tenant causes damage, the landlord can pursue any guarantor for the full repair cost, not just the share attributable to your student.</div></div>
+  <div class="rrow"><div><strong>Buckeye Real Estate guarantors waive ORC 5321 notice rights.</strong> Buckeye's guarantor clause (verified from their sample lease) states the guarantor waives any notice required by ORC 5321. This means the landlord may not be required to give a guarantor advance notice before pursuing collection. This clause is legally questionable and parents should read it carefully before signing.</div></div>
+  <div class="rrow"><div><strong>What to ask before you co-sign.</strong> (1) Is this lease joint and several or individual? (2) Am I liable for all tenants or just my student? (3) Does this guaranty cover renewals? (4) What is the total annual rent exposure? (5) Does the guaranty waive any of my statutory rights?</div></div>
+ </div>
+
  <div class="rc"><div class="rc-title">Security deposits <span class="orc">ORC 5321.16</span></div>
   <div class="rrow"><div><strong>30-day return deadline.</strong> Landlord must return your deposit within 30 days after the lease ends, along with a written itemized list of any deductions. Miss this deadline and you can sue for double the withheld amount plus attorney fees, but only if you gave a written forwarding address.</div></div>
   <div class="rrow"><div><strong>Written itemized deductions required.</strong> Every deduction must be explained in writing with actual costs. A vague or flat-fee damage schedule is illegal.</div></div>
@@ -498,13 +521,13 @@ tbody tr:last-child td{border-bottom:none;}
   <div class="rrow"><div><strong>Landlord must maintain a habitable unit.</strong> Required: working heat, plumbing, electrical systems, structural integrity, hot water, and common area safety.</div></div>
   <div class="rrow"><div><strong>Utility shutoff during tenancy is illegal.</strong> Landlord cannot cut off gas, electric, or water as a means of eviction or retaliation while you have the right of occupancy.</div></div>
   <div class="rrow"><div><strong>Rent escrow remedy.</strong> If landlord fails to fix a serious habitability issue within 30 days of written notice, you may deposit rent with the court clerk under ORC 5321.07 instead of paying the landlord directly.</div></div>
-  <div class="rrow"><div><strong>Landlord responsible for structural repairs.</strong> Clauses shifting window, door, or structural repair costs to tenants "regardless of cause" likely violate ORC 5321.04.</div></div>
+  <div class="rrow"><div><strong>Landlord responsible for structural repairs.</strong> Clauses shifting window, door, or structural repair costs to tenants regardless of cause likely violate ORC 5321.04.</div></div>
  </div>
  <div class="rc"><div class="rc-title">Prohibited lease terms <span class="orc">ORC 5321.13</span></div>
   <div class="rrow"><div><strong>These clauses are void even if you signed.</strong> A lease cannot: (1) exempt the landlord from their own negligence; (2) authorize the landlord to seize your property; (3) require you to pay the landlord's attorney fees; (4) waive your rights under ORC 5321. Note: clauses limiting landlord liability for third-party acts or events beyond their control are permitted, only the landlord's own negligence cannot be waived.</div></div>
  </div>
  <div class="rc"><div class="rc-title">Eviction protections <span class="orc">ORC 5321.15</span></div>
-  <div class="rrow"><div><strong>Self-help eviction is illegal.</strong> Landlord cannot change locks, remove doors, cut utilities, or remove your belongings without a court order, even after a court grants eviction, only a bailiff can remove you. Columbus police: 614-645-4545.</div></div>
+  <div class="rrow"><div><strong>Self-help eviction is illegal.</strong> Landlord cannot change locks, remove doors, cut utilities, or remove your belongings without a court order. Even after a court grants eviction, only a bailiff can remove you. Columbus police: 614-645-4545.</div></div>
   <div class="rrow"><div><strong>3-day written notice required before filing for eviction.</strong> For nonpayment of rent, landlord must serve a written 3-day notice before going to court.</div></div>
  </div>
  <div class="rc"><div class="rc-title">Retaliation protection <span class="orc">ORC 5321.02</span></div>
@@ -515,10 +538,37 @@ tbody tr:last-child td{border-bottom:none;}
   <div class="rrow"><div><strong>Landlord must mitigate damages.</strong> If you break a fixed-term lease, landlord must make reasonable efforts to re-rent. You only owe rent for months the unit sits vacant, not every remaining month automatically.</div></div>
   <div class="rrow"><div><strong>Auto-renewal must be clearly disclosed.</strong> Check your lease for renewal notice deadlines, missing them can lock you into another full year.</div></div>
  </div>
+
+ <div class="rc"><div class="rc-title">Federal law: Fair Housing Act <span class="orc">42 U.S.C. 3604</span></div>
+  <p style="font-size:13px;color:var(--text3);margin-bottom:.75rem">Enacted 1968. Federal law applies on top of Ohio state law. Source: U.S. Code Title 42, Chapter 45, verified at uscode.house.gov.</p>
+  <div class="rrow"><div><strong>Landlords cannot discriminate.</strong> Under 42 U.S.C. 3604(a), it is unlawful to refuse to rent or make a dwelling unavailable to any person because of race, color, religion, sex, familial status, national origin, or disability. This applies to Columbus student landlords.</div></div>
+  <div class="rrow"><div><strong>Discriminatory lease terms are illegal.</strong> Under 42 U.S.C. 3604(b), a landlord cannot impose different terms, conditions, or privileges on a tenant because of any protected characteristic. This includes charging higher rent, requiring larger deposits, or imposing stricter rules based on race, religion, sex, national origin, disability, or familial status.</div></div>
+  <div class="rrow"><div><strong>Disability accommodation required.</strong> Under 42 U.S.C. 3604(f), landlords must make reasonable accommodations for tenants with disabilities. A blanket no-pets policy does not override a tenant's right to a service animal or emotional support animal under federal law.</div></div>
+  <div class="rrow"><div><strong>Familial status is protected.</strong> A landlord cannot refuse to rent to you because you have children, or impose rules that effectively restrict families with children from using shared facilities.</div></div>
+  <div class="rrow"><div><strong>How to file a complaint.</strong> Contact HUD at 1-800-669-9777 or file online at hud.gov. You have one year from the discriminatory act to file with HUD, or two years to file a civil lawsuit in federal district court.</div></div>
+ </div>
+
+ <div class="rc"><div class="rc-title">Federal law: Lead paint disclosure <span class="orc">42 U.S.C. 4852d</span></div>
+  <p style="font-size:13px;color:var(--text3);margin-bottom:.75rem">Source: Residential Lead-Based Paint Hazard Reduction Act. Verified at uscode.house.gov.</p>
+  <div class="rrow"><div><strong>Required for pre-1978 housing.</strong> If your rental was built before 1978, federal law requires your landlord to disclose any known lead-based paint or hazards, provide you with any available records or reports, and give you the EPA-approved pamphlet "Protect Your Family from Lead in Your Home" before you sign.</div></div>
+  <div class="rrow"><div><strong>Check your lease for the disclosure addendum.</strong> Most Columbus student leases include a lead paint disclosure page. If your unit was built before 1978 and there is no disclosure section, the landlord has violated federal law. You have the right to a 10-day inspection period to test for lead hazards.</div></div>
+  <div class="rrow"><div><strong>Penalties for non-disclosure.</strong> Landlords who fail to comply face civil penalties up to $16,773 per violation and can be held liable for triple damages in a private lawsuit.</div></div>
+ </div>
+
+ <div class="rc"><div class="rc-title">Federal law: Servicemembers Civil Relief Act <span class="orc">50 U.S.C. 3955</span></div>
+  <p style="font-size:13px;color:var(--text3);margin-bottom:.75rem">Source: U.S. Code Title 50, Chapter 50. Verified at uscode.house.gov. Applies to active duty military members only.</p>
+  <div class="rrow"><div><strong>Active duty servicemembers can terminate a lease early.</strong> Under 50 U.S.C. 3955, a servicemember may terminate a residential lease at any time after entering active military service, or after receiving orders for a permanent change of station or deployment of 90 days or more.</div></div>
+  <div class="rrow"><div><strong>How to terminate.</strong> Deliver written notice of termination plus a copy of military orders to the landlord by hand, private carrier, or certified mail with return receipt. For monthly leases, termination is effective 30 days after the next rent payment date following delivery of the notice.</div></div>
+  <div class="rrow"><div><strong>Termination also releases dependents.</strong> Per 50 U.S.C. 3955, a servicemember's termination of a lease terminates any obligation a dependent of the servicemember may have under the same lease.</div></div>
+  <div class="rrow"><div><strong>Landlords cannot retaliate or withhold deposits illegally.</strong> Any person who knowingly seizes or holds a servicemember's security deposit or personal property after a lawful SCRA termination is subject to federal criminal penalties including up to one year imprisonment per 50 U.S.C. 3955(h).</div></div>
+ </div>
+
  <div class="fn-box"><strong style="color:var(--text2);display:block;margin-bottom:6px">Get help</strong>
-  OSU Student Legal Services: student-legal.osu.edu · (614) 247-5853<br>
-  Ohio Legal Help: ohiolegalhelp.org · Columbus Tenant Hotline: (614) 645-6966<br>
-  Community Legal Aid: clslaw.org · Full ORC: codes.ohio.gov/ohio-revised-code/chapter-5321
+  OSU Student Legal Services: student-legal.osu.edu, (614) 247-5853<br>
+  Ohio Legal Help: ohiolegalhelp.org, Columbus Tenant Hotline: (614) 645-6966<br>
+  Community Legal Aid: clslaw.org, HUD Fair Housing: hud.gov or 1-800-669-9777<br>
+  Full ORC Chapter 5321: codes.ohio.gov/ohio-revised-code/chapter-5321<br>
+  Federal Fair Housing Act: uscode.house.gov (Title 42, Chapter 45)
  </div>
 </div>
 
@@ -1215,8 +1265,10 @@ IMPORTANT RULES:
 - Subletting restrictions requiring written approval are LEGAL
 - Late fees are legal in Ohio, only flag if no grace period or extremely high
 - Be precise about severity: HIGH = clear ORC violation; MEDIUM = legally questionable; LOW = unfavorable but legal
+- GUARANTOR CLAUSES: Always flag guarantor-related clauses with a dedicated section in your output. For any guarantor clause found, explain in plain English: (1) whether the guarantor is liable for all tenants jointly or only the individual student's share, (2) what the total annual dollar exposure is if all tenants default, (3) whether the guaranty covers renewals and extensions, (4) whether the guaranty waives any statutory rights. Frame this for a parent reading the analysis, not just the student.
 - BUCKEYE REAL ESTATE SPECIFIC: If analyzing a Buckeye lease, their guarantor clause states guarantors waive notice rights under ORC 5321, flag this as HIGH severity, it is legally questionable
 - INN TOWN HOMES SPECIFIC: Their partial payment policy returns ALL rent if any roommate NSFs, flag this as a significant practical risk
+- FEDERAL LAW: Flag any lease clauses that may violate federal law including: Fair Housing Act (42 U.S.C. 3604) discriminatory terms, lead paint disclosure requirements (42 U.S.C. 4852d) for pre-1978 buildings, and SCRA protections (50 U.S.C. 3955) if the tenant mentions military service. Always cite the federal statute by name and code number.
 - OSU PROPERTIES SPECIFIC: No pets policy has $350/month rent increase penalty, flag immediately if any pets mentioned
 
 Landlord IDs: ${idList}
@@ -1245,7 +1297,7 @@ async function doAnalyze(){
  try{
   const controller=new AbortController();
   const timeout=setTimeout(()=>controller.abort(),60000);
-  const res=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:4000,system:buildSystemPrompt(),messages:[{role:'user',content:'Analyze this lease:\n\n'+extractedText.slice(0,14000).replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g,'')}]})});
+  const res=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:4000,temperature:0,system:buildSystemPrompt(),messages:[{role:'user',content:'Analyze this lease:\n\n'+extractedText.slice(0,14000).replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g,'')}]})});
   clearTimeout(timeout);
   const data=await res.json();
   if(data.error)throw new Error(data.error.message||'API error');
