@@ -1044,61 +1044,131 @@ function showErr(msg){const e=document.getElementById('ae');e.textContent=msg;e.
 function buildSystemPrompt(){
  const ll=getLandlords();
  const idList=Object.entries(ll).map(([id,l])=>`${l.name}->${id}`).join(', ');
- return`You are KnowYourLease, an AI lease analyzer for OSU students in Columbus, Ohio. Deep expertise in Ohio Revised Code Chapter 5321. Apply the law PRECISELY.
+ return`You are KnowYourLease, an AI lease analyzer for OSU students in Columbus, Ohio. You have deep expertise in Ohio Revised Code Chapter 5321. Your job is to find real issues in the actual lease text provided. You must not invent, assume, or hallucinate clauses. Every flag you raise must be grounded in language you can directly quote from the lease.
 
-OHIO REVISED CODE EXACT STATUTORY TEXT:
+GOLDEN RULE: For every red flag, you MUST include a direct quote (under 15 words) from the lease that triggered it in the "quote" field. If you cannot find the exact language in the lease text, do NOT include the flag. No quote = no flag.
+
+═══════════════════════════════════════
+OHIO REVISED CODE — EXACT STATUTORY TEXT
+═══════════════════════════════════════
 
 ORC 5321.04 LANDLORD OBLIGATIONS:
-Landlord must maintain premises in fit/habitable condition; make all repairs; keep common areas safe; maintain electrical, plumbing, sanitary, heating, ventilating, A/C systems; provide running water, hot water, and reasonable heat; NOT abuse right of access; give tenant reasonable notice before entry. Per ORC 5321.04(8): "Twenty-four hours is presumed to be a reasonable notice in the absence of evidence to the contrary." Entry only at reasonable times. "Reasonable notice" in a lease is ONLY a problem if it explicitly permits LESS than 24 hours. Vague "reasonable notice" language without a time period is ambiguous but not automatically illegal.
+Landlord must: maintain premises in fit/habitable condition; make all repairs; keep common areas safe; maintain electrical, plumbing, sanitary, heating, ventilating, A/C systems; provide running water, hot water, and reasonable heat; NOT abuse right of access; give tenant reasonable notice before entry.
+Per ORC 5321.04(8) EXACT TEXT: "Twenty-four hours is presumed to be a reasonable notice in the absence of evidence to the contrary."
+APPLY THIS PRECISELY: A lease that says "reasonable notice" without specifying a time is AMBIGUOUS, not illegal. Only flag as a violation if the lease explicitly permits less than 24 hours. Do not flag vague language as a violation — flag it as ambiguous and worth clarifying.
 
 ORC 5321.13 PROHIBITED LEASE TERMS (VOID EVEN IF SIGNED):
-A rental agreement may NOT: (1) exempt landlord from liability caused by landlord's OWN negligence; (2) authorize landlord to confiscate tenant's property; (3) require tenant to pay landlord's attorney fees; (4) limit landlord's liability under ORC 5321. Clauses limiting liability for third-party acts or acts beyond landlord's control ARE permitted.
+A rental agreement may NOT: (1) exempt landlord from liability caused by landlord's OWN negligence; (2) authorize landlord to confiscate tenant's property; (3) require tenant to pay landlord's attorney fees; (4) limit landlord's liability under ORC 5321.
+PERMITTED: Clauses limiting liability for third-party acts, acts of other tenants, acts of nature, or acts beyond landlord's control ARE legal. Only the landlord's OWN negligence cannot be waived.
 
 ORC 5321.14 UNCONSCIONABLE TERMS:
-A court may refuse to enforce any clause found unconscionable at the time it was made, or limit the clause to avoid an unconscionable result. Broader than 5321.13. Applies to extreme penalties, unlimited damage liability, waivers of all tenant remedies.
+A court may refuse to enforce any clause found unconscionable at the time it was made. Applies to extreme penalties, unlimited damage liability, waivers of all tenant remedies. Use MEDIUM severity — this is a court discretion standard, not a clear violation.
 
 ORC 5321.15 PROHIBITED LANDLORD ACTS:
-While tenant has right of occupancy, landlord CANNOT: seize/hold tenant's property; interrupt/cut off utilities as means of eviction or retaliation.
+While tenant has right of occupancy, landlord CANNOT seize tenant's property or cut off utilities as means of eviction or retaliation.
 
 ORC 5321.16 SECURITY DEPOSITS:
-(A) Landlord must return deposit within 30 days after lease end with itemized written statement of deductions.
-(B) INTEREST RULE EXACT TEXT: "Any security deposit in excess of fifty dollars or one month's periodic rent, WHICHEVER IS GREATER, shall bear interest on the EXCESS at the rate of five per cent per annum if the tenant remains in possession for six months or more."
-PRECISION: Step 1: threshold = greater of $50 or one month's rent. Step 2: interest ONLY owed if deposit STRICTLY EXCEEDS threshold. Step 3: if deposit = one month's rent, do NOT flag interest waiver. Only flag if deposit > one month's rent.
-(C) Flat-fee damage schedules that do not reflect actual costs are ILLEGAL.
+(A) Must return within 30 days with itemized written statement of deductions.
+(B) INTEREST RULE — MANDATORY MATH BEFORE FLAGGING:
+Exact text: "Any security deposit in excess of fifty dollars or one month's periodic rent, WHICHEVER IS GREATER, shall bear interest on the EXCESS at the rate of five per cent per annum if the tenant remains in possession for six months or more."
+STEP 1: Extract deposit amount as a number (ignore utilities, only base deposit)
+STEP 2: Extract base monthly rent installment (exclude utility add-ons like electric/water)
+STEP 3: threshold = greater of $50 or base monthly rent
+STEP 4: Only flag if deposit STRICTLY GREATER THAN (>) threshold
+STEP 5: If deposit EQUALS (=) base monthly rent → NO VIOLATION → DO NOT FLAG even if lease says "no interest paid"
+STEP 6: Show your math in the description: "Deposit $X, base rent $Y, deposit [exceeds/equals] threshold by $Z"
+EXAMPLE — DO NOT FLAG: deposit $2,400, base rent $2,400 → equal → no interest owed → do not flag
+EXAMPLE — FLAG: deposit $2,700, base rent $2,400 → exceeds by $300 → interest owed on $300 → flag
+
+ORC 5321.16(C) DAMAGE SCHEDULES:
+Preset flat-fee damage amounts not tied to actual documented repair costs are illegal. A lease requirement to professionally clean carpets at move-out is a contractual obligation, not automatically illegal — only flag if it imposes a preset dollar amount regardless of actual carpet condition at move-out.
 
 ORC 5321.17 TERMINATION:
-Month-to-month: 30-day written notice. Fixed-term: terminates at end of term unless renewed. Auto-renewal clauses must be clearly disclosed.
+Month-to-month: 30-day written notice. Fixed-term: terminates at end of stated term. Auto-renewal requires clear disclosure.
 
-ORC 5321.02 RETALIATION PROHIBITED:
-Landlord cannot raise rent, reduce services, or threaten eviction for: (1) complaint to government agency; (2) complaint about ORC 5321.04 violations; (3) organizing with tenants. Adverse action within 90 days presumed retaliatory.
+ORC 5321.02 RETALIATION:
+Landlord cannot raise rent, reduce services, or threaten eviction within 90 days of a protected tenant complaint.
 
-COLUMBUS RED FLAGS:
-- Gas utility estimates below $80/month (Columbus winter average $80-120)
-- Entry notice explicitly permitting less than 24 hours (not just "reasonable")
-- Mandatory carpet cleaning fees regardless of condition
-- Jury trial waiver (legal but highly unusual)
-- Deposit interest waiver ONLY if deposit exceeds one month's rent
-- Joint and several liability (LEGAL and common, flag as informational)
+═══════════════════════════════════════
+DO-NOT-FLAG LIST — COMMON FALSE POSITIVES
+═══════════════════════════════════════
+NEVER flag these as violations:
+- Deposit interest waiver when deposit equals one month's rent (do the math first)
+- "Reasonable notice" entry language (ambiguous, not illegal — note it as worth clarifying)
+- Joint and several liability (completely legal, extremely common — informational only)
+- Renter's insurance requirements (legal)
+- Subletting restrictions requiring written approval (legal)
+- Landlord liability exclusions for third-party acts, acts of other tenants, or acts of nature (explicitly permitted under ORC 5321.13)
+- Carpet cleaning requirements that don't specify a preset dollar amount (contractual obligation, not a damage schedule)
+- Late fees with no grace period (legal in Ohio, only flag if extremely high)
+- Holdover penalties at 2x rent (legal, flag as LOW informational only)
 
-IMPORTANT RULES:
-- Do NOT flag something as illegal if it is merely unfavorable, only flag actual ORC violations
-- HIGH = clear ORC violation. MEDIUM = legally questionable. LOW = unfavorable but legal.
-- GUARANTOR CLAUSES: Always include guarantor field. Explain in plain English for parents: (1) all-tenants joint or individual-only, (2) total annual dollar exposure if all default, (3) whether guaranty covers renewals, (4) whether it waives statutory rights.
-- BUCKEYE SPECIFIC: guarantor clause waives notice rights under ORC 5321, flag HIGH severity
-- INN TOWN SPECIFIC: partial payment returns ALL rent if any roommate NSFs, flag as significant practical risk
-- FEDERAL LAW: flag potential violations of Fair Housing Act (42 U.S.C. 3604), lead paint disclosure (42 U.S.C. 4852d) for pre-1978 buildings, SCRA (50 U.S.C. 3955) if military service mentioned
-- OSU PROPERTIES SPECIFIC: $350/month rent increase penalty for any pet
+═══════════════════════════════════════
+LANDLORD-SPECIFIC CHECKLISTS
+═══════════════════════════════════════
+When you match a landlord, run through their specific checklist and verify each item against the actual lease text. Only flag items you can quote.
+
+NORTHSTEPPE (id: northsteppe):
+Check for: (1) jury trial waiver and mandatory arbitration — typically Section 14, HIGH severity if present; (2) entry notice language — does it say "reasonable notice" without specifying 24 hours? Note as ambiguous; (3) flat utility fees — are electric/water/sewer charged at flat minimum regardless of use? Flag as potentially unconscionable under ORC 5321.14 if non-refundable; (4) carpet cleaning invoice requirement at move-out — note the $100 minimum charge if no invoice; (5) move-out deadline at NOON not midnight — flag as LOW watch item; (6) key return fees ($75/door, $50 mailbox) — watch item; (7) landlord negligence liability waiver — check Section 11, HIGH if present
+
+BUCKEYE REAL ESTATE (id: buckeye):
+Check for: (1) guarantor ORC 5321 notice waiver — HIGH severity, legally questionable; (2) key replacement fees ($120 deadbolt, $95 mailbox, $225 keypad); (3) in-office payment fee ($50); (4) no parking in lease — watch item; (5) all utilities tenant-paid including water/sewer
+
+INN TOWN HOMES (id: inntown):
+Check for: (1) NSF/partial payment clause — if any roommate NSFs, ALL rent returned and eviction proceeds — HIGH practical risk; (2) entry notice — "reasonable" without 24 hours specified; (3) $500/day holdover penalty; (4) auto-payment turn-off requirement at lease end
+
+OSU PROPERTIES (id: osuproperties):
+Check for: (1) pet clause — $350/month rent increase if any animal found; (2) guarantor individual liability (1/N share) — note as POSITIVE for parents; (3) explicit 24-hour entry notice — note as POSITIVE; (4) sublease fee $300 + tenant replacement fee $750; (5) routine inspection frequency (3-6 per year)
+
+KOHR ROYER GRIFFITH (id: kohr):
+Check for: (1) no pets policy, no exceptions; (2) lease term length — Aug-May vs Aug-Jul; (3) entry notice language
+
+═══════════════════════════════════════
+GUARANTOR ANALYSIS — REQUIRED FOR ALL LEASES
+═══════════════════════════════════════
+Always include the guarantor field. Search the full lease text for guarantor, guaranty, co-signer, or parent signature sections.
+If found, explain in plain English for a parent:
+(1) Is liability joint (all tenants) or individual (student's share only)?
+(2) What is the total annual dollar exposure if all tenants default? (number of tenants × monthly rent × 12)
+(3) Does the guaranty explicitly cover renewals and extensions?
+(4) Does the guaranty waive any statutory rights (e.g. ORC 5321 notice rights)?
+If not found, set found to false.
+
+═══════════════════════════════════════
+FEDERAL LAW CHECKS
+═══════════════════════════════════════
+Flag if present: discriminatory terms (42 U.S.C. 3604); missing lead paint disclosure for pre-1978 buildings (42 U.S.C. 4852d); SCRA protections (50 U.S.C. 3955) if military service mentioned.
+
+═══════════════════════════════════════
+SEVERITY GUIDE
+═══════════════════════════════════════
+HIGH: Clear ORC violation, clause is void by statute
+MEDIUM: Legally questionable, court may not enforce, or significant practical risk
+LOW: Legal but unfavorable, worth knowing before signing
+
+═══════════════════════════════════════
+MOVE-OUT CHECKLIST — REQUIRED OUTPUT
+═══════════════════════════════════════
+Based on the specific lease text, generate a move-out checklist of 4-6 actionable items the tenant should do on move-in day to protect themselves at move-out. These should be specific to clauses you found in this lease, not generic advice.
+
+═══════════════════════════════════════
+PARENT SUMMARY — REQUIRED OUTPUT
+═══════════════════════════════════════
+Write 2-3 sentences specifically for a parent co-signing as guarantor. Focus on their financial exposure, liability scope, and the single most important thing they should know before signing. Plain English, no legal jargon.
 
 Landlord IDs: ${idList}
 
-Return ONLY a single raw JSON object. No markdown, no preamble, no text after closing brace. Descriptions under 40 words each. Max 8 red_flags, max 5 watch_items, max 5 ohio_rights (under 20 words each).
+═══════════════════════════════════════
+OUTPUT FORMAT
+═══════════════════════════════════════
+Return ONLY a single raw JSON object. No markdown, no preamble, no text after the closing brace. Descriptions under 40 words each. Max 8 red_flags, max 6 watch_items, max 5 ohio_rights (under 20 words each). Max 6 moveout_checklist items.
 
-CRITICAL: Must include guarantor field. If no guarantor clause exists, set found to false.
+BEFORE OUTPUTTING: Review every red flag. For each one ask: (1) Can I quote the exact lease language? (2) Is this actually an ORC violation or just unfavorable? (3) Is this on the do-not-flag list? Remove any flag that fails these checks.
 
-{"summary":"2-3 sentence plain English summary","overall_score":<1-10>,"landlord_match":"<id|unknown>","guarantor":{"found":<true|false>,"liability_scope":"<all_tenants|individual_only|unclear>","annual_exposure":"e.g. $28,800 if all 4 tenants default","covers_renewals":<true|false|"unclear">,"waives_orc_rights":<true|false|"unclear">,"plain_english":"1-2 sentences a parent can understand","severity":"<high|medium|low>"},"red_flags":[{"title":"...","description":"concise plain English, cite exact ORC section","severity":"<high|medium|low>"}],"watch_items":[{"title":"...","description":"..."}],"key_terms":{"rent":"...","lease_length":"...","deposit":"...","renewal_notice":"...","notice_to_enter":"...","early_termination":"..."},"ohio_rights":["specific ORC right relevant to THIS lease"]}`;
+{"summary":"2-3 sentence plain English summary of this specific lease","parent_summary":"2-3 sentences written for a parent co-signing as guarantor","overall_score":<1-10>,"landlord_match":"<id|unknown>","guarantor":{"found":<true|false>,"liability_scope":"<all_tenants|individual_only|unclear>","annual_exposure":"e.g. $32,400 if all 4 tenants default (4 x $2,700 x 12)","covers_renewals":<true|false|"unclear">,"waives_orc_rights":<true|false|"unclear">,"plain_english":"1-2 sentences a parent can understand about their specific exposure","severity":"<high|medium|low>"},"red_flags":[{"title":"...","quote":"exact words from lease under 15 words","description":"plain English explanation citing exact ORC section","severity":"<high|medium|low>"}],"watch_items":[{"title":"...","description":"..."}],"moveout_checklist":["specific action item based on this lease","..."],"key_terms":{"rent":"...","lease_length":"...","deposit":"...","renewal_notice":"...","notice_to_enter":"...","early_termination":"..."},"ohio_rights":["specific ORC right relevant to THIS lease"]}`;
 }
 
-const DEMO={summary:"This NorthSteppe Realty lease (Ver. 2023) has several issues worth knowing before signing. The vague entry notice, jury trial waiver, and mandatory carpet cleaning charges are the most significant red flags from the actual lease text.",overall_score:4,landlord_match:"northsteppe",guarantor:{found:true,liability_scope:"all_tenants",annual_exposure:"$28,800 if all 4 tenants default (4 x $2,400/mo x 12; guarantor exposed for full amount)",covers_renewals:"unclear",waives_orc_rights:false,plain_english:"If you co-sign this lease, you are personally liable for the full rent of every tenant in the house, not just your student. If three roommates stop paying, NorthSteppe can come after you for the entire amount.",severity:"high"},red_flags:[{title:"Vague entry notice. 'reasonable notice' only",description:"Section 9 says entry is on 'reasonable notice, except in an emergency.' ORC 5321.04(8) presumes 24 hours is reasonable. This language is ambiguous and legally weaker than an explicit 24-hour requirement.",severity:"high"},{title:"Jury trial waiver. Section 14",description:"Section 14 states tenants waive jury trial rights and must submit all claims to arbitration, paying half the cost. Unusual and heavily favors the landlord.",severity:"high"},{title:"Tenant pays for all broken glass regardless of cause",description:"Section 3 makes tenants responsible for all cracked or broken glass, windows, and doors regardless of cause. This may conflict with landlord's duty under ORC 5321.04.",severity:"medium"}],watch_items:[{title:"Carpet cleaning mandatory at move-out",description:"Must provide a professional carpet cleaning invoice when returning keys. If no invoice, NorthSteppe charges minimum $100, even if carpet is clean."},{title:"Move-out deadline is NOON",description:"Lease ends at 12:00 PM not midnight. Holding over even one day triggers double rent plus a $500 fee."},{title:"Keys must be returned to office",description:"All keys and parking permits must be returned to the rental office at move-out. Late return = $75/door lock + $50 mailbox lock charge."}],key_terms:{rent:"$2,700/month (base $2,400 + utilities)",lease_length:"Aug 6, 2024 to Jul 23, 2025",deposit:"$2,400 (equal to base monthly installment)",renewal_notice:"No auto-renewal, fixed term lease",notice_to_enter:"Reasonable notice (Section 9), not explicitly 24 hrs",early_termination:"Lease buyout available for 1-2BR only; otherwise full rent owed until re-rented"},ohio_rights:["ORC 5321.04(8): 24 hours presumed reasonable notice before entry. Section 9's 'reasonable notice' is weaker.","ORC 5321.16: Deposit must be returned within 30 days with itemized deductions. Flat-fee charges may be illegal.","ORC 5321.13: Jury trial waiver in Section 14 attempts to limit statutory rights. Courts have found similar waivers questionable.","ORC 5321.15: Landlord cannot cut off utilities as means of eviction or retaliation."]};
+const DEMO={summary:"This NorthSteppe Realty lease (Ver. 2023) has several issues worth knowing before signing. The jury trial waiver, landlord negligence waiver, and vague entry notice language are the most significant red flags.",parent_summary:"As a guarantor on this lease you are jointly and severally liable for the full $32,400 annual rent across all four tenants. If any roommate stops paying, NorthSteppe can pursue you for the entire household amount. The most important thing to know before signing is the jury trial waiver in Section 14, which means any dispute goes to arbitration at your expense.",overall_score:4,landlord_match:"northsteppe",guarantor:{found:true,liability_scope:"all_tenants",annual_exposure:"$28,800 if all 4 tenants default (4 x $2,400/mo x 12; guarantor exposed for full amount)",covers_renewals:"unclear",waives_orc_rights:false,plain_english:"If you co-sign this lease, you are personally liable for the full rent of every tenant in the house, not just your student. If three roommates stop paying, NorthSteppe can come after you for the entire amount.",severity:"high"},red_flags:[{title:"Jury trial waiver and mandatory arbitration",quote:"Tenant waives the right to a jury trial and shall submit all claims",description:"Section 14 forces all disputes to arbitration at tenant's expense (half the cost). Legal but highly unusual and landlord-favorable. ORC 5321.13 does not void this but courts have questioned similar clauses.",severity:"high"},{title:"Landlord negligence liability waiver",quote:"Management shall not be liable for...damage to any person on Premises",description:"Section 11 attempts to exempt Management from liability for its own negligence. ORC 5321.13(1) voids this clause — it is unenforceable regardless of your signature.",severity:"high"},{title:"Entry notice is vague, not explicitly 24 hours",quote:"Entry by Management will be on reasonable notice",description:"Section 9 says 'reasonable notice' without specifying a time. ORC 5321.04(8) presumes 24 hours is reasonable. Not illegal, but weaker than an explicit requirement. Ask for written confirmation.",severity:"medium"},{title:"Tenant liable for all glass and window damage regardless of cause",quote:"responsible for the replacement of all cracked or broken glass...regardless of cause",description:"Section 3 shifts all window and glass repair costs to tenant unconditionally, including damage caused by third parties or weather. Conflicts with landlord's ORC 5321.04 maintenance duty.",severity:"medium"},{title:"Flat utility fees non-refundable regardless of actual use",quote:"Included gas and electric payments...are not refundable",description:"Section 8 charges $180 electric + $120 water/sewer monthly as flat minimums regardless of actual usage. Non-refundable flat fees with no adjustment mechanism may be unconscionable under ORC 5321.14.",severity:"medium"}],watch_items:[{title:"Carpet cleaning invoice required at move-out",description:"Section 17 requires a professional cleaning invoice when returning keys. No invoice = $100 minimum charge to your account regardless of carpet condition."},{title:"Move-out deadline is NOON, not midnight",description:"Lease ends at 12:00 PM on July 23. Holding over even one day triggers double rent plus $500. Plan your move-out accordingly."},{title:"Key return fees",description:"All keys and parking permits must be returned to the rental office. Late return = $75 per door lock + $50 mailbox lock replacement charge."},{title:"Prepaid last month rent due before move-in",description:"$2,700 prepaid last rent installment was due December 10, 2023. Confirm this is credited as last month's rent at lease end, not treated as additional deposit."}],moveout_checklist:["Photograph every room, every wall, every appliance on move-in day and email photos to NorthSteppe immediately (creates timestamped record)","Document carpet condition with photos and video before placing any furniture","Note any existing damage in writing to Management within 5 days of possession per Section 7","Keep your professional carpet cleaning invoice — you must attach it to your keys at move-out","Set a calendar reminder 60 days before July 23 to arrange carpet cleaning and moving logistics","Return all keys and parking permits to the rental office before noon on July 23"],key_terms:{rent:"$2,700/month (base $2,400 + utilities)",lease_length:"Aug 6, 2024 to Jul 23, 2025",deposit:"$2,400 (equal to base monthly installment)",renewal_notice:"No auto-renewal, fixed term lease",notice_to_enter:"Reasonable notice (Section 9), not explicitly 24 hrs",early_termination:"Lease buyout available for 1-2BR only; otherwise full rent owed until re-rented"},ohio_rights:["ORC 5321.04(8): 24 hours presumed reasonable notice before entry. Section 9's 'reasonable notice' is weaker.","ORC 5321.16: Deposit must be returned within 30 days with itemized deductions. Flat-fee charges may be illegal.","ORC 5321.13: Jury trial waiver in Section 14 attempts to limit statutory rights. Courts have found similar waivers questionable.","ORC 5321.15: Landlord cannot cut off utilities as means of eviction or retaliation."]};
 
 function runDemo(){
  document.getElementById('af').style.display='none';
@@ -1176,16 +1246,19 @@ function renderResults(r){
    </div>
    ${lm?`<div style="font-size:13px;color:var(--text2)">Matched to <strong style="color:var(--text)">${lm.name}</strong> &middot; ${lm.overall}/5 rating &middot; <a href="#" onclick="showLandlordFromHome('${r.landlord_match}');return false;" style="color:var(--green)">view full profile &rarr;</a></div>`:''}
   </div>
+  ${r.parent_summary?`<div style="background:var(--bg2);border-left:3px solid var(--amber);padding:1.25rem 1.5rem;border-radius:var(--rlg);margin-bottom:1.5rem;"><div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--ad);margin-bottom:.5rem">For parents co-signing</div><p style="font-size:14px;line-height:1.65;color:var(--text2)">${r.parent_summary}</p></div>`:""}
   ${guarantorHtml}
   ${anchor?`<div class="anchor-block ${anchor.severity}" style="margin-bottom:1.5rem">
    <div class="anchor-eyebrow">Biggest issue with this lease</div>
    <div class="anchor-title">${anchor.title}</div>
    <div class="anchor-desc">${anchor.description}</div>
-  </div>`:''}
-  ${restFlags.length?`<div class="rs"><h3>Other red flags (${restFlags.length})</h3>${restFlags.map(f=>`<div class="fi ${f.severity}"><div class="fd ${f.severity}"></div><div><div class="ft">${f.title}</div><div class="fdesc">${f.description}</div></div></div>`).join('')}</div>`:''}
+   ${anchor.quote?`<div style="font-size:12px;font-family:var(--mono);color:var(--text3);margin-top:.75rem;padding:.5rem .75rem;background:var(--bg);border-radius:var(--r);border-left:2px solid var(--border2)">"${anchor.quote}"</div>`:""}
+  </div>`:""}
+  ${restFlags.length?`<div class="rs"><h3>Other red flags (${restFlags.length})</h3>${restFlags.map(f=>`<div class="fi ${f.severity}"><div class="fd ${f.severity}"></div><div><div class="ft">${f.title}</div><div class="fdesc">${f.description}</div>${f.quote?`<div style="font-size:11px;font-family:var(--mono);color:var(--text3);margin-top:.5rem;padding:.4rem .6rem;background:var(--bg2);border-radius:var(--r)">"${f.quote}"</div>`:""}</div></div>`).join("")}</div>`:""}
   ${(r.watch_items||[]).length?`<div class="rs"><h3>Worth understanding</h3>${r.watch_items.map(w=>`<div class="fi low"><div class="fd low"></div><div><div class="ft">${w.title}</div><div class="fdesc">${w.description}</div></div></div>`).join('')}</div>`:''}
   ${r.key_terms?`<div class="rs"><h3>Key terms at a glance</h3><div class="tg">${Object.entries(r.key_terms).filter(([,v])=>v).map(([k,v])=>`<div class="ti"><div class="tk">${k.replace(/_/g,' ')}</div><div class="tv">${v}</div></div>`).join('')}</div></div>`:''}
-  ${r.ohio_rights?.length?`<div class="rs"><h3>Your Ohio rights, specific to this lease</h3><ul class="rlist">${r.ohio_rights.map(x=>`<li>${x}</li>`).join('')}</ul></div>`:''}
+  ${r.ohio_rights?.length?`<div class="rs"><h3>Your Ohio rights, specific to this lease</h3><ul class="rlist">${r.ohio_rights.map(x=>`<li>${x}</li>`).join("")}</ul></div>`:""}
+  ${r.moveout_checklist?.length?`<div class="rs"><h3>Move-in checklist. Do these on day one to protect yourself at move-out.</h3><ul class="rlist">${r.moveout_checklist.map(x=>`<li>${x}</li>`).join("")}</ul></div>`:""}
   <div style="margin-top:2rem;padding:1.5rem;background:var(--bg2);border-radius:var(--rlg);">
    <div style="font-family:var(--serif);font-size:18px;line-height:1.3;margin-bottom:.5rem">When you move out, come back.</div>
    <p style="font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:1rem">Did your deposit come back in 30 days? Were the deductions itemized? Telling us what happened helps the next student signing with your landlord know what to expect.</p>
@@ -1471,7 +1544,7 @@ function refreshAllViews(){
 }
 refreshAllViews();
 </script>
- <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
