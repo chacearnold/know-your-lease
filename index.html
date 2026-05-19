@@ -1055,12 +1055,12 @@ OHIO REVISED CODE — EXACT STATUTORY TEXT
 ORC 5321.04 LANDLORD OBLIGATIONS:
 Landlord must: maintain premises in fit/habitable condition; make all repairs; keep common areas safe; maintain electrical, plumbing, sanitary, heating, ventilating, A/C systems; provide running water, hot water, and reasonable heat; NOT abuse right of access; give tenant reasonable notice before entry.
 Per ORC 5321.04(8) EXACT TEXT: "Twenty-four hours is presumed to be a reasonable notice in the absence of evidence to the contrary."
-APPLY THIS PRECISELY: A lease that says "reasonable notice" without specifying a time is AMBIGUOUS, not illegal. Put it in watch_items only. Only flag entry notice as a red_flag if the lease explicitly states a period LESS than 24 hours. Do not flag vague "reasonable notice" language as a red_flag under any circumstances — it goes in watch_items every time.
+APPLY THIS PRECISELY: A lease that says "reasonable notice" without specifying a time is AMBIGUOUS, not illegal. Put it in watch_items only. Only flag entry notice as a red_flag if the lease explicitly states a period LESS than 24 hours. Do not flag vague "reasonable notice" language as a red_flag under any circumstances — it goes in watch_items every time. If a lease explicitly states 24 hours or more, note this as a POSITIVE in watch_items — it is stronger protection than most Columbus leases.
 
 ORC 5321.13 PROHIBITED LEASE TERMS (VOID EVEN IF SIGNED):
 A rental agreement may NOT: (1) exempt landlord from liability caused by landlord's OWN negligence; (2) authorize landlord to confiscate tenant's property; (3) require tenant to pay landlord's attorney fees; (4) limit landlord's liability under ORC 5321.
 PERMITTED: Clauses limiting liability for third-party acts, acts of other tenants, acts of nature, or acts beyond landlord's control ARE legal. Only the landlord's OWN negligence cannot be waived.
-APPLY THIS TO EVERY LEASE: Scan for (a) any clause where landlord exempts itself from its own negligence — HIGH violation; (b) any clause requiring tenant to pay landlord's attorney fees or defend landlord at tenant's expense — HIGH violation, void by statute. These two patterns can appear in the same section or in different sections. Flag each one separately.
+APPLY THIS TO EVERY LEASE: Scan for (a) any clause where landlord exempts itself from its own negligence — HIGH violation; (b) any clause requiring tenant to pay landlord's attorney fees or defend landlord at tenant's expense — HIGH violation, void by statute. These two patterns can appear in the same section or in different sections. Flag each one separately. Also scan for (c) any clause allowing landlord to seize, discard, or dispose of tenant personal property without a court order — HIGH violation under ORC 5321.13(A)(2) and 5321.15(A).
 
 ORC 5321.14 UNCONSCIONABLE TERMS:
 A court may refuse to enforce any clause found unconscionable at the time it was made. Applies to extreme penalties, unlimited damage liability, waivers of all tenant remedies. Use MEDIUM severity — this is a court discretion standard, not a clear violation.
@@ -1082,7 +1082,13 @@ EXAMPLE — DO NOT FLAG: deposit $2,400, base rent $2,400 → equal → no inter
 EXAMPLE — FLAG: deposit $2,700, base rent $2,400 → exceeds by $300 → interest owed on $300 → flag
 
 ORC 5321.16(C) DAMAGE SCHEDULES:
-Preset flat-fee damage amounts not tied to actual documented repair costs are illegal. A lease requirement to professionally clean carpets at move-out is a contractual obligation, not automatically illegal — only flag if it imposes a preset dollar amount regardless of actual carpet condition at move-out.
+Preset flat-fee damage amounts not tied to actual documented repair costs are illegal. A lease requirement to professionally clean carpets at move-out is a contractual obligation, not automatically illegal — only flag if it imposes a preset dollar amount regardless of actual carpet condition at move-out. Key replacement fees at lease end (e.g. $120/deadbolt) are NOT deposit deductions and do NOT violate ORC 5321.16(C) — put these in watch_items only.
+
+SECURITY DEPOSIT RENEWAL TRAP — CHECK EVERY LEASE:
+Some leases include a clause stating that if any one tenant renews, the security deposit is NOT returned to departing tenants until ALL tenants eventually vacate. This means a tenant who moves out may not get their deposit back for years. If found, flag as HIGH — this is a significant financial trap. Look for language about deposit return being contingent on all signatories vacating or on renewal by any roommate.
+
+PROPERTY ABANDONMENT CLAUSE — CHECK EVERY LEASE:
+Some leases deem all personal property remaining after lease end as "abandoned" and allow landlord to dispose of it with no liability. If found, flag as MEDIUM. Tenants should know this deadline is hard.
 
 ORC 5321.17 TERMINATION:
 Month-to-month: 30-day written notice. Fixed-term: terminates at end of stated term. Auto-renewal requires clear disclosure.
@@ -1097,6 +1103,7 @@ NEVER flag these as violations:
 - Deposit interest waiver when deposit equals one month's rent (do the math first)
 - "Reasonable notice" entry language without a specified time period — this is ALWAYS a watch_item only, NEVER a red_flag. It is ambiguous but not illegal. ORC 5321.04(8) presumes 24 hours is reasonable. Only flag entry notice as a red_flag if the lease explicitly states LESS than 24 hours
 - Joint and several liability (completely legal, extremely common — informational only)
+- Key replacement fees at lease end (deadbolt, mailbox, keypad charges) — these are contractual end-of-lease charges, not deposit deductions, and do NOT violate ORC 5321.16(C). Put in watch_items only
 - Renter's insurance requirements (legal)
 - Subletting restrictions requiring written approval (legal)
 - Landlord liability exclusions for third-party acts, acts of other tenants, or acts of nature (explicitly permitted under ORC 5321.13)
