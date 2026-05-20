@@ -1116,6 +1116,7 @@ NEVER flag these as violations:
 - "Reasonable notice" entry language without a specified time period — this is ALWAYS a watch_item only, NEVER a red_flag. It is ambiguous but not illegal. ORC 5321.04(8) presumes 24 hours is reasonable. Only flag entry notice as a red_flag if the lease explicitly states LESS than 24 hours
 - Joint and several liability (completely legal, extremely common — informational only)
 - Key replacement fees at lease end (deadbolt, mailbox, keypad charges) — these are contractual end-of-lease charges, not deposit deductions, and do NOT violate ORC 5321.16(C). Put in watch_items only
+- Carpet cleaning invoice requirements at move-out — requiring a professional cleaning invoice is a contractual obligation. A minimum charge for failing to provide that invoice (e.g. $100 minimum if no receipt provided) is NOT a preset damage schedule under ORC 5321.16(C). It is a fee for non-compliance with a lease term. Do NOT flag this as an ORC 5321.16(C) violation. Put it in watch_items only.
 - Renter's insurance requirements (legal)
 - Subletting restrictions requiring written approval (legal)
 - Landlord liability exclusions for third-party acts, acts of other tenants, or acts of nature (explicitly permitted under ORC 5321.13)
@@ -1177,6 +1178,8 @@ STEP 3: Subtract 1.5 points for each MEDIUM severity red flag
 STEP 4: Subtract 0.5 points for each LOW severity red flag
 STEP 5: Floor at 1 — score can never go below 1
 STEP 6: Round to nearest whole number
+
+CRITICAL: Never include a "flag" in red_flags that concludes there is NO violation. If the deposit math shows no interest violation, note it in watch_items or key_terms only — do not put it in red_flags at all. A red_flag entry must identify an actual issue, not explain why something is not an issue.
 
 EXAMPLES:
 - 0 HIGH, 0 MEDIUM, 2 LOW = 10 - 0 - 0 - 1 = 9/10
