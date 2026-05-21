@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KYL Batch Tester</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+ --bg:#fff;--bg2:#f6f5f0;--bg3:#efefea;
+ --text:#1a1a18;--text2:#5a5a55;--text3:#9a9a94;
+ --border:rgba(0,0,0,0.1);--border2:rgba(0,0,0,0.2);
+ --brand:#BB0000;--bl:#FDEAEA;--bd:#8B0000;
+ --amber:#EF9F27;--al:#FAEEDA;--ad:#854F0B;
+ --red:#E24B4A;--rl:#FCEBEB;--rd:#A32D2D;
+ --green:#1D9E75;--gl:#E1F5EE;--gd:#0F6E56;
+ --purple:#7F77DD;--pl:#EEEDFE;--pd:#3C3489;
+ --r:8px;--rlg:12px;
+ --serif:'DM Serif Display',Georgia,serif;
+ --sans:'DM Sans',system-ui,sans-serif;
+ --mono:'DM Mono',monospace;
+}
+body{font-family:var(--sans);background:var(--bg3);color:var(--text);min-height:100vh;}
+.top-bar{background:var(--text);color:#fff;padding:.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+.brand{font-family:var(--serif);font-size:18px;}
+.brand span{color:var(--brand);}
+.container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem;}
+h1{font-family:var(--serif);font-size:28px;margin-bottom:.5rem;}
+.lede{font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:2rem;max-width:680px;}
+.section-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.75rem;display:flex;align-items:center;justify-content:space-between;}
+.drop-zone{border:1.5px dashed var(--border2);border-radius:var(--rlg);padding:2.5rem 2rem;text-align:center;cursor:pointer;background:var(--bg);margin-bottom:1.5rem;transition:all .15s;}
+.drop-zone:hover,.drop-zone.dragging{border-color:var(--brand);background:var(--bl);}
+.queue{margin-bottom:1.5rem;}
+.q-item{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rlg);padding:1rem 1.25rem;margin-bottom:8px;}
+.q-row{display:flex;align-items:center;gap:12px;}
+.q-name{flex:1;font-size:13px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.q-size{font-size:11px;color:var(--text3);font-family:var(--mono);}
+.q-status{font-size:11px;padding:3px 10px;border-radius:99px;font-weight:500;}
+.q-status.pending{background:var(--bg2);color:var(--text3);}
+.q-status.extracting{background:var(--pl);color:var(--pd);}
+.q-status.analyzing{background:var(--al);color:var(--ad);}
+.q-status.done{background:var(--gl);color:var(--gd);}
+.q-status.error{background:var(--rl);color:var(--rd);}
+.q-remove{background:transparent;border:none;color:var(--text3);cursor:pointer;font-size:18px;line-height:1;padding:0 4px;}
+.q-remove:hover{color:var(--red);}
+.q-fields{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-top:.75rem;padding-top:.75rem;border-top:0.5px solid var(--border);}
+.q-fields label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:3px;display:block;}
+.q-fields select,.q-fields textarea{width:100%;border:0.5px solid var(--border);border-radius:var(--r);padding:6px 10px;font-size:12px;font-family:var(--sans);background:var(--bg2);outline:none;}
+.q-fields textarea{font-family:var(--mono);min-height:50px;resize:vertical;}
+.q-fields select:focus,.q-fields textarea:focus{border-color:var(--brand);}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2rem;}
+.btn{border-radius:var(--r);padding:9px 18px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--sans);transition:all .15s;border:none;}
+.btn-p{background:var(--brand);color:#fff;}.btn-p:hover{background:var(--bd);}
+.btn-p:disabled{background:var(--text3);cursor:not-allowed;}
+.btn-s{background:transparent;color:var(--text);border:0.5px solid var(--border2);}.btn-s:hover{background:var(--bg);}
+.btn-s:disabled{opacity:.4;cursor:not-allowed;}
+.progress-bar{height:4px;background:var(--bg2);border-radius:99px;overflow:hidden;margin-bottom:1rem;display:none;}
+.progress-bar.active{display:block;}
+.progress-fill{height:100%;background:var(--brand);transition:width .3s;}
+.result-card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rlg);padding:1.25rem 1.5rem;margin-bottom:1rem;}
+.rc-head{display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;flex-wrap:wrap;}
+.rc-name{font-family:var(--serif);font-size:17px;}
+.rc-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.rc-score{font-size:12px;font-weight:500;padding:3px 10px;border-radius:99px;}
+.rc-body{display:none;padding-top:.75rem;border-top:0.5px solid var(--border);margin-top:.75rem;}
+.rc-body.open{display:block;}
+.fc{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:500;padding:2px 8px;border-radius:99px;}
+.fc-h{background:var(--rl);color:var(--rd);}
+.fc-m{background:var(--al);color:var(--ad);}
+.fc-l{background:var(--gl);color:var(--gd);}
+.diff-row{display:flex;align-items:flex-start;gap:8px;padding:6px 0;font-size:12px;border-bottom:0.5px solid var(--border);}
+.diff-row:last-child{border-bottom:none;}
+.diff-mark{flex-shrink:0;width:16px;}
+.diff-ok{color:var(--gd);}.diff-miss{color:var(--rd);}.diff-extra{color:var(--ad);}
+.summary-strip{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rlg);padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:none;}
+.summary-strip.active{display:block;}
+.ss-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1rem;}
+.ss-num{font-family:var(--serif);font-size:24px;line-height:1;margin-bottom:4px;}
+.ss-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;}
+.err-msg{background:var(--rl);border:0.5px solid var(--red);border-radius:var(--r);padding:8px 12px;font-size:12px;color:var(--rd);margin-top:.5rem;}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--text);color:#fff;padding:10px 18px;border-radius:var(--r);font-size:13px;font-weight:500;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none;}
+.toast.show{opacity:1;}
+.field-section{background:var(--bg2);border-radius:var(--r);padding:.875rem 1rem;margin-bottom:.75rem;}
+.fs-label{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;font-weight:500;}
+.fs-val{font-size:13px;color:var(--text);line-height:1.55;}
+.fs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-top:.5rem;}
+.fs-cell{background:var(--bg);border-radius:var(--r);padding:.5rem .625rem;}
+.flag-list{margin-top:.5rem;}
+.flag-line{font-size:12px;padding:7px 0;border-bottom:0.5px solid var(--border);display:flex;gap:8px;align-items:flex-start;}
+.flag-line:last-child{border-bottom:none;}
+.flag-sev{flex-shrink:0;font-size:10px;font-weight:500;padding:2px 7px;border-radius:99px;text-transform:uppercase;}
+.flag-sev.high{background:var(--rl);color:var(--rd);}
+.flag-sev.medium{background:var(--al);color:var(--ad);}
+.flag-sev.low{background:var(--gl);color:var(--gd);}
+.flag-sev.watch{background:var(--bg3);color:var(--text3);}
+.flag-content{flex:1;}
+.flag-quote{font-size:11px;font-family:var(--mono);color:var(--text3);margin-top:3px;padding:3px 6px;background:var(--bg);border-radius:var(--r);border-left:2px solid var(--border2);}
+.no-quote{color:var(--rd);font-style:italic;}
+.pw-gate{max-width:380px;margin:6rem auto;background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rlg);padding:2rem;text-align:center;}
+.pw-gate h2{font-family:var(--serif);font-size:22px;margin-bottom:.5rem;}
+.pw-gate p{font-size:13px;color:var(--text2);margin-bottom:1.5rem;}
+.pw-gate input{width:100%;border:0.5px solid var(--border);border-radius:var(--r);padding:10px 12px;font-size:14px;background:var(--bg2);outline:none;margin-bottom:.75rem;}
+.pw-err{color:var(--rd);font-size:12px;margin-top:.5rem;}
+.export-area{background:var(--text);color:#e6e6e0;padding:1rem;border-radius:var(--r);font-family:var(--mono);font-size:11px;line-height:1.5;max-height:300px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;margin-top:.75rem;display:none;}
+.export-area.open{display:block;}
+</style>
+</head>
+<body>
+<div class="top-bar">
+ <span class="brand">Know<span>Your</span>Lease</span>
+ <span style="font-size:11px;font-family:var(--mono);color:rgba(255,255,255,0.45)">batch tester &middot; dev only</span>
+</div>
+
+<div id="gate" class="pw-gate">
+ <h2>Batch tester</h2>
+ <p>Enter the dev password to continue.</p>
+ <input type="password" id="pw-input" placeholder="Password..." onkeydown="if(event.key==='Enter')checkPw()"/>
+ <button class="btn btn-p" style="width:100%" onclick="checkPw()">Unlock</button>
+ <div id="pw-err" class="pw-err" style="display:none">Incorrect password.</div>
+</div>
+
+<div id="app" class="container" style="display:none">
+ <h1>Batch lease tester</h1>
+ <p class="lede">Drop multiple lease PDFs, tag each with an expected landlord and flags you want to verify, then run all against the live <code style="background:var(--bg);padding:1px 6px;border-radius:4px;font-size:12px">/api/analyze</code> endpoint. Hit "Copy for Claude" to get everything formatted for a single paste.</p>
+
+ <div class="section-label">Drop lease PDFs</div>
+ <div class="drop-zone" id="drop-zone" onclick="document.getElementById('fi').click()">
+  <input type="file" id="fi" accept=".pdf" multiple style="display:none" onchange="handleFiles(event.target.files)"/>
+  <div style="font-size:28px;margin-bottom:.75rem">&#128196;</div>
+  <div style="font-size:15px;font-weight:500;margin-bottom:4px">Click to upload or drag and drop</div>
+  <div style="font-size:13px;color:var(--text2)">Multiple PDFs supported &middot; text never stored, only sent to /api/analyze</div>
+ </div>
+
+ <div class="section-label">
+  <span>Queue (<span id="qcount">0</span> leases)</span>
+  <button class="btn btn-s" style="font-size:11px;padding:4px 10px" onclick="clearAll()">Clear all</button>
+ </div>
+ <div id="queue"><p style="font-size:13px;color:var(--text3);text-align:center;padding:1.5rem 0">No leases queued.</p></div>
+
+ <div class="progress-bar" id="prog"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+
+ <div class="actions">
+  <button class="btn btn-p" id="run-btn" onclick="runAll()" disabled>Run all &#8594;</button>
+  <button class="btn btn-s" id="copy-btn" onclick="copyForClaude()" disabled>Copy for Claude</button>
+  <button class="btn btn-s" id="json-btn" onclick="copyJSON()" disabled>Copy raw JSON</button>
+ </div>
+
+ <div class="summary-strip" id="summary">
+  <div class="ss-row">
+   <div><div class="ss-num" id="ss-done">0</div><div class="ss-label">Leases run</div></div>
+   <div><div class="ss-num" id="ss-flags">0</div><div class="ss-label">Total flags</div></div>
+   <div><div class="ss-num" id="ss-noquote">0</div><div class="ss-label">Missing quotes</div></div>
+   <div><div class="ss-num" id="ss-mismatch">0</div><div class="ss-label">Landlord mismatches</div></div>
+   <div><div class="ss-num" id="ss-errs">0</div><div class="ss-label">Errors</div></div>
+  </div>
+ </div>
+
+ <div id="results-label" class="section-label" style="display:none">Results</div>
+ <div id="results"></div>
+ <div class="export-area" id="export-area"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+if(typeof pdfjsLib!=='undefined')pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+const DEV_PW='knowyourlease2025';
+const LANDLORDS={northsteppe:'NorthSteppe Realty',buckeye:'Buckeye Real Estate',kohr:'Kohr Royer Griffith',oxford:'Oxford Companies',peak:'Peak Property Group',inntown:'Inn Town Homes',statehouse:'StateHouse Columbus',rambler:'Rambler Columbus',blume:'Blume on 16th',verve:'Verve Columbus',hometeam:'Hometeam Properties',osuproperties:'OSU Properties',uncommon:'Uncommon Columbus'};
+
+let leases=[];
+let nid=1;
+
+function checkPw(){
+ if(document.getElementById('pw-input').value===DEV_PW){
+  document.getElementById('gate').style.display='none';
+  document.getElementById('app').style.display='block';
+ }else{
+  document.getElementById('pw-err').style.display='block';
+ }
+}
+
+function toast(msg,dur=2800){
+ const t=document.getElementById('toast');
+ t.textContent=msg;t.classList.add('show');
+ setTimeout(()=>t.classList.remove('show'),dur);
+}
+
+const dz=document.getElementById('drop-zone');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragging');});
+dz.addEventListener('dragleave',()=>dz.classList.remove('dragging'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragging');handleFiles(e.dataTransfer.files);});
+
+function handleFiles(files){
+ [...files].forEach(f=>{
+  if(f.type!=='application/pdf'){toast('Skipped '+f.name+' (not a PDF)');return;}
+  leases.push({id:nid++,file:f,name:f.name,size:f.size,text:null,expLandlord:guessLandlord(f.name),expFlags:'',status:'pending',result:null,error:null});
+ });
+ renderQueue();
+ setBtns();
+}
+
+function guessLandlord(n){
+ const l=n.toLowerCase();
+ if(l.includes('northsteppe')||l.includes('north steppe'))return 'northsteppe';
+ if(l.includes('buckeye'))return 'buckeye';
+ if(l.includes('kohr'))return 'kohr';
+ if(l.includes('oxford'))return 'oxford';
+ if(l.includes('peak'))return 'peak';
+ if(l.includes('inntown')||l.includes('inn town'))return 'inntown';
+ if(l.includes('osu prop')||l.includes('osuproperties'))return 'osuproperties';
+ if(l.includes('hometeam'))return 'hometeam';
+ if(l.includes('statehouse'))return 'statehouse';
+ if(l.includes('rambler'))return 'rambler';
+ if(l.includes('uncommon'))return 'uncommon';
+ if(l.includes('blume'))return 'blume';
+ if(l.includes('verve'))return 'verve';
+ return '';
+}
+
+function fmtSz(b){return b>1048576?(b/1048576).toFixed(1)+' MB':Math.round(b/1024)+' KB';}
+function esc(s){return(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+function renderQueue(){
+ document.getElementById('qcount').textContent=leases.length;
+ const q=document.getElementById('queue');
+ if(!leases.length){q.innerHTML='<p style="font-size:13px;color:var(--text3);text-align:center;padding:1.5rem 0">No leases queued.</p>';return;}
+ q.innerHTML=leases.map(l=>`
+  <div class="q-item">
+   <div class="q-row">
+    <div class="q-name">${esc(l.name)}</div>
+    <div class="q-size">${fmtSz(l.size)}</div>
+    <div class="q-status ${l.status}">${l.status}</div>
+    <button class="q-remove" onclick="removeLease(${l.id})">&times;</button>
+   </div>
+   <div class="q-fields">
+    <div>
+     <label>Expected landlord</label>
+     <select onchange="upd(${l.id},'expLandlord',this.value)">
+      <option value="">— unknown —</option>
+      ${Object.entries(LANDLORDS).map(([id,n])=>`<option value="${id}"${l.expLandlord===id?' selected':''}>${n}</option>`).join('')}
+     </select>
+    </div>
+    <div>
+     <label>Expected flags to verify (one per line)</label>
+     <textarea onchange="upd(${l.id},'expFlags',this.value)" placeholder="e.g. Jury trial waiver&#10;Landlord negligence waiver">${esc(l.expFlags)}</textarea>
+    </div>
+   </div>
+   ${l.error?`<div class="err-msg">${esc(l.error)}</div>`:''}
+  </div>`).join('');
+}
+
+function upd(id,f,v){const l=leases.find(x=>x.id===id);if(l)l[f]=v;}
+function removeLease(id){leases=leases.filter(l=>l.id!==id);renderQueue();setBtns();renderResults();}
+function clearAll(){if(leases.length&&!confirm('Clear all?'))return;leases=[];renderQueue();setBtns();renderResults();document.getElementById('summary').classList.remove('active');document.getElementById('export-area').classList.remove('open');document.getElementById('results-label').style.display='none';}
+
+function setBtns(){
+ const hasPending=leases.some(l=>l.status==='pending');
+ const hasResults=leases.some(l=>l.result);
+ document.getElementById('run-btn').disabled=!hasPending;
+ document.getElementById('copy-btn').disabled=!hasResults;
+ document.getElementById('json-btn').disabled=!hasResults;
+}
+
+function buildSystemPrompt(){
+ const idList=Object.entries(LANDLORDS).map(([id,n])=>`${n}->${id}`).join(', ');
+ return`You are KnowYourLease, an AI lease analyzer for OSU students in Columbus, Ohio. You have deep expertise in Ohio Revised Code Chapter 5321. Your job is to find real issues in the actual lease text provided. You must not invent, assume, or hallucinate clauses. Every flag you raise must be grounded in language you can directly quote from the lease.
+
+GOLDEN RULE: For every red flag, you MUST include a direct quote (under 15 words) from the lease that triggered it in the "quote" field. If you cannot find the exact language in the lease text, do NOT include the flag. No quote = no flag.
+
+ORC 5321.04: Landlord must maintain habitable premises, make repairs, maintain systems, provide running water and heat. Per ORC 5321.04(8): "Twenty-four hours is presumed to be a reasonable notice in the absence of evidence to the contrary." A lease that says "reasonable notice" without specifying a time is AMBIGUOUS, not illegal — put it in watch_items ONLY. Only flag entry notice as a red_flag if the lease explicitly states LESS than 24 hours.
+
+ORC 5321.13 PROHIBITED TERMS (VOID EVEN IF SIGNED): A rental agreement may NOT: (1) exempt landlord from its OWN negligence; (2) authorize landlord to confiscate tenant property; (3) require tenant to pay landlord attorney fees; (4) limit landlord liability under ORC 5321. Clauses limiting liability for third-party acts, other tenants, acts of nature ARE legal.
+APPLY TO EVERY LEASE: (a) any clause exempting landlord from its own negligence — HIGH; (b) any clause requiring tenant to pay landlord attorney fees or defend landlord — HIGH, void by statute; (c) any clause allowing landlord to seize or dispose of tenant property without court order — HIGH.
+
+ORC 5321.14 UNCONSCIONABLE TERMS: Court may refuse to enforce unconscionable clauses. Use MEDIUM severity.
+
+ORC 5321.15: Landlord cannot seize tenant property or cut off utilities during tenancy.
+
+ORC 5321.16 SECURITY DEPOSITS: Must return within 30 days with itemized deductions.
+INTEREST RULE MATH — DO BEFORE FLAGGING:
+Step 1: Extract deposit amount (base only, not utilities)
+Step 2: Extract base monthly rent (exclude utility add-ons)
+Step 3: threshold = greater of $50 or base monthly rent
+Step 4: Only flag if deposit STRICTLY GREATER THAN threshold
+Step 5: If deposit EQUALS base monthly rent — NO VIOLATION — DO NOT FLAG
+Example: deposit $2,400, base rent $2,400 — equal — no flag
+Example: deposit $2,700, base rent $2,400 — exceeds by $300 — flag
+
+ORC 5321.16(C) DAMAGE SCHEDULES: Preset flat-fee amounts not tied to actual repair costs are illegal. Key replacement fees at lease end are NOT deposit deductions — put in watch_items only. Carpet cleaning invoice requirement with minimum charge for non-compliance is a contractual fee, NOT a preset damage schedule — watch_items only.
+
+CHECK EVERY LEASE FOR:
+- Preset dollar amounts for specific damage types (e.g. "$100 per drywall hole", "$160 per room to repaint") — HIGH under ORC 5321.16(C)
+- Security deposit renewal trap: deposit not returned to departing tenants until ALL tenants vacate — HIGH
+- Property abandonment clause with aggressive timing — MEDIUM
+- Temperature maintenance liability (usually 55-60F minimum, tenant liable for pipe damage) — watch_item
+- Deposit not held in trust or available for owner expenses — HIGH
+- Guaranty covering modifications without guarantor consent — HIGH
+
+DO-NOT-FLAG LIST — NEVER FLAG THESE:
+- Deposit interest waiver when deposit equals one month rent (do the math)
+- "Reasonable notice" entry language — ALWAYS watch_item, NEVER red_flag
+- Joint and several liability (legal, extremely common — informational only)
+- Key replacement fees at lease end
+- Carpet cleaning invoice requirements without preset dollar amount
+- Renter's insurance requirements
+- Subletting restrictions requiring written approval
+- Landlord liability exclusions for third-party acts, other tenants, or acts of nature
+- Late fees with no grace period (legal in Ohio)
+- Holdover at 2x rent (legal — LOW only)
+
+LANDLORD-SPECIFIC CHECKS:
+NORTHSTEPPE (northsteppe): (1) jury trial waiver Section 14 — HIGH; (2) entry "reasonable notice" — watch_item ONLY, never red_flag; (3) flat utility fees non-refundable — MEDIUM unconscionable; (4) carpet cleaning $100 minimum — watch_item; (5) noon move-out — watch_item; (6) key fees $75/$50 — watch_item; (7) Section 11 TWO violations: landlord negligence waiver HIGH + tenant must defend at own expense with landlord's chosen attorney HIGH; (8) Section 29 guarantor forfeiture MEDIUM.
+BUCKEYE (buckeye): (1) guarantor waives ORC 5321 notice rights — HIGH; (2) key fees $120/$95/$225 — watch_item; (3) $50 in-office payment fee — watch_item; (4) no parking in lease — watch_item.
+INN TOWN (inntown): (1) NSF clause — all rent returned if any roommate NSFs, eviction proceeds — HIGH practical risk; (2) entry notice "reasonable" — watch_item; (3) $500/day holdover — MEDIUM; (4) auto-payment turn-off requirement — watch_item.
+OSU PROPERTIES (osuproperties): (1) pet clause $350/month rent increase — HIGH; (2) guarantor 1/N share — note as POSITIVE; (3) explicit 24-hour entry — note as POSITIVE; (4) sublease $300 + replacement $750 — watch_item; (5) 3-6 annual inspections — watch_item.
+
+GUARANTOR ANALYSIS — REQUIRED FOR ALL LEASES:
+Search for guarantor, guaranty, co-signer sections. If found: (1) joint (all tenants) or individual (student only)? (2) total annual exposure if all tenants default? (3) covers renewals? (4) waives any statutory rights?
+
+FAIRNESS SCORE — MANDATORY MATH:
+Start 10. Subtract 3 per HIGH, 1.5 per MEDIUM, 0.5 per LOW. Floor at 1. Round to nearest whole number.
+NEVER put a flag in red_flags that concludes no violation. If deposit math shows no interest issue, put in watch_items or key_terms only.
+
+MOVE-OUT CHECKLIST: Always generate 4-6 actionable items tied to specific clauses found.
+
+PARENT SUMMARY: 2-3 sentences for a parent co-signing. Focus on financial exposure and single most important thing before signing.
+
+SEVERITY: HIGH = clear ORC violation, void by statute. MEDIUM = legally questionable or significant practical risk. LOW = legal but unfavorable.
+
+Landlord IDs: ${idList}
+
+Return ONLY a single raw JSON object. No markdown, no preamble, no text after the closing brace.
+{"summary":"2-3 sentence plain English summary reflecting actual severity","parent_summary":"2-3 sentences for parent co-signing as guarantor","overall_score":<1-10>,"landlord_match":"<id|unknown>","guarantor":{"found":<true|false>,"liability_scope":"<all_tenants|individual_only|unclear>","annual_exposure":"e.g. $32,400 if all 4 tenants default","covers_renewals":<true|false|"unclear">,"waives_orc_rights":<true|false|"unclear">,"plain_english":"1-2 sentences a parent can understand","severity":"<high|medium|low>"},"red_flags":[{"title":"...","quote":"exact words from lease under 15 words","description":"plain English explanation citing exact ORC section","severity":"<high|medium|low>"}],"watch_items":[{"title":"...","description":"..."}],"moveout_checklist":["..."],"key_terms":{"rent":"...","lease_length":"...","deposit":"...","renewal_notice":"...","notice_to_enter":"...","early_termination":"..."},"ohio_rights":["specific ORC right relevant to THIS lease"]}`;
+}
+
+async function extractText(file){
+ const ab=await file.arrayBuffer();
+ const pdf=await pdfjsLib.getDocument({data:ab}).promise;
+ let text='';
+ for(let i=1;i<=pdf.numPages;i++){
+  const p=await pdf.getPage(i);
+  const c=await p.getTextContent();
+  text+=c.items.map(x=>x.str).join(' ')+'\n';
+ }
+ return text.trim();
+}
+
+async function callAPI(text){
+ const res=await fetch('/api/analyze',{
+  method:'POST',
+  headers:{'Content-Type':'application/json'},
+  body:JSON.stringify({
+   system:buildSystemPrompt(),
+   messages:[{role:'user',content:'Analyze this lease:\n\n'+text.slice(0,30000).replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g,'')}],
+   temperature:0
+  })
+ });
+ const data=await res.json();
+ if(data.error)throw new Error(data.error.message||'API error');
+ let raw=(data.content?.[0]?.text||'').replace(/```json|```/g,'').trim();
+ const js=raw.indexOf('{'),je=raw.lastIndexOf('}');
+ if(js!==-1&&je!==-1)raw=raw.slice(js,je+1);
+ return JSON.parse(raw);
+}
+
+async function runAll(){
+ const pending=leases.filter(l=>l.status==='pending');
+ if(!pending.length)return;
+ document.getElementById('run-btn').disabled=true;
+ document.getElementById('prog').classList.add('active');
+ let done=0;
+ for(const l of pending){
+  try{
+   l.status='extracting';renderQueue();
+   if(!l.text)l.text=await extractText(l.file);
+   if(l.text.length<100)throw new Error('Could not extract text. PDF may be scanned.');
+   l.status='analyzing';renderQueue();
+   l.result=await callAPI(l.text);
+   l.status='done';
+  }catch(e){
+   l.status='error';
+   l.error=e.message;
+  }
+  done++;
+  document.getElementById('prog-fill').style.width=(done/pending.length*100)+'%';
+  renderQueue();
+  renderResults();
+  setBtns();
+ }
+ document.getElementById('prog').classList.remove('active');
+ document.getElementById('prog-fill').style.width='0%';
+ toast('Done: '+done+'/'+pending.length+' leases analyzed');
+}
+
+function scoreBg(s){return s>=7?'background:var(--gl);color:var(--gd)':s>=4?'background:var(--al);color:var(--ad)':'background:var(--rl);color:var(--rd)';}
+
+function renderResults(){
+ const wrap=document.getElementById('results');
+ const done=leases.filter(l=>l.result||l.status==='error');
+ if(!done.length){wrap.innerHTML='';document.getElementById('results-label').style.display='none';return;}
+ document.getElementById('results-label').style.display='block';
+ wrap.innerHTML=done.map(l=>{
+  if(l.status==='error')return`<div class="result-card" style="border-left:3px solid var(--red)"><div class="rc-head"><div class="rc-name">${esc(l.name)}</div><span class="rc-score" style="background:var(--rl);color:var(--rd)">Error</span></div><div class="err-msg">${esc(l.error)}</div></div>`;
+  const r=l.result;
+  const flags=r.red_flags||[];
+  const hi=flags.filter(f=>f.severity==='high').length;
+  const me=flags.filter(f=>f.severity==='medium').length;
+  const lo=flags.filter(f=>f.severity==='low').length;
+  const nq=flags.filter(f=>!f.quote||f.quote.length<3).length;
+  const expFlags=(l.expFlags||'').split('\n').map(s=>s.trim()).filter(Boolean);
+  const actTitles=flags.map(f=>f.title);
+  const matched=l.expLandlord?r.landlord_match===l.expLandlord:null;
+  const missed=expFlags.filter(e=>!actTitles.some(a=>a.toLowerCase().includes(e.toLowerCase().slice(0,12))||e.toLowerCase().includes(a.toLowerCase().slice(0,12))));
+  return`<div class="result-card">
+   <div class="rc-head" onclick="toggleBody(${l.id})">
+    <div>
+     <div class="rc-name">${esc(l.name)}</div>
+     <div style="font-size:11px;color:var(--text3);margin-top:2px">
+      ${r.landlord_match&&r.landlord_match!=='unknown'?'Matched: '+(LANDLORDS[r.landlord_match]||r.landlord_match):'No match'}
+      ${l.expLandlord?' &middot; Expected: '+LANDLORDS[l.expLandlord]:''}
+     </div>
+    </div>
+    <div class="rc-meta">
+     <span class="rc-score" style="${scoreBg(r.overall_score||5)}">${r.overall_score||'?'}/10</span>
+     ${hi?`<span class="fc fc-h">${hi}H</span>`:''}
+     ${me?`<span class="fc fc-m">${me}M</span>`:''}
+     ${lo?`<span class="fc fc-l">${lo}L</span>`:''}
+     ${nq?`<span class="fc fc-h" title="Flags missing quotes">${nq} no quote</span>`:''}
+     ${matched===false?`<span class="fc fc-h">landlord mismatch</span>`:''}
+     ${missed.length?`<span class="fc fc-h">${missed.length} flag${missed.length>1?'s':''} missed</span>`:''}
+     <span style="font-size:12px;color:var(--text3);margin-left:4px">&#9662;</span>
+    </div>
+   </div>
+   <div class="rc-body" id="body-${l.id}">
+    <div class="field-section"><div class="fs-label">Summary</div><div class="fs-val">${esc(r.summary||'')}</div></div>
+    ${r.parent_summary?`<div class="field-section" style="background:var(--al)"><div class="fs-label" style="color:var(--ad)">Parent summary</div><div class="fs-val">${esc(r.parent_summary)}</div></div>`:''}
+    ${expFlags.length||l.expLandlord?`<div class="field-section">
+     <div class="fs-label">Diff check</div>
+     ${l.expLandlord?`<div class="diff-row"><span class="diff-mark ${matched?'diff-ok':'diff-miss'}">${matched?'&#10003;':'&#10007;'}</span><span>Landlord: ${matched?'matched':'expected '+LANDLORDS[l.expLandlord]+', got '+(LANDLORDS[r.landlord_match]||r.landlord_match||'unknown')}</span></div>`:''}
+     ${expFlags.map(e=>{const found=actTitles.some(a=>a.toLowerCase().includes(e.toLowerCase().slice(0,12))||e.toLowerCase().includes(a.toLowerCase().slice(0,12)));return`<div class="diff-row"><span class="diff-mark ${found?'diff-ok':'diff-miss'}">${found?'&#10003;':'&#10007;'}</span><span>${esc(e)}</span></div>`;}).join('')}
+    </div>`:''}
+    <div class="field-section">
+     <div class="fs-label">Red flags (${flags.length})</div>
+     <div class="flag-list">
+      ${flags.map(f=>`<div class="flag-line">
+       <span class="flag-sev ${f.severity}">${f.severity}</span>
+       <div class="flag-content">
+        <div style="font-weight:500">${esc(f.title)}</div>
+        <div style="color:var(--text2);margin-top:2px;font-size:12px">${esc(f.description)}</div>
+        ${f.quote&&f.quote.length>2?`<div class="flag-quote">"${esc(f.quote)}"</div>`:`<div class="flag-quote no-quote">No quote provided — review this flag</div>`}
+       </div>
+      </div>`).join('')}
+     </div>
+    </div>
+    ${(r.watch_items||[]).length?`<div class="field-section">
+     <div class="fs-label">Watch items (${r.watch_items.length})</div>
+     <div class="flag-list">
+      ${r.watch_items.map(w=>`<div class="flag-line"><span class="flag-sev watch">watch</span><div class="flag-content"><div style="font-weight:500">${esc(w.title)}</div><div style="color:var(--text2);font-size:12px;margin-top:2px">${esc(w.description)}</div></div></div>`).join('')}
+     </div>
+    </div>`:''}
+    ${r.guarantor?.found!==false?`<div class="field-section">
+     <div class="fs-label">Guarantor</div>
+     <div class="fs-val" style="margin-bottom:.5rem">${esc(r.guarantor?.plain_english||'')}</div>
+     <div class="fs-grid">
+      <div class="fs-cell"><div class="fs-label">Scope</div><div style="font-size:12px">${esc(r.guarantor?.liability_scope||'?')}</div></div>
+      <div class="fs-cell"><div class="fs-label">Exposure</div><div style="font-size:12px">${esc(r.guarantor?.annual_exposure||'?')}</div></div>
+      <div class="fs-cell"><div class="fs-label">Covers renewals</div><div style="font-size:12px">${String(r.guarantor?.covers_renewals)}</div></div>
+      <div class="fs-cell"><div class="fs-label">Waives ORC</div><div style="font-size:12px;color:${r.guarantor?.waives_orc_rights===true?'var(--rd)':'inherit'}">${String(r.guarantor?.waives_orc_rights)}</div></div>
+     </div>
+    </div>`:''}
+    ${r.key_terms?`<div class="field-section">
+     <div class="fs-label">Key terms</div>
+     <div class="fs-grid">${Object.entries(r.key_terms).filter(([,v])=>v).map(([k,v])=>`<div class="fs-cell"><div class="fs-label">${k.replace(/_/g,' ')}</div><div style="font-size:12px">${esc(v)}</div></div>`).join('')}</div>
+    </div>`:''}
+   </div>
+  </div>`;
+ }).join('');
+ updateSummary();
+}
+
+function toggleBody(id){
+ const b=document.getElementById('body-'+id);
+ if(b)b.classList.toggle('open');
+}
+
+function updateSummary(){
+ const done=leases.filter(l=>l.result);
+ const errs=leases.filter(l=>l.status==='error').length;
+ document.getElementById('ss-done').textContent=done.length;
+ document.getElementById('ss-flags').textContent=done.reduce((a,l)=>a+(l.result.red_flags||[]).length,0);
+ document.getElementById('ss-noquote').textContent=done.reduce((a,l)=>a+(l.result.red_flags||[]).filter(f=>!f.quote||f.quote.length<3).length,0);
+ document.getElementById('ss-mismatch').textContent=done.filter(l=>l.expLandlord&&l.result.landlord_match!==l.expLandlord).length;
+ document.getElementById('ss-errs').textContent=errs;
+ document.getElementById('summary').classList.add('active');
+}
+
+function copyForClaude(){
+ const done=leases.filter(l=>l.result||l.status==='error');
+ let out='# KYL batch test results — paste to Claude for prompt diff\n\n';
+ out+=`Leases run: ${done.length}\n\n`;
+ done.forEach((l,i)=>{
+  out+=`---\n## ${i+1}. ${l.name}\n`;
+  if(l.expLandlord)out+=`Expected landlord: ${LANDLORDS[l.expLandlord]} (${l.expLandlord})\n`;
+  if(l.expFlags)out+=`Expected flags:\n${l.expFlags.split('\n').filter(Boolean).map(f=>'  - '+f).join('\n')}\n`;
+  if(l.status==='error'){out+=`STATUS: ERROR — ${l.error}\n\n`;return;}
+  const r=l.result;
+  const flags=r.red_flags||[];
+  const nq=flags.filter(f=>!f.quote||f.quote.length<3);
+  const matched=l.expLandlord?r.landlord_match===l.expLandlord:null;
+  const expFlags=(l.expFlags||'').split('\n').map(s=>s.trim()).filter(Boolean);
+  const missed=expFlags.filter(e=>!flags.some(f=>f.title.toLowerCase().includes(e.toLowerCase().slice(0,12))||e.toLowerCase().includes(f.title.toLowerCase().slice(0,12))));
+  const extra=flags.filter(f=>expFlags.length&&!expFlags.some(e=>f.title.toLowerCase().includes(e.toLowerCase().slice(0,12))||e.toLowerCase().includes(f.title.toLowerCase().slice(0,12))));
+  out+=`Landlord matched: ${r.landlord_match}${matched===false?' ⚠ MISMATCH':''}\n`;
+  out+=`Score: ${r.overall_score}/10\n`;
+  out+=`Summary: ${r.summary}\n`;
+  out+=`Parent summary: ${r.parent_summary||'none'}\n`;
+  out+=`\nFlags (${flags.length}):\n`;
+  flags.forEach(f=>{
+   out+=`  [${(f.severity||'?').toUpperCase()}] ${f.title}\n`;
+   out+=`    Desc: ${f.description}\n`;
+   out+=`    Quote: ${f.quote&&f.quote.length>2?'"'+f.quote+'"':'⚠ NO QUOTE'}\n`;
+  });
+  if(missed.length){out+=`\nMISSED FLAGS:\n`;missed.forEach(m=>out+=`  ✗ ${m}\n`);}
+  if(extra.length){out+=`\nUNEXPECTED FLAGS:\n`;extra.forEach(e=>out+=`  ? ${e.title}\n`);}
+  if(nq.length){out+=`\nFLAGS MISSING QUOTES:\n`;nq.forEach(f=>out+=`  ⚠ ${f.title}\n`);}
+  out+=`\nWatch items (${(r.watch_items||[]).length}):\n`;
+  (r.watch_items||[]).forEach(w=>out+=`  - ${w.title}: ${w.description}\n`);
+  if(r.guarantor){
+   out+=`\nGuarantor: scope=${r.guarantor.liability_scope}, exposure=${r.guarantor.annual_exposure}, waives_orc=${r.guarantor.waives_orc_rights}\n`;
+   out+=`  ${r.guarantor.plain_english}\n`;
+  }
+  if(r.key_terms){
+   out+=`\nKey terms:\n`;
+   Object.entries(r.key_terms).filter(([,v])=>v).forEach(([k,v])=>out+=`  ${k}: ${v}\n`);
+  }
+  out+='\n';
+ });
+ navigator.clipboard.writeText(out).then(()=>{
+  toast('Copied for Claude ('+Math.round(out.length/1024)+' KB) — paste directly into chat');
+ }).catch(()=>{
+  const ea=document.getElementById('export-area');
+  ea.textContent=out;ea.classList.add('open');
+  toast('Clipboard blocked — copy from the text area below');
+ });
+}
+
+function copyJSON(){
+ const data={exportedAt:new Date().toISOString(),results:leases.filter(l=>l.result).map(l=>({filename:l.name,expLandlord:l.expLandlord,expFlags:l.expFlags,result:l.result}))};
+ const json=JSON.stringify(data,null,2);
+ navigator.clipboard.writeText(json).then(()=>{
+  toast('Copied raw JSON');
+ }).catch(()=>{
+  const ea=document.getElementById('export-area');
+  ea.textContent=json;ea.classList.add('open');
+ });
+}
+</script>
+</body>
+</html>
